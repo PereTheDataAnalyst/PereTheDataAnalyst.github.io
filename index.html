@@ -3,1374 +3,500 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Precious Amiekumo | Data Analyst & Lab Operations</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<title>Precious Amiekumo — Data Analyst & Operations Professional</title>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Outfit:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
 <style>
-  :root {
-    --bg: #0d0a1a;
-    --bg2: #13102a;
-    --bg3: #1a1535;
-    --purple: #7c3aed;
-    --purple-light: #a855f7;
-    --purple-glow: #c084fc;
-    --accent: #e879f9;
-    --gold: #f59e0b;
-    --text: #e2d9f3;
-    --text-muted: #9c8ab0;
-    --border: rgba(124,58,237,0.25);
-    --card: rgba(26,21,53,0.8);
-    --glass: rgba(124,58,237,0.08);
-  }
-
-  * { margin:0; padding:0; box-sizing:border-box; }
-
-  html { scroll-behavior: smooth; }
-
-  body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: 'DM Sans', sans-serif;
-    font-weight: 400;
-    line-height: 1.7;
-    overflow-x: hidden;
-  }
-
-  /* ─── NOISE OVERLAY ─── */
-  body::before {
-    content:'';
-    position:fixed; inset:0;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
-    pointer-events:none; z-index:0; opacity:0.4;
-  }
-
-  /* ─── ANIMATED BG ORBS ─── */
-  .orb {
-    position:fixed; border-radius:50%; filter:blur(120px);
-    pointer-events:none; z-index:0;
-    animation: float 12s ease-in-out infinite;
-  }
-  .orb1 { width:500px; height:500px; background:rgba(124,58,237,0.18); top:-100px; left:-150px; animation-delay:0s; }
-  .orb2 { width:400px; height:400px; background:rgba(168,85,247,0.12); bottom:10%; right:-100px; animation-delay:-4s; }
-  .orb3 { width:300px; height:300px; background:rgba(232,121,249,0.08); top:40%; left:40%; animation-delay:-8s; }
-
-  @keyframes float {
-    0%,100% { transform: translateY(0px) scale(1); }
-    50% { transform: translateY(-30px) scale(1.05); }
-  }
-
-  /* ─── NAVBAR ─── */
-  nav {
-    position:fixed; top:0; left:0; right:0; z-index:100;
-    display:flex; align-items:center; justify-content:space-between;
-    padding:1rem 5%;
-    background: rgba(13,10,26,0.85);
-    backdrop-filter: blur(20px);
-    border-bottom: 1px solid var(--border);
-  }
-
-  .nav-logo {
-    font-family:'Playfair Display', serif;
-    font-size:1.3rem; font-weight:700;
-    background: linear-gradient(135deg, var(--purple-glow), var(--accent));
-    -webkit-background-clip:text; -webkit-text-fill-color:transparent;
-    letter-spacing:0.02em;
-  }
-
-  .nav-links { display:flex; gap:2rem; list-style:none; }
-  .nav-links a {
-    color:var(--text-muted); text-decoration:none; font-size:0.85rem;
-    font-weight:500; letter-spacing:0.08em; text-transform:uppercase;
-    transition: color 0.3s;
-  }
-  .nav-links a:hover { color:var(--purple-glow); }
-
-  .nav-cta {
-    background: linear-gradient(135deg, var(--purple), var(--purple-light));
-    color:#fff !important; padding:0.45rem 1.2rem;
-    border-radius:50px; transition: transform 0.2s, box-shadow 0.2s !important;
-    box-shadow: 0 0 20px rgba(124,58,237,0.4);
-  }
-  .nav-cta:hover { transform:translateY(-2px); box-shadow:0 0 35px rgba(124,58,237,0.6) !important; color:#fff !important; }
-
-  /* ─── SECTIONS ─── */
-  section { position:relative; z-index:1; }
-
-  /* ─── HERO ─── */
-  #hero {
-    min-height:100vh; display:flex; align-items:center;
-    padding: 0 5%;
-    padding-top: 80px;
-  }
-
-  .hero-inner {
-    max-width:1200px; margin:0 auto; width:100%;
-    display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:center;
-  }
-
-  .hero-tag {
-    display:inline-block;
-    font-family:'DM Mono', monospace; font-size:0.78rem;
-    color:var(--purple-glow); letter-spacing:0.15em; text-transform:uppercase;
-    border:1px solid var(--border); padding:0.3rem 0.8rem; border-radius:4px;
-    margin-bottom:1.5rem;
-    background:var(--glass);
-    animation: fadeUp 0.8s ease both;
-  }
-
-  .hero-name {
-    font-family:'Playfair Display', serif;
-    font-size:clamp(2.8rem, 5vw, 4.5rem);
-    font-weight:900; line-height:1.1;
-    animation: fadeUp 0.8s 0.1s ease both;
-  }
-
-  .hero-name span {
-    background: linear-gradient(135deg, var(--purple-glow) 0%, var(--accent) 60%, var(--gold) 100%);
-    -webkit-background-clip:text; -webkit-text-fill-color:transparent;
-    display:block;
-  }
-
-  .hero-roles {
-    margin:1.2rem 0;
-    font-size:1rem; color:var(--text-muted); font-weight:500;
-    animation: fadeUp 0.8s 0.2s ease both;
-  }
-
-  .role-badge {
-    display:inline-block; margin:0.2rem 0.3rem 0.2rem 0;
-    padding:0.25rem 0.7rem; border-radius:50px;
-    font-size:0.8rem; font-weight:600; letter-spacing:0.04em;
-    border:1px solid var(--border); background:var(--glass);
-    color:var(--purple-glow);
-  }
-
-  .hero-summary {
-    color:var(--text-muted); max-width:520px; line-height:1.8;
-    font-size:0.95rem; margin:1.5rem 0;
-    animation: fadeUp 0.8s 0.3s ease both;
-  }
-
-  .hero-btns {
-    display:flex; gap:1rem; flex-wrap:wrap;
-    animation: fadeUp 0.8s 0.4s ease both;
-  }
-
-  .btn {
-    display:inline-flex; align-items:center; gap:0.5rem;
-    padding:0.75rem 1.8rem; border-radius:50px;
-    font-weight:600; font-size:0.9rem; text-decoration:none;
-    transition: all 0.3s; cursor:pointer; border:none;
-  }
-
-  .btn-primary {
-    background: linear-gradient(135deg, var(--purple), var(--purple-light));
-    color:#fff;
-    box-shadow:0 0 30px rgba(124,58,237,0.5);
-  }
-  .btn-primary:hover { transform:translateY(-3px); box-shadow:0 0 50px rgba(124,58,237,0.7); }
-
-  .btn-outline {
-    background:transparent; color:var(--purple-glow);
-    border:1px solid var(--border);
-  }
-  .btn-outline:hover { background:var(--glass); border-color:var(--purple-light); transform:translateY(-2px); }
-
-  /* ─── HERO VISUAL ─── */
-  .hero-visual {
-    display:flex; justify-content:center;
-    animation: fadeUp 0.8s 0.5s ease both;
-  }
-
-  .hero-card {
-    background:var(--card); border:1px solid var(--border);
-    border-radius:24px; padding:2rem;
-    backdrop-filter:blur(20px);
-    box-shadow:0 25px 80px rgba(0,0,0,0.5), 0 0 0 1px rgba(124,58,237,0.1);
-    width:320px;
-    position:relative; overflow:hidden;
-  }
-
-  .hero-card::before {
-    content:'';
-    position:absolute; top:-1px; left:10%; right:10%;
-    height:2px;
-    background: linear-gradient(90deg, transparent, var(--purple-glow), var(--accent), transparent);
-  }
-
-  .stat-row {
-    display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-top:1rem;
-  }
-
-  .stat {
-    background:rgba(124,58,237,0.06); border:1px solid var(--border);
-    border-radius:12px; padding:1rem; text-align:center;
-  }
-
-  .stat-number {
-    font-family:'Playfair Display', serif;
-    font-size:1.8rem; font-weight:700;
-    background: linear-gradient(135deg, var(--purple-glow), var(--accent));
-    -webkit-background-clip:text; -webkit-text-fill-color:transparent;
-  }
-
-  .stat-label { font-size:0.72rem; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.08em; margin-top:0.2rem; }
-
-  .card-title {
-    font-family:'DM Mono', monospace; font-size:0.75rem;
-    color:var(--text-muted); letter-spacing:0.1em; text-transform:uppercase;
-    margin-bottom:0.5rem;
-  }
-
-  .skills-list {
-    display:flex; flex-wrap:wrap; gap:0.4rem; margin-top:1rem;
-  }
-
-  .skill-chip {
-    font-size:0.72rem; padding:0.25rem 0.6rem; border-radius:4px;
-    background:rgba(124,58,237,0.12); border:1px solid rgba(124,58,237,0.25);
-    color:var(--purple-glow); font-family:'DM Mono', monospace;
-  }
-
-  .available-badge {
-    display:flex; align-items:center; gap:0.5rem;
-    margin-top:1.2rem; padding:0.6rem 1rem;
-    background:rgba(34,197,94,0.08); border:1px solid rgba(34,197,94,0.2);
-    border-radius:8px;
-  }
-
-  .dot { width:8px; height:8px; border-radius:50%; background:#22c55e;
-    box-shadow:0 0 8px #22c55e; animation:pulse 2s ease-in-out infinite; }
-
-  @keyframes pulse { 0%,100%{opacity:1;} 50%{opacity:0.4;} }
-
-  .available-text { font-size:0.78rem; color:#4ade80; font-weight:500; }
-
-  /* ─── SECTION STYLES ─── */
-  .section-wrap { max-width:1200px; margin:0 auto; padding:6rem 5%; }
-
-  .section-header { text-align:center; margin-bottom:4rem; }
-
-  .section-tag {
-    font-family:'DM Mono', monospace; font-size:0.75rem;
-    color:var(--purple-glow); letter-spacing:0.15em; text-transform:uppercase;
-    display:block; margin-bottom:0.8rem;
-  }
-
-  .section-title {
-    font-family:'Playfair Display', serif;
-    font-size:clamp(2rem, 3.5vw, 3rem); font-weight:700;
-    line-height:1.2;
-  }
-
-  .section-title em { font-style:normal;
-    background: linear-gradient(135deg, var(--purple-glow), var(--accent));
-    -webkit-background-clip:text; -webkit-text-fill-color:transparent;
-  }
-
-  .divider {
-    width:60px; height:3px; margin:1.5rem auto 0;
-    background: linear-gradient(90deg, var(--purple), var(--accent));
-    border-radius:2px;
-  }
-
-  /* ─── ABOUT ─── */
-  #about { background: linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%); }
-
-  .about-grid {
-    display:grid; grid-template-columns:1fr 1.6fr; gap:4rem; align-items:start;
-  }
-
-  .about-info-card {
-    background:var(--card); border:1px solid var(--border);
-    border-radius:20px; padding:2rem; backdrop-filter:blur(20px);
-    position:relative;
-  }
-
-  .about-info-card::before {
-    content:'';
-    position:absolute; top:-1px; left:20%; right:20%;
-    height:2px;
-    background: linear-gradient(90deg, transparent, var(--purple-glow), transparent);
-  }
-
-  .info-item { display:flex; gap:0.8rem; margin-bottom:1.2rem; align-items:flex-start; }
-  .info-icon { font-size:1.1rem; margin-top:0.1rem; }
-  .info-label { font-size:0.72rem; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.08em; }
-  .info-value { font-size:0.9rem; color:var(--text); margin-top:0.1rem; }
-  .info-value a { color:var(--purple-glow); text-decoration:none; }
-  .info-value a:hover { color:var(--accent); }
-
-  .about-text p { color:var(--text-muted); margin-bottom:1.2rem; line-height:1.9; font-size:0.95rem; }
-  .about-text p strong { color:var(--text); }
-
-  .highlight-box {
-    background:var(--glass); border-left:3px solid var(--purple-glow);
-    border-radius:0 12px 12px 0; padding:1rem 1.5rem; margin-top:1.5rem;
-    font-size:0.9rem; color:var(--text);
-  }
-
-  /* ─── SKILLS ─── */
-  #skills { background:var(--bg2); }
-
-  .skills-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:1.5rem; }
-
-  .skill-card {
-    background:var(--card); border:1px solid var(--border);
-    border-radius:16px; padding:1.5rem 2rem;
-    backdrop-filter:blur(20px); transition: transform 0.3s, box-shadow 0.3s;
-    position:relative; overflow:hidden;
-  }
-
-  .skill-card::after {
-    content:''; position:absolute; inset:0;
-    background: linear-gradient(135deg, rgba(124,58,237,0.05) 0%, transparent 60%);
-    pointer-events:none;
-  }
-
-  .skill-card:hover { transform:translateY(-5px); box-shadow:0 20px 60px rgba(0,0,0,0.4), 0 0 30px rgba(124,58,237,0.15); }
-
-  .skill-card-icon { font-size:2rem; margin-bottom:1rem; }
-  .skill-card-title { font-size:0.75rem; text-transform:uppercase; letter-spacing:0.1em; color:var(--purple-glow); font-weight:600; margin-bottom:1rem; font-family:'DM Mono', monospace; }
-
-  .skill-item {
-    display:flex; align-items:center; justify-content:space-between;
-    margin-bottom:0.8rem; font-size:0.875rem;
-  }
-
-  .skill-name { color:var(--text); }
-
-  .skill-bar {
-    width:120px; height:4px; background:rgba(124,58,237,0.15);
-    border-radius:2px; overflow:hidden;
-  }
-
-  .skill-fill {
-    height:100%; border-radius:2px;
-    background: linear-gradient(90deg, var(--purple), var(--accent));
-    animation: fillBar 1.5s ease both;
-    animation-play-state: paused;
-  }
-
-  .skill-fill.animate { animation-play-state: running; }
-
-  @keyframes fillBar { from{width:0;} }
-
-  /* ─── PROJECTS ─── */
-  #projects { background: linear-gradient(180deg, var(--bg2) 0%, var(--bg3) 100%); }
-
-  .projects-filter {
-    display:flex; gap:0.5rem; flex-wrap:wrap; justify-content:center;
-    margin-bottom:3rem;
-  }
-
-  .filter-btn {
-    padding:0.4rem 1.2rem; border-radius:50px; border:1px solid var(--border);
-    background:transparent; color:var(--text-muted); font-size:0.8rem; font-weight:500;
-    cursor:pointer; transition:all 0.3s; font-family:'DM Sans', sans-serif;
-    text-transform:uppercase; letter-spacing:0.06em;
-  }
-
-  .filter-btn.active, .filter-btn:hover {
-    background:var(--purple); color:#fff; border-color:var(--purple);
-    box-shadow:0 0 20px rgba(124,58,237,0.4);
-  }
-
-  .projects-grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(340px, 1fr)); gap:1.5rem; }
-
-  .project-card {
-    background:var(--card); border:1px solid var(--border);
-    border-radius:20px; padding:2rem; backdrop-filter:blur(20px);
-    transition: transform 0.3s, box-shadow 0.3s;
-    position:relative; overflow:hidden;
-    display:flex; flex-direction:column;
-  }
-
-  .project-card::before {
-    content:''; position:absolute; top:0; left:0; right:0; height:3px;
-    background: linear-gradient(90deg, var(--purple), var(--accent), var(--gold));
-    transform:scaleX(0); transform-origin:left;
-    transition:transform 0.4s ease;
-  }
-
-  .project-card:hover::before { transform:scaleX(1); }
-  .project-card:hover { transform:translateY(-6px); box-shadow:0 25px 70px rgba(0,0,0,0.5), 0 0 40px rgba(124,58,237,0.15); }
-
-  .project-type-badge {
-    display:inline-block; font-family:'DM Mono', monospace; font-size:0.7rem;
-    padding:0.2rem 0.6rem; border-radius:4px; margin-bottom:1rem;
-    text-transform:uppercase; letter-spacing:0.1em;
-  }
-
-  .badge-sql { background:rgba(245,158,11,0.1); color:#f59e0b; border:1px solid rgba(245,158,11,0.2); }
-  .badge-excel { background:rgba(34,197,94,0.1); color:#4ade80; border:1px solid rgba(34,197,94,0.2); }
-  .badge-powerbi { background:rgba(251,191,36,0.1); color:#fbbf24; border:1px solid rgba(251,191,36,0.2); }
-  .badge-python { background:rgba(96,165,250,0.1); color:#60a5fa; border:1px solid rgba(96,165,250,0.2); }
-  .badge-tableau { background:rgba(232,121,249,0.1); color:#e879f9; border:1px solid rgba(232,121,249,0.2); }
-  .badge-ai { background:rgba(124,58,237,0.15); color:#c084fc; border:1px solid rgba(124,58,237,0.3); }
-
-  .project-title { font-family:'Playfair Display', serif; font-size:1.2rem; font-weight:700; margin-bottom:0.8rem; color:var(--text); }
-
-  .project-desc { color:var(--text-muted); font-size:0.875rem; line-height:1.7; flex:1; }
-
-  .project-metrics {
-    display:flex; flex-wrap:wrap; gap:0.5rem; margin:1.2rem 0;
-  }
-
-  .metric {
-    font-family:'DM Mono', monospace; font-size:0.72rem;
-    padding:0.2rem 0.6rem; border-radius:4px;
-    background:rgba(124,58,237,0.08); border:1px solid rgba(124,58,237,0.2);
-    color:var(--text-muted);
-  }
-
-  .metric strong { color:var(--purple-glow); }
-
-  .project-links { display:flex; gap:0.8rem; margin-top:1rem; }
-
-  .project-link {
-    display:inline-flex; align-items:center; gap:0.4rem;
-    padding:0.4rem 0.9rem; border-radius:8px;
-    font-size:0.8rem; font-weight:600; text-decoration:none;
-    transition:all 0.25s;
-  }
-
-  .link-view {
-    background: linear-gradient(135deg, var(--purple), var(--purple-light));
-    color:#fff;
-  }
-  .link-view:hover { transform:translateY(-2px); box-shadow:0 8px 25px rgba(124,58,237,0.5); }
-
-  .link-github {
-    background:rgba(124,58,237,0.1); color:var(--purple-glow);
-    border:1px solid var(--border);
-  }
-  .link-github:hover { background:rgba(124,58,237,0.2); transform:translateY(-2px); }
-
-  /* ─── EXPERIENCE ─── */
-  #experience { background:var(--bg3); }
-
-  .timeline { position:relative; padding-left:2rem; }
-  .timeline::before {
-    content:''; position:absolute; left:0; top:0; bottom:0;
-    width:2px; background: linear-gradient(180deg, var(--purple), var(--accent), transparent);
-    border-radius:2px;
-  }
-
-  .timeline-item {
-    position:relative; margin-bottom:3rem; padding-left:2rem;
-    animation: fadeUp 0.6s ease both;
-  }
-
-  .timeline-dot {
-    position:absolute; left:-2.5rem; top:0.4rem;
-    width:14px; height:14px; border-radius:50%;
-    background: linear-gradient(135deg, var(--purple), var(--accent));
-    box-shadow:0 0 15px rgba(124,58,237,0.6);
-    border:2px solid var(--bg3);
-  }
-
-  .timeline-date {
-    font-family:'DM Mono', monospace; font-size:0.72rem;
-    color:var(--purple-glow); text-transform:uppercase; letter-spacing:0.1em;
-    margin-bottom:0.4rem;
-  }
-
-  .timeline-role { font-family:'Playfair Display', serif; font-size:1.15rem; font-weight:700; }
-  .timeline-company { color:var(--accent); font-size:0.9rem; font-weight:500; margin-bottom:0.8rem; }
-
-  .timeline-desc { color:var(--text-muted); font-size:0.875rem; line-height:1.8; }
-  .timeline-desc li { margin-bottom:0.4rem; }
-
-  .exp-grid { display:grid; grid-template-columns:1fr 1fr; gap:4rem; }
-
-  /* ─── CERTIFICATIONS ─── */
-  #certifications { background: linear-gradient(180deg, var(--bg3) 0%, var(--bg) 100%); }
-
-  .cert-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(240px, 1fr)); gap:1.2rem; }
-
-  .cert-card {
-    background:var(--card); border:1px solid var(--border);
-    border-radius:16px; padding:1.5rem;
-    backdrop-filter:blur(20px); transition: transform 0.3s, box-shadow 0.3s;
-    display:flex; gap:1rem; align-items:center;
-  }
-
-  .cert-card:hover { transform:translateY(-4px); box-shadow:0 15px 50px rgba(0,0,0,0.4), 0 0 25px rgba(124,58,237,0.15); }
-
-  .cert-icon { font-size:2rem; flex-shrink:0; }
-  .cert-name { font-weight:600; font-size:0.9rem; margin-bottom:0.2rem; }
-  .cert-year { font-family:'DM Mono', monospace; font-size:0.72rem; color:var(--purple-glow); }
-
-  /* ─── DOWNLOAD CV ─── */
-  #download { background:var(--bg2); }
-
-  .cv-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:1.5rem; }
-
-  .cv-card {
-    background:var(--card); border:1px solid var(--border);
-    border-radius:20px; padding:2rem; backdrop-filter:blur(20px);
-    text-align:center; transition: transform 0.3s, box-shadow 0.3s;
-    position:relative; overflow:hidden;
-  }
-
-  .cv-card::before {
-    content:''; position:absolute; inset:0;
-    background: linear-gradient(135deg, rgba(124,58,237,0.05), transparent);
-  }
-
-  .cv-card:hover { transform:translateY(-5px); box-shadow:0 20px 60px rgba(0,0,0,0.4), 0 0 30px rgba(124,58,237,0.15); }
-
-  .cv-icon { font-size:3rem; margin-bottom:1rem; }
-  .cv-title { font-family:'Playfair Display', serif; font-size:1.2rem; font-weight:700; margin-bottom:0.5rem; }
-  .cv-desc { color:var(--text-muted); font-size:0.85rem; margin-bottom:1.5rem; line-height:1.6; }
-
-  /* ─── CONTACT ─── */
-  #contact { background:var(--bg); }
-
-  .contact-grid { display:grid; grid-template-columns:1fr 1fr; gap:4rem; }
-
-  .contact-info { }
-  .contact-item {
-    display:flex; gap:1rem; align-items:flex-start; margin-bottom:2rem;
-  }
-
-  .contact-icon-wrap {
-    width:48px; height:48px; border-radius:12px; flex-shrink:0;
-    background: linear-gradient(135deg, var(--purple), var(--purple-light));
-    display:flex; align-items:center; justify-content:center;
-    font-size:1.2rem;
-    box-shadow:0 0 20px rgba(124,58,237,0.4);
-  }
-
-  .contact-label { font-size:0.75rem; text-transform:uppercase; letter-spacing:0.08em; color:var(--text-muted); margin-bottom:0.2rem; }
-  .contact-value { font-size:0.95rem; color:var(--text); }
-  .contact-value a { color:var(--text); text-decoration:none; transition:color 0.2s; }
-  .contact-value a:hover { color:var(--purple-glow); }
-
-  .social-links { display:flex; gap:1rem; margin-top:2rem; flex-wrap:wrap; }
-
-  .social-link {
-    display:inline-flex; align-items:center; gap:0.5rem;
-    padding:0.6rem 1.2rem; border-radius:50px;
-    border:1px solid var(--border); color:var(--text-muted);
-    text-decoration:none; font-size:0.85rem; font-weight:500;
-    transition:all 0.3s; background:var(--glass);
-  }
-
-  .social-link:hover { border-color:var(--purple-light); color:var(--purple-glow); transform:translateY(-2px); box-shadow:0 8px 25px rgba(124,58,237,0.25); }
-
-  .contact-form { display:flex; flex-direction:column; gap:1rem; }
-
-  .form-input, .form-textarea {
-    background:var(--card); border:1px solid var(--border);
-    border-radius:12px; padding:0.9rem 1.2rem;
-    color:var(--text); font-family:'DM Sans', sans-serif; font-size:0.9rem;
-    transition:border-color 0.3s, box-shadow 0.3s;
-    resize:none;
-  }
-
-  .form-input:focus, .form-textarea:focus {
-    outline:none; border-color:var(--purple);
-    box-shadow:0 0 20px rgba(124,58,237,0.2);
-  }
-
-  .form-input::placeholder, .form-textarea::placeholder { color:var(--text-muted); }
-
-  /* ─── FOOTER ─── */
-  footer {
-    background:var(--bg); border-top:1px solid var(--border);
-    text-align:center; padding:2rem 5%;
-    color:var(--text-muted); font-size:0.85rem;
-    position:relative; z-index:1;
-  }
-
-  footer span { color:var(--purple-glow); }
-
-  /* ─── ANIMATIONS ─── */
-  @keyframes fadeUp {
-    from { opacity:0; transform:translateY(30px); }
-    to { opacity:1; transform:translateY(0); }
-  }
-
-  /* ─── SCROLL REVEAL ─── */
-  .reveal { opacity:0; transform:translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
-  .reveal.visible { opacity:1; transform:none; }
-
-  /* ─── MOBILE NAV ─── */
-  .hamburger { display:none; background:none; border:none; cursor:pointer; flex-direction:column; gap:5px; }
-  .hamburger span { display:block; width:24px; height:2px; background:var(--text); border-radius:2px; transition:0.3s; }
-
-  /* ─── RESPONSIVE ─── */
-  @media(max-width:900px) {
-    .hero-inner { grid-template-columns:1fr; text-align:center; gap:2.5rem; }
-    .hero-summary { margin:1rem auto; }
-    .hero-btns { justify-content:center; }
-    .about-grid { grid-template-columns:1fr; }
-    .exp-grid { grid-template-columns:1fr; }
-    .contact-grid { grid-template-columns:1fr; }
-    .nav-links { display:none; }
-    .hamburger { display:flex; }
-    .hero-visual { display:none; }
-  }
-
-  @media(max-width:600px) {
-    .section-wrap { padding:4rem 4%; }
-    .projects-grid { grid-template-columns:1fr; }
-    .cv-grid { grid-template-columns:1fr; }
-  }
+:root{
+  --ink:#0a0804;--ink2:#111008;--ink3:#1a1610;
+  --gold:#c9a84c;--gold-lt:#e8c87a;--gold-dk:#8a6a1e;
+  --cream:#f5f0e8;--cream2:#ede7d9;--rust:#8b3a2a;--sage:#3d5c3a;
+  --text:#e8e0d0;--text-mid:#a89880;--text-soft:#6b5d4a;
+  --border:rgba(201,168,76,0.18);--border2:rgba(201,168,76,0.08);
+  --glass:rgba(201,168,76,0.05);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--ink);color:var(--text);font-family:'Outfit',sans-serif;font-weight:400;line-height:1.7;overflow-x:hidden;cursor:none;}
+body::after{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");pointer-events:none;z-index:9999;}
+::-webkit-scrollbar{width:3px;}::-webkit-scrollbar-track{background:var(--ink);}::-webkit-scrollbar-thumb{background:var(--gold-dk);}
+#cursor{position:fixed;width:10px;height:10px;background:var(--gold);border-radius:50%;pointer-events:none;z-index:99999;transform:translate(-50%,-50%);transition:width 0.3s,height 0.3s;mix-blend-mode:difference;}
+#cursor-ring{position:fixed;width:36px;height:36px;border:1px solid var(--gold);border-radius:50%;pointer-events:none;z-index:99998;transform:translate(-50%,-50%);transition:width 0.4s cubic-bezier(0.23,1,0.32,1),height 0.4s;opacity:0.6;}
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;align-items:center;justify-content:space-between;padding:1.4rem 5%;transition:background 0.4s,padding 0.4s;}
+nav.scrolled{background:rgba(10,8,4,0.95);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:1rem 5%;}
+.nav-logo{font-family:'Libre Baskerville',serif;font-size:1.1rem;font-weight:700;color:var(--gold);text-decoration:none;}
+.nav-logo span{color:var(--text);font-weight:400;font-style:italic;}
+.nav-links{display:flex;gap:2.5rem;list-style:none;align-items:center;}
+.nav-links a{color:var(--text-mid);text-decoration:none;font-size:0.75rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;transition:color 0.25s;position:relative;}
+.nav-links a::after{content:'';position:absolute;bottom:-3px;left:0;right:0;height:1px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform 0.3s ease;}
+.nav-links a:hover{color:var(--gold-lt);}
+.nav-links a:hover::after{transform:scaleX(1);}
+.nav-cta{font-size:0.72rem !important;padding:0.5rem 1.4rem;border:1px solid var(--gold) !important;color:var(--gold) !important;transition:background 0.25s,color 0.25s !important;}
+.nav-cta:hover{background:var(--gold) !important;color:var(--ink) !important;}
+.nav-cta::after{display:none !important;}
+#hero{min-height:100vh;display:flex;align-items:center;padding:0 5%;position:relative;overflow:hidden;}
+.hero-bg-num{position:absolute;right:-2%;top:50%;transform:translateY(-50%);font-family:'Libre Baskerville',serif;font-size:clamp(220px,28vw,380px);font-weight:700;font-style:italic;color:transparent;-webkit-text-stroke:1px rgba(201,168,76,0.06);user-select:none;pointer-events:none;line-height:1;}
+.hero-rule{position:absolute;top:0;bottom:0;left:42%;width:1px;background:linear-gradient(180deg,transparent,var(--gold-dk) 20%,var(--gold) 50%,var(--gold-dk) 80%,transparent);opacity:0.25;}
+.hero-inner{max-width:1280px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr 1fr;gap:0;align-items:center;position:relative;z-index:1;}
+.hero-left{padding-right:5%;}
+.hero-kicker{display:inline-flex;align-items:center;gap:0.8rem;font-family:'DM Mono',monospace;font-size:0.7rem;color:var(--gold);letter-spacing:0.2em;text-transform:uppercase;margin-bottom:2rem;opacity:0;animation:fadeUp 0.8s 0.2s ease forwards;}
+.hero-kicker::before{content:'';width:32px;height:1px;background:var(--gold);}
+.hero-name{font-family:'Libre Baskerville',serif;font-size:clamp(3.5rem,6vw,5.5rem);font-weight:700;line-height:1;color:var(--cream);letter-spacing:-0.02em;opacity:0;animation:fadeUp 0.9s 0.35s ease forwards;}
+.hero-name em{display:block;font-style:italic;color:var(--gold);font-size:0.85em;}
+.hero-divider{width:60px;height:2px;background:linear-gradient(90deg,var(--gold),transparent);margin:1.8rem 0;opacity:0;animation:fadeUp 0.8s 0.5s ease forwards;}
+.hero-desc{font-size:0.95rem;color:var(--text-mid);line-height:1.9;max-width:440px;opacity:0;animation:fadeUp 0.8s 0.65s ease forwards;}
+.hero-roles{display:flex;flex-wrap:wrap;gap:0.5rem;margin:1.8rem 0;opacity:0;animation:fadeUp 0.8s 0.8s ease forwards;}
+.role-tag{font-family:'DM Mono',monospace;font-size:0.68rem;padding:0.3rem 0.8rem;border:1px solid var(--border);color:var(--text-mid);letter-spacing:0.08em;text-transform:uppercase;}
+.hero-ctas{display:flex;gap:1rem;flex-wrap:wrap;opacity:0;animation:fadeUp 0.8s 0.95s ease forwards;}
+.btn{display:inline-flex;align-items:center;gap:0.5rem;padding:0.8rem 2rem;font-size:0.75rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;text-decoration:none;transition:all 0.3s;cursor:none;border:none;font-family:'Outfit',sans-serif;}
+.btn-gold{background:var(--gold);color:var(--ink);box-shadow:0 0 40px rgba(201,168,76,0.25);}
+.btn-gold:hover{background:var(--gold-lt);transform:translateY(-2px);box-shadow:0 0 60px rgba(201,168,76,0.4);}
+.btn-ghost{background:transparent;color:var(--gold);border:1px solid var(--border);}
+.btn-ghost:hover{background:var(--glass);border-color:var(--gold);transform:translateY(-2px);}
+.hero-right{padding-left:6%;border-left:1px solid var(--border);opacity:0;animation:fadeUp 0.9s 0.6s ease forwards;}
+.metrics-label{font-family:'DM Mono',monospace;font-size:0.65rem;color:var(--gold-dk);letter-spacing:0.18em;text-transform:uppercase;margin-bottom:1.5rem;display:flex;align-items:center;gap:0.6rem;}
+.metrics-label::after{content:'';flex:1;height:1px;background:var(--border);}
+.metrics-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);}
+.metric-box{background:var(--ink2);padding:1.6rem 1.4rem;position:relative;overflow:hidden;transition:background 0.3s;}
+.metric-box:hover{background:var(--ink3);}
+.metric-n{font-family:'Libre Baskerville',serif;font-size:2.2rem;font-weight:700;color:var(--gold);line-height:1;margin-bottom:0.4rem;}
+.metric-l{font-size:0.72rem;color:var(--text-soft);text-transform:uppercase;letter-spacing:0.08em;}
+.tools-label{font-family:'DM Mono',monospace;font-size:0.65rem;color:var(--gold-dk);letter-spacing:0.18em;text-transform:uppercase;margin:1.8rem 0 1rem;display:flex;align-items:center;gap:0.6rem;}
+.tools-label::after{content:'';flex:1;height:1px;background:var(--border);}
+.tools-row{display:flex;flex-wrap:wrap;gap:0.4rem;}
+.tool-chip{font-family:'DM Mono',monospace;font-size:0.65rem;padding:0.25rem 0.65rem;background:var(--glass);border:1px solid var(--border2);color:var(--text-mid);letter-spacing:0.06em;}
+.avail-strip{display:flex;align-items:center;gap:0.7rem;margin-top:1.6rem;padding:0.8rem 1rem;border:1px solid rgba(61,92,58,0.3);background:rgba(61,92,58,0.06);}
+.avail-dot{width:7px;height:7px;border-radius:50%;background:#5aab57;box-shadow:0 0 8px #5aab57;animation:pulse 2s ease infinite;flex-shrink:0;}
+@keyframes pulse{0%,100%{opacity:1;}50%{opacity:0.3;}}
+.avail-text{font-size:0.75rem;color:#5aab57;font-weight:500;letter-spacing:0.06em;}
+.section{position:relative;z-index:1;}
+.wrap{max-width:1280px;margin:0 auto;padding:7rem 5%;}
+.sh{margin-bottom:4rem;}
+.sh-number{font-family:'DM Mono',monospace;font-size:0.65rem;color:var(--gold-dk);letter-spacing:0.2em;display:block;margin-bottom:0.6rem;}
+.sh-title{font-family:'Libre Baskerville',serif;font-size:clamp(2.2rem,4vw,3.2rem);font-weight:700;color:var(--cream);line-height:1.1;letter-spacing:-0.02em;}
+.sh-title em{font-style:italic;color:var(--gold);}
+.sh-rule{width:48px;height:1px;margin-top:1.2rem;background:linear-gradient(90deg,var(--gold),transparent);}
+#skills{background:var(--ink2);}
+.skills-layout{display:grid;grid-template-columns:240px 1fr;gap:4rem;align-items:start;}
+.skills-nav{position:sticky;top:120px;}
+.skill-nav-item{display:flex;align-items:center;gap:1rem;padding:0.8rem 0;border-bottom:1px solid var(--border2);cursor:none;transition:all 0.25s;}
+.skill-nav-item:hover .sni-label{color:var(--gold-lt);}
+.skill-nav-item.active .sni-label{color:var(--gold);}
+.skill-nav-item.active .sni-line{background:var(--gold);width:24px;}
+.sni-line{width:16px;height:1px;background:var(--text-soft);transition:all 0.3s;}
+.sni-label{font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-soft);transition:color 0.25s;}
+.skill-panel{margin-bottom:2.5rem;}
+.sp-header{display:flex;align-items:center;gap:1rem;margin-bottom:1.5rem;}
+.sp-icon{width:44px;height:44px;background:var(--glass);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0;}
+.sp-title{font-family:'DM Mono',monospace;font-size:0.72rem;color:var(--gold);letter-spacing:0.12em;text-transform:uppercase;}
+.sp-items{display:flex;flex-direction:column;gap:0.8rem;}
+.sp-item{display:flex;align-items:center;justify-content:space-between;gap:1rem;}
+.sp-name{font-size:0.875rem;color:var(--text);min-width:220px;}
+.sp-bar{flex:1;height:2px;background:rgba(201,168,76,0.1);position:relative;max-width:180px;}
+.sp-fill{position:absolute;left:0;top:0;height:100%;background:linear-gradient(90deg,var(--gold-dk),var(--gold));width:0;transition:width 1.6s cubic-bezier(0.4,0,0.2,1);}
+.sp-pct{font-family:'DM Mono',monospace;font-size:0.65rem;color:var(--gold-dk);min-width:28px;text-align:right;}
+#projects{background:var(--ink);}
+.proj-filter{display:flex;gap:0.4rem;flex-wrap:wrap;margin-bottom:3.5rem;}
+.pf{font-family:'DM Mono',monospace;font-size:0.65rem;padding:0.4rem 1rem;letter-spacing:0.1em;text-transform:uppercase;border:1px solid var(--border2);background:transparent;color:var(--text-soft);cursor:none;transition:all 0.25s;}
+.pf.on,.pf:hover{border-color:var(--gold);color:var(--gold);background:var(--glass);}
+.proj-masonry{columns:2;column-gap:1.5rem;}
+.proj-card{break-inside:avoid;background:var(--ink2);border:1px solid var(--border2);padding:2rem;margin-bottom:1.5rem;position:relative;overflow:hidden;transition:transform 0.35s ease,box-shadow 0.35s ease,border-color 0.35s;display:block;}
+.proj-card::before{content:'';position:absolute;top:0;left:0;bottom:0;width:2px;background:linear-gradient(180deg,transparent,var(--gold),transparent);transform:scaleY(0);transform-origin:top;transition:transform 0.4s ease;}
+.proj-card:hover{transform:translateY(-4px);box-shadow:0 20px 60px rgba(0,0,0,0.5),0 0 0 1px rgba(201,168,76,0.15);border-color:rgba(201,168,76,0.2);}
+.proj-card:hover::before{transform:scaleY(1);}
+.pc-badge{font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:0.12em;text-transform:uppercase;padding:0.2rem 0.6rem;margin-bottom:1rem;display:inline-block;}
+.pc-b-excel{color:#6aaa6a;border:1px solid rgba(106,170,106,0.25);background:rgba(106,170,106,0.06);}
+.pc-b-powerbi{color:#e8a838;border:1px solid rgba(232,168,56,0.25);background:rgba(232,168,56,0.06);}
+.pc-b-sql{color:#6a9fd8;border:1px solid rgba(106,159,216,0.25);background:rgba(106,159,216,0.06);}
+.pc-b-python{color:#b87ac8;border:1px solid rgba(184,122,200,0.25);background:rgba(184,122,200,0.06);}
+.pc-b-tableau{color:#5ec4b8;border:1px solid rgba(94,196,184,0.25);background:rgba(94,196,184,0.06);}
+.pc-b-ai{color:var(--gold);border:1px solid rgba(201,168,76,0.25);background:rgba(201,168,76,0.06);}
+.pc-title{font-family:'Libre Baskerville',serif;font-size:1.05rem;font-weight:700;color:var(--cream);margin-bottom:0.7rem;line-height:1.3;}
+.pc-desc{font-size:0.83rem;color:var(--text-mid);line-height:1.75;margin-bottom:1rem;}
+.pc-metrics{display:flex;flex-wrap:wrap;gap:0.4rem;margin-bottom:1rem;}
+.pc-m{font-family:'DM Mono',monospace;font-size:0.62rem;padding:0.18rem 0.5rem;background:rgba(201,168,76,0.04);border:1px solid rgba(201,168,76,0.12);color:var(--text-soft);}
+.pc-m strong{color:var(--gold);}
+.pc-links{display:flex;gap:0.6rem;}
+.pc-link{font-family:'DM Mono',monospace;font-size:0.65rem;padding:0.35rem 0.8rem;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;transition:all 0.25s;}
+.pc-link-primary{background:var(--gold);color:var(--ink);}
+.pc-link-primary:hover{background:var(--gold-lt);}
+.pc-link-secondary{border:1px solid var(--border);color:var(--text-mid);}
+.pc-link-secondary:hover{border-color:var(--gold);color:var(--gold);}
+#experience{background:var(--ink2);}
+.exp-layout{display:grid;grid-template-columns:1fr 1fr;gap:5rem;}
+.exp-timeline{position:relative;}
+.exp-timeline::before{content:'';position:absolute;left:0;top:8px;bottom:0;width:1px;background:linear-gradient(180deg,var(--gold),var(--gold-dk) 60%,transparent);opacity:0.3;}
+.exp-item{padding-left:2rem;margin-bottom:3rem;position:relative;}
+.exp-dot{position:absolute;left:-4px;top:6px;width:9px;height:9px;border-radius:50%;background:var(--gold);box-shadow:0 0 12px rgba(201,168,76,0.5);}
+.exp-date{font-family:'DM Mono',monospace;font-size:0.65rem;color:var(--gold-dk);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:0.4rem;}
+.exp-role{font-family:'Libre Baskerville',serif;font-size:1.1rem;font-weight:700;color:var(--cream);margin-bottom:0.2rem;}
+.exp-co{font-size:0.82rem;color:var(--gold);font-weight:500;margin-bottom:0.7rem;}
+.exp-buls{color:var(--text-mid);font-size:0.83rem;line-height:1.8;}
+.exp-buls li{margin-bottom:0.3rem;list-style:none;padding-left:1rem;position:relative;}
+.exp-buls li::before{content:'–';position:absolute;left:0;color:var(--gold-dk);}
+.edu-block{margin-bottom:3rem;}
+.edu-label{font-family:'DM Mono',monospace;font-size:0.65rem;color:var(--gold-dk);letter-spacing:0.18em;text-transform:uppercase;margin-bottom:1.5rem;display:flex;align-items:center;gap:0.8rem;}
+.edu-label::after{content:'';flex:1;height:1px;background:var(--border);}
+.edu-card{background:var(--ink);border:1px solid var(--border2);padding:1.5rem;margin-bottom:1rem;position:relative;overflow:hidden;}
+.edu-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,var(--gold),transparent);opacity:0.3;}
+.edu-degree{font-family:'Libre Baskerville',serif;font-size:0.95rem;font-weight:700;color:var(--cream);margin-bottom:0.3rem;}
+.edu-inst{font-size:0.8rem;color:var(--gold);margin-bottom:0.2rem;}
+.edu-year{font-family:'DM Mono',monospace;font-size:0.65rem;color:var(--text-soft);}
+.cert-item{display:flex;gap:1rem;align-items:flex-start;padding:0.9rem 0;border-bottom:1px solid var(--border2);}
+.cert-bullet{width:20px;height:20px;flex-shrink:0;background:var(--glass);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:0.55rem;color:var(--gold);margin-top:2px;}
+.cert-name{font-size:0.85rem;color:var(--text);font-weight:500;margin-bottom:0.15rem;}
+.cert-org{font-size:0.75rem;color:var(--text-soft);}
+#about{background:var(--ink);}
+.about-layout{display:grid;grid-template-columns:1fr 1.2fr;gap:5rem;align-items:start;}
+.portrait-frame{background:var(--ink2);border:1px solid var(--border);padding:2.5rem;position:relative;}
+.portrait-frame::before{content:'';position:absolute;top:12px;left:12px;right:-12px;bottom:-12px;border:1px solid rgba(201,168,76,0.12);z-index:-1;}
+.portrait-initial{font-family:'Libre Baskerville',serif;font-size:8rem;font-weight:700;font-style:italic;color:transparent;-webkit-text-stroke:1px rgba(201,168,76,0.2);line-height:1;margin-bottom:1.5rem;display:block;}
+.ai-row{display:flex;gap:1rem;padding:0.8rem 0;border-bottom:1px solid var(--border2);align-items:flex-start;}
+.ai-icon{font-size:0.9rem;margin-top:2px;flex-shrink:0;opacity:0.7;}
+.ai-key{font-family:'DM Mono',monospace;font-size:0.62rem;color:var(--gold-dk);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.15rem;}
+.ai-val{font-size:0.85rem;color:var(--text);}
+.ai-val a{color:var(--gold);text-decoration:none;}
+.about-pull{font-family:'Libre Baskerville',serif;font-size:1.3rem;font-style:italic;color:var(--cream);line-height:1.6;margin-bottom:2rem;padding-left:1.5rem;border-left:2px solid var(--gold);}
+.about-body p{font-size:0.9rem;color:var(--text-mid);line-height:1.95;margin-bottom:1.2rem;}
+.about-body p strong{color:var(--text);}
+.about-highlight{background:var(--glass);border:1px solid var(--border);padding:1.2rem 1.5rem;margin-top:2rem;font-size:0.88rem;color:var(--text);line-height:1.8;}
+#download{background:var(--ink2);}
+.dl-intro{font-size:0.9rem;color:var(--text-mid);margin-top:1rem;max-width:520px;}
+.cv-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);margin-top:3rem;}
+.cv-card{background:var(--ink2);padding:2rem 1.8rem;position:relative;overflow:hidden;transition:background 0.3s;}
+.cv-card:hover{background:var(--ink3);}
+.cv-card::after{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--gold),transparent);transform:scaleX(0);transform-origin:left;transition:transform 0.4s ease;}
+.cv-card:hover::after{transform:scaleX(1);}
+.cv-num{font-family:'Libre Baskerville',serif;font-size:3rem;font-weight:700;font-style:italic;color:transparent;-webkit-text-stroke:1px rgba(201,168,76,0.15);line-height:1;margin-bottom:1.2rem;}
+.cv-label{font-family:'DM Mono',monospace;font-size:0.62rem;color:var(--gold);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:0.8rem;}
+.cv-title-text{font-family:'Libre Baskerville',serif;font-size:1rem;font-weight:700;color:var(--cream);margin-bottom:0.6rem;line-height:1.3;}
+.cv-desc-text{font-size:0.78rem;color:var(--text-soft);line-height:1.65;margin-bottom:1.5rem;}
+.cv-dl-btn{display:inline-flex;align-items:center;gap:0.5rem;font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;padding:0.6rem 1.2rem;text-decoration:none;background:var(--gold);color:var(--ink);transition:background 0.25s,transform 0.25s;width:100%;justify-content:center;}
+.cv-dl-btn:hover{background:var(--gold-lt);transform:translateY(-1px);}
+#contact{background:var(--ink);}
+.contact-layout{display:grid;grid-template-columns:1fr 1.2fr;gap:5rem;}
+.contact-item{display:flex;gap:1.2rem;align-items:flex-start;padding:1.2rem 0;border-bottom:1px solid var(--border2);}
+.ci-icon{width:40px;height:40px;flex-shrink:0;background:var(--glass);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:1rem;}
+.ci-key{font-family:'DM Mono',monospace;font-size:0.6rem;color:var(--gold-dk);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:0.2rem;}
+.ci-val{font-size:0.88rem;color:var(--text);}
+.ci-val a{color:var(--text);text-decoration:none;transition:color 0.2s;}
+.ci-val a:hover{color:var(--gold);}
+.social-grid{display:flex;flex-wrap:wrap;gap:0.6rem;margin-top:2rem;}
+.sc-link{display:inline-flex;align-items:center;gap:0.5rem;font-family:'DM Mono',monospace;font-size:0.65rem;padding:0.5rem 1rem;letter-spacing:0.08em;text-transform:uppercase;border:1px solid var(--border2);color:var(--text-mid);text-decoration:none;transition:all 0.25s;}
+.sc-link:hover{border-color:var(--gold);color:var(--gold);}
+.contact-form{display:flex;flex-direction:column;gap:1rem;}
+.cf-label{font-family:'DM Mono',monospace;font-size:0.6rem;color:var(--gold-dk);letter-spacing:0.12em;text-transform:uppercase;display:block;margin-bottom:0.4rem;}
+.cf-input,.cf-textarea{width:100%;background:var(--ink2);border:1px solid var(--border2);padding:0.9rem 1.1rem;color:var(--text);font-family:'Outfit',sans-serif;font-size:0.88rem;transition:border-color 0.25s,box-shadow 0.25s;resize:none;}
+.cf-input:focus,.cf-textarea:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,168,76,0.08);}
+.cf-input::placeholder,.cf-textarea::placeholder{color:var(--text-soft);}
+.cf-group{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+footer{background:var(--ink);border-top:1px solid var(--border);padding:2.5rem 5%;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;}
+.footer-logo{font-family:'Libre Baskerville',serif;font-size:1rem;font-weight:700;color:var(--gold);}
+.footer-copy{font-size:0.75rem;color:var(--text-soft);}
+.footer-links{display:flex;gap:1.5rem;}
+.footer-links a{font-family:'DM Mono',monospace;font-size:0.62rem;color:var(--text-soft);text-decoration:none;letter-spacing:0.1em;text-transform:uppercase;transition:color 0.2s;}
+.footer-links a:hover{color:var(--gold);}
+.r{opacity:0;transform:translateY(28px);transition:opacity 0.8s ease,transform 0.8s ease;}
+.r.on{opacity:1;transform:none;}
+.r-left{opacity:0;transform:translateX(-24px);transition:opacity 0.8s ease,transform 0.8s ease;}
+.r-left.on{opacity:1;transform:none;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:none;}}
+.hamburger{display:none;background:none;border:none;cursor:none;flex-direction:column;gap:5px;}
+.hamburger span{display:block;width:22px;height:1px;background:var(--gold);transition:0.3s;}
+@media(max-width:1024px){.skills-layout{grid-template-columns:1fr;}.skills-nav{display:none;}.proj-masonry{columns:1;}.cv-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:900px){.hero-inner,.exp-layout,.about-layout,.contact-layout{grid-template-columns:1fr;}.hero-right{border-left:none;border-top:1px solid var(--border);padding-left:0;padding-top:2.5rem;margin-top:2.5rem;}.hero-bg-num,.hero-rule{display:none;}.nav-links{display:none;}.hamburger{display:flex;}.cf-group{grid-template-columns:1fr;}}
+@media(max-width:600px){.wrap{padding:5rem 5%;}.cv-grid{grid-template-columns:1fr;}footer{flex-direction:column;text-align:center;}}
 </style>
 </head>
 <body>
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
 
-<div class="orb orb1"></div>
-<div class="orb orb2"></div>
-<div class="orb orb3"></div>
-
-<!-- ─── NAV ─── -->
-<nav>
-  <div class="nav-logo">Precious Amiekumo</div>
+<nav id="nav">
+  <a href="#" class="nav-logo">PA<span>.</span></a>
   <ul class="nav-links">
-    <li><a href="#about">About</a></li>
     <li><a href="#skills">Skills</a></li>
     <li><a href="#projects">Projects</a></li>
     <li><a href="#experience">Experience</a></li>
-    <li><a href="#download">Download CV</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#download">CV</a></li>
     <li><a href="#contact" class="nav-cta">Hire Me</a></li>
   </ul>
-  <button class="hamburger" onclick="toggleNav()" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
+  <button class="hamburger" onclick="toggleNav()" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
 
-<!-- ─── HERO ─── -->
+<!-- HERO -->
 <section id="hero">
+  <div class="hero-bg-num">PA</div>
+  <div class="hero-rule"></div>
   <div class="hero-inner">
-    <div class="hero-content">
-      <div class="hero-tag">📊 Data Analyst · Lab Operations · AI Automation</div>
-      <h1 class="hero-name">
-        Precious
-        <span>Amiekumo</span>
-      </h1>
+    <div class="hero-left">
+      <div class="hero-kicker">Data Analyst &amp; Operations Professional</div>
+      <h1 class="hero-name">Precious<br><em>Amiekumo</em></h1>
+      <div class="hero-divider"></div>
+      <p class="hero-desc">Biochemistry graduate with 3+ years turning complex operational data into executive-level intelligence. I build dashboards, automate workflows, and develop Python ERP systems — at the precise intersection of science, business, and technology.</p>
       <div class="hero-roles">
-        <span class="role-badge">Data Analytics</span>
-        <span class="role-badge">Laboratory Operations</span>
-        <span class="role-badge">Power BI · Excel · SQL</span>
-        <span class="role-badge">AI & Automation</span>
-        <span class="role-badge">Python · ERP Systems</span>
+        <span class="role-tag">Data Analytics</span>
+        <span class="role-tag">Power BI · Excel · SQL</span>
+        <span class="role-tag">Python · Pandas · NumPy</span>
+        <span class="role-tag">Lab Operations</span>
+        <span class="role-tag">AI &amp; ERP Systems</span>
+        <span class="role-tag">Tender Admin</span>
       </div>
-      <p class="hero-summary">
-        Biochemistry graduate with a powerful data analytics skillset. I turn raw operational data into actionable dashboards, build AI-driven automation workflows, and develop Python-based ERP solutions — bridging the gap between science, business, and technology.
-      </p>
-      <div class="hero-btns">
-        <a href="#projects" class="btn btn-primary">🔍 View Projects</a>
-        <a href="#download" class="btn btn-outline">📄 Download CV</a>
-        <a href="#contact" class="btn btn-outline">✉ Contact Me</a>
+      <div class="hero-ctas">
+        <a href="#projects" class="btn btn-gold">View Projects</a>
+        <a href="#download" class="btn btn-ghost">Download CV</a>
       </div>
     </div>
+    <div class="hero-right">
+      <div class="metrics-label">Project Impact</div>
+      <div class="metrics-grid">
+        <div class="metric-box"><div class="metric-n">1,470</div><div class="metric-l">Lab Samples Tracked</div></div>
+        <div class="metric-box"><div class="metric-n">$10M</div><div class="metric-l">Revenue Pipeline</div></div>
+        <div class="metric-box"><div class="metric-n">$2.3M</div><div class="metric-l">Revenue Analysed</div></div>
+        <div class="metric-box"><div class="metric-n">46.9%</div><div class="metric-l">YoY Growth Found</div></div>
+      </div>
+      <div class="tools-label">Core Stack</div>
+      <div class="tools-row">
+        <span class="tool-chip">Excel</span><span class="tool-chip">Power BI</span><span class="tool-chip">SQL</span><span class="tool-chip">Python</span><span class="tool-chip">Pandas</span><span class="tool-chip">NumPy</span><span class="tool-chip">Tableau</span><span class="tool-chip">Matplotlib</span><span class="tool-chip">BeautifulSoup</span><span class="tool-chip">ERP Dev</span>
+      </div>
+      <div class="avail-strip"><div class="avail-dot"></div><span class="avail-text">Available Immediately · Rivers State, Nigeria</span></div>
+    </div>
+  </div>
+</section>
 
-    <div class="hero-visual">
-      <div class="hero-card">
-        <div class="card-title">📈 Project Impact</div>
-        <div class="stat-row">
-          <div class="stat">
-            <div class="stat-number">1,470</div>
-            <div class="stat-label">Lab Samples Tracked</div>
-          </div>
-          <div class="stat">
-            <div class="stat-number">$10M</div>
-            <div class="stat-label">Revenue Pipeline</div>
-          </div>
-          <div class="stat">
-            <div class="stat-number">$2.3M</div>
-            <div class="stat-label">Revenue Analyzed</div>
-          </div>
-          <div class="stat">
-            <div class="stat-number">46.9%</div>
-            <div class="stat-label">YoY Growth Found</div>
+<!-- SKILLS -->
+<section id="skills" class="section">
+  <div class="wrap">
+    <div class="sh r"><span class="sh-number">01 / Skills</span><h2 class="sh-title">Expertise &amp; <em>Technologies</em></h2><div class="sh-rule"></div></div>
+    <div class="skills-layout">
+      <div class="skills-nav r-left">
+        <div class="skill-nav-item active" data-target="sp-analytics"><div class="sni-line"></div><span class="sni-label">Analytics</span></div>
+        <div class="skill-nav-item" data-target="sp-python"><div class="sni-line"></div><span class="sni-label">Python</span></div>
+        <div class="skill-nav-item" data-target="sp-sql"><div class="sni-line"></div><span class="sni-label">SQL &amp; Data</span></div>
+        <div class="skill-nav-item" data-target="sp-lab"><div class="sni-line"></div><span class="sni-label">Laboratory</span></div>
+        <div class="skill-nav-item" data-target="sp-ai"><div class="sni-line"></div><span class="sni-label">AI &amp; Automation</span></div>
+        <div class="skill-nav-item" data-target="sp-biz"><div class="sni-line"></div><span class="sni-label">Business</span></div>
+      </div>
+      <div class="skills-panels">
+        <div class="skill-panel r" id="sp-analytics">
+          <div class="sp-header"><div class="sp-icon">📊</div><div class="sp-title">Analytics &amp; Visualisation</div></div>
+          <div class="sp-items">
+            <div class="sp-item"><span class="sp-name">Microsoft Excel (Advanced)</span><div class="sp-bar"><div class="sp-fill" data-w="95"></div></div><span class="sp-pct">95%</span></div>
+            <div class="sp-item"><span class="sp-name">Power BI</span><div class="sp-bar"><div class="sp-fill" data-w="88"></div></div><span class="sp-pct">88%</span></div>
+            <div class="sp-item"><span class="sp-name">Tableau</span><div class="sp-bar"><div class="sp-fill" data-w="82"></div></div><span class="sp-pct">82%</span></div>
+            <div class="sp-item"><span class="sp-name">Looker</span><div class="sp-bar"><div class="sp-fill" data-w="70"></div></div><span class="sp-pct">70%</span></div>
+            <div class="sp-item"><span class="sp-name">KPI Dashboard Design</span><div class="sp-bar"><div class="sp-fill" data-w="92"></div></div><span class="sp-pct">92%</span></div>
           </div>
         </div>
-        <div class="skills-list" style="margin-top:1.5rem;">
-          <span class="skill-chip">Excel</span>
-          <span class="skill-chip">Power BI</span>
-          <span class="skill-chip">SQL</span>
-          <span class="skill-chip">Python</span>
-          <span class="skill-chip">Tableau</span>
-          <span class="skill-chip">AI Automation</span>
-          <span class="skill-chip">ERP Dev</span>
+        <div class="skill-panel r" id="sp-python">
+          <div class="sp-header"><div class="sp-icon">🐍</div><div class="sp-title">Python &amp; Programming</div></div>
+          <div class="sp-items">
+            <div class="sp-item"><span class="sp-name">Pandas &amp; NumPy</span><div class="sp-bar"><div class="sp-fill" data-w="82"></div></div><span class="sp-pct">82%</span></div>
+            <div class="sp-item"><span class="sp-name">Matplotlib &amp; Seaborn</span><div class="sp-bar"><div class="sp-fill" data-w="78"></div></div><span class="sp-pct">78%</span></div>
+            <div class="sp-item"><span class="sp-name">BeautifulSoup &amp; Requests</span><div class="sp-bar"><div class="sp-fill" data-w="75"></div></div><span class="sp-pct">75%</span></div>
+            <div class="sp-item"><span class="sp-name">ERP System Development</span><div class="sp-bar"><div class="sp-fill" data-w="72"></div></div><span class="sp-pct">72%</span></div>
+            <div class="sp-item"><span class="sp-name">Process Automation</span><div class="sp-bar"><div class="sp-fill" data-w="76"></div></div><span class="sp-pct">76%</span></div>
+          </div>
         </div>
-        <div class="available-badge">
-          <div class="dot"></div>
-          <span class="available-text">Available Immediately</span>
+        <div class="skill-panel r" id="sp-sql">
+          <div class="sp-header"><div class="sp-icon">🗄️</div><div class="sp-title">SQL &amp; Data Engineering</div></div>
+          <div class="sp-items">
+            <div class="sp-item"><span class="sp-name">SQL Server</span><div class="sp-bar"><div class="sp-fill" data-w="82"></div></div><span class="sp-pct">82%</span></div>
+            <div class="sp-item"><span class="sp-name">MySQL</span><div class="sp-bar"><div class="sp-fill" data-w="78"></div></div><span class="sp-pct">78%</span></div>
+            <div class="sp-item"><span class="sp-name">BigQuery</span><div class="sp-bar"><div class="sp-fill" data-w="68"></div></div><span class="sp-pct">68%</span></div>
+            <div class="sp-item"><span class="sp-name">Data Cleaning &amp; ETL</span><div class="sp-bar"><div class="sp-fill" data-w="90"></div></div><span class="sp-pct">90%</span></div>
+            <div class="sp-item"><span class="sp-name">Database Management</span><div class="sp-bar"><div class="sp-fill" data-w="80"></div></div><span class="sp-pct">80%</span></div>
+          </div>
+        </div>
+        <div class="skill-panel r" id="sp-lab">
+          <div class="sp-header"><div class="sp-icon">🔬</div><div class="sp-title">Laboratory &amp; Science</div></div>
+          <div class="sp-items">
+            <div class="sp-item"><span class="sp-name">Sample Handling &amp; Documentation</span><div class="sp-bar"><div class="sp-fill" data-w="90"></div></div><span class="sp-pct">90%</span></div>
+            <div class="sp-item"><span class="sp-name">Diagnostic Testing Support</span><div class="sp-bar"><div class="sp-fill" data-w="85"></div></div><span class="sp-pct">85%</span></div>
+            <div class="sp-item"><span class="sp-name">Quality Control &amp; SOP</span><div class="sp-bar"><div class="sp-fill" data-w="88"></div></div><span class="sp-pct">88%</span></div>
+            <div class="sp-item"><span class="sp-name">Lab Performance Reporting</span><div class="sp-bar"><div class="sp-fill" data-w="86"></div></div><span class="sp-pct">86%</span></div>
+          </div>
+        </div>
+        <div class="skill-panel r" id="sp-ai">
+          <div class="sp-header"><div class="sp-icon">🤖</div><div class="sp-title">AI &amp; Automation</div></div>
+          <div class="sp-items">
+            <div class="sp-item"><span class="sp-name">AI Workflow Pipelines</span><div class="sp-bar"><div class="sp-fill" data-w="74"></div></div><span class="sp-pct">74%</span></div>
+            <div class="sp-item"><span class="sp-name">Automated Report Generation</span><div class="sp-bar"><div class="sp-fill" data-w="82"></div></div><span class="sp-pct">82%</span></div>
+            <div class="sp-item"><span class="sp-name">Predictive Analytics</span><div class="sp-bar"><div class="sp-fill" data-w="68"></div></div><span class="sp-pct">68%</span></div>
+            <div class="sp-item"><span class="sp-name">Machine Learning (Basics)</span><div class="sp-bar"><div class="sp-fill" data-w="60"></div></div><span class="sp-pct">60%</span></div>
+          </div>
+        </div>
+        <div class="skill-panel r" id="sp-biz">
+          <div class="sp-header"><div class="sp-icon">📋</div><div class="sp-title">Business &amp; Operations</div></div>
+          <div class="sp-items">
+            <div class="sp-item"><span class="sp-name">CRM Reporting &amp; Tracking</span><div class="sp-bar"><div class="sp-fill" data-w="88"></div></div><span class="sp-pct">88%</span></div>
+            <div class="sp-item"><span class="sp-name">Tender Documentation</span><div class="sp-bar"><div class="sp-fill" data-w="82"></div></div><span class="sp-pct">82%</span></div>
+            <div class="sp-item"><span class="sp-name">Operations Management</span><div class="sp-bar"><div class="sp-fill" data-w="85"></div></div><span class="sp-pct">85%</span></div>
+            <div class="sp-item"><span class="sp-name">Stakeholder Communication</span><div class="sp-bar"><div class="sp-fill" data-w="88"></div></div><span class="sp-pct">88%</span></div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ─── ABOUT ─── -->
-<section id="about">
-  <div class="section-wrap">
-    <div class="section-header reveal">
-      <span class="section-tag">// about me</span>
-      <h2 class="section-title">The Person Behind <em>the Data</em></h2>
-      <div class="divider"></div>
+<!-- PROJECTS -->
+<section id="projects" class="section">
+  <div class="wrap">
+    <div class="sh r"><span class="sh-number">02 / Projects</span><h2 class="sh-title">Featured <em>Work</em></h2><div class="sh-rule"></div></div>
+    <div class="proj-filter r">
+      <button class="pf on" onclick="filterP('all',this)">All</button>
+      <button class="pf" onclick="filterP('excel',this)">Excel</button>
+      <button class="pf" onclick="filterP('powerbi',this)">Power BI</button>
+      <button class="pf" onclick="filterP('sql',this)">SQL</button>
+      <button class="pf" onclick="filterP('python',this)">Python</button>
+      <button class="pf" onclick="filterP('tableau',this)">Tableau</button>
+      <button class="pf" onclick="filterP('ai',this)">AI &amp; ERP</button>
     </div>
-    <div class="about-grid">
-      <div class="about-info-card reveal">
-        <div class="info-item">
-          <span class="info-icon">🎓</span>
-          <div>
-            <div class="info-label">Education</div>
-            <div class="info-value">B.Sc. Biochemistry (2:1)<br>Niger Delta University, 2016</div>
-          </div>
-        </div>
-        <div class="info-item">
-          <span class="info-icon">📍</span>
-          <div>
-            <div class="info-label">Location</div>
-            <div class="info-value">Rivers State, Nigeria</div>
-          </div>
-        </div>
-        <div class="info-item">
-          <span class="info-icon">📧</span>
-          <div>
-            <div class="info-label">Email</div>
-            <div class="info-value"><a href="mailto:preciousamiekumo@gmail.com">preciousamiekumo@gmail.com</a></div>
-          </div>
-        </div>
-        <div class="info-item">
-          <span class="info-icon">📱</span>
-          <div>
-            <div class="info-label">Phone</div>
-            <div class="info-value"><a href="tel:+2347044088361">07044088361</a></div>
-          </div>
-        </div>
-        <div class="info-item">
-          <span class="info-icon">💼</span>
-          <div>
-            <div class="info-label">Open To</div>
-            <div class="info-value">Lab, Tender, Data Analyst, Admin, AI &amp; ERP Roles</div>
-          </div>
-        </div>
-        <div class="info-item">
-          <span class="info-icon">🌐</span>
-          <div>
-            <div class="info-label">GitHub</div>
-            <div class="info-value"><a href="https://github.com/PereTheDataAnalyst" target="_blank">PereTheDataAnalyst</a></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="about-text reveal">
-        <p>I'm a <strong>Biochemistry graduate</strong> who evolved into a data professional with a deep love for turning numbers into narratives. My foundation in laboratory science gives me a unique edge — I understand the operational side of healthcare and oil &amp; gas environments, not just the data side.</p>
-        <p>Over three years at <strong>Pax Corporation</strong> as a Junior Data Analyst, I built dashboards, cleaned data, managed databases, and made performance visible to decision-makers. Currently working as a <strong>Laboratory Assistant</strong> at Hensard University Hospital, I apply the same discipline to sample documentation and testing workflows.</p>
-        <p>Beyond standard analytics, I've developed hands-on capability in <strong>AI automation workflows</strong> and <strong>Python-based ERP system development</strong> — building end-to-end business management tools that handle procurement, inventory, HR, and financial workflows for companies looking to digitize their operations.</p>
-        <div class="highlight-box">
-          💡 <strong>What sets me apart:</strong> I sit at the intersection of science, business operations, and technology. I don't just analyze data — I build the systems, dashboards, and automation pipelines that make data useful.
-        </div>
-      </div>
+    <div class="proj-masonry" id="proj-grid">
+      <div class="proj-card r" data-cat="excel"><span class="pc-badge pc-b-excel">Excel</span><h3 class="pc-title">Laboratory Operations Performance Dashboard</h3><p class="pc-desc">Designed an interactive dashboard tracking 1,470 lab samples with fully automated KPI reporting — completion rates, failure rates, and turnaround time. A direct demonstration of laboratory performance monitoring capability.</p><div class="pc-metrics"><span class="pc-m"><strong>1,470</strong> Samples</span><span class="pc-m"><strong>84%</strong> Completion Rate</span><span class="pc-m"><strong>100%</strong> Approval Rate</span></div><div class="pc-links"><a href="https://shorturl.at/Ql9Bd" target="_blank" class="pc-link pc-link-primary">View Dashboard</a></div></div>
+      <div class="proj-card r" data-cat="powerbi"><span class="pc-badge pc-b-powerbi">Power BI</span><h3 class="pc-title">Sales Performance Executive Dashboard</h3><p class="pc-desc">Analysed $2.3M revenue and $286.4K profit across multiple regions. Uncovered 46.9% year-over-year sales growth and 12.5% profit margin — delivering strategic intelligence for C-suite decisions.</p><div class="pc-metrics"><span class="pc-m"><strong>$2.3M</strong> Revenue</span><span class="pc-m"><strong>46.9%</strong> YoY Growth</span><span class="pc-m"><strong>12.5%</strong> Profit Margin</span></div><div class="pc-links"><a href="https://shorturl.at/FjI1r" target="_blank" class="pc-link pc-link-primary">View Dashboard</a></div></div>
+      <div class="proj-card r" data-cat="excel"><span class="pc-badge pc-b-excel">Excel</span><h3 class="pc-title">CRM Sales Performance Dashboard</h3><p class="pc-desc">Built a CRM dashboard analysing 8,800 opportunities across a $10M revenue pipeline. Tracked win rates, client activity, and sector performance. Automated reporting mirroring tender and business development monitoring.</p><div class="pc-metrics"><span class="pc-m"><strong>8,800</strong> Opportunities</span><span class="pc-m"><strong>$10M</strong> Pipeline</span></div><div class="pc-links"><a href="https://shorturl.at/Rrw7O" target="_blank" class="pc-link pc-link-primary">View Dashboard</a></div></div>
+      <div class="proj-card r" data-cat="sql"><span class="pc-badge pc-b-sql">SQL Server</span><h3 class="pc-title">COVID-19 Global Data Exploration</h3><p class="pc-desc">Explored global COVID-19 data using JOINs, CTEs, Temp Tables, Window Functions, and Aggregate Functions. Identified that 90% of case severity was concentrated in major nations vs minimal impact in smaller countries.</p><div class="pc-metrics"><span class="pc-m">Global Dataset</span><span class="pc-m">CTEs &amp; Window Fns</span></div><div class="pc-links"><a href="https://rb.gy/aluere" target="_blank" class="pc-link pc-link-primary">View Project</a><a href="https://github.com/PereTheDataAnalyst/Portfolio-Projects/blob/main/COVID%20Portfolio%20Projects.sql" target="_blank" class="pc-link pc-link-secondary">GitHub</a></div></div>
+      <div class="proj-card r" data-cat="ai"><span class="pc-badge pc-b-ai">Python · ERP</span><h3 class="pc-title">Full Business ERP System in Python</h3><p class="pc-desc">Developed a complete ERP system covering procurement, inventory tracking, HR and payroll, financial reporting, and sales automation — built end-to-end to digitise operations for businesses moving away from manual processes.</p><div class="pc-metrics"><span class="pc-m">Procurement</span><span class="pc-m">Inventory</span><span class="pc-m">HR &amp; Payroll</span><span class="pc-m">Finance</span></div><div class="pc-links"><a href="https://github.com/PereTheDataAnalyst" target="_blank" class="pc-link pc-link-primary">View on GitHub</a></div></div>
+      <div class="proj-card r" data-cat="python"><span class="pc-badge pc-b-python">Python</span><h3 class="pc-title">Movie Revenue Correlation Analysis</h3><p class="pc-desc">Investigated gross revenue drivers using Pandas, NumPy for statistical calculations, and Matplotlib for visualisation. Identified budget and production company as the strongest revenue predictors through correlation analysis.</p><div class="pc-metrics"><span class="pc-m">Pandas &amp; NumPy</span><span class="pc-m">Matplotlib</span><span class="pc-m">Correlation Analysis</span></div><div class="pc-links"><a href="https://github.com/PereTheDataAnalyst/Portfolio-Projects/blob/main/Movie%20Portfolio%20Projects.ipynb" target="_blank" class="pc-link pc-link-primary">View Notebook</a><a href="https://github.com/PereTheDataAnalyst/Portfolio-Projects/blob/main/Movie%20Portfolio%20Projects.ipynb" target="_blank" class="pc-link pc-link-secondary">GitHub</a></div></div>
+      <div class="proj-card r" data-cat="sql"><span class="pc-badge pc-b-sql">SQL Server</span><h3 class="pc-title">Nashville Housing Data Cleaning</h3><p class="pc-desc">Transformed raw housing data into analysis-ready format — standardised date fields, resolved nulls, split concatenated address columns, and removed duplicates, demonstrating enterprise-grade data quality practices.</p><div class="pc-metrics"><span class="pc-m">Standardisation</span><span class="pc-m">Deduplication</span><span class="pc-m">Null Handling</span></div><div class="pc-links"><a href="https://github.com/PereTheDataAnalyst/Portfolio-Projects/blob/main/Data%20Cleaning%20Portfolio%20Project.sql" target="_blank" class="pc-link pc-link-primary">View Project</a><a href="https://github.com/PereTheDataAnalyst/Portfolio-Projects/blob/main/Data%20Cleaning%20Portfolio%20Project.sql" target="_blank" class="pc-link pc-link-secondary">GitHub</a></div></div>
+      <div class="proj-card r" data-cat="python"><span class="pc-badge pc-b-python">Python</span><h3 class="pc-title">Jumia E-Commerce Web Scraper</h3><p class="pc-desc">Built a Python automation tool using BeautifulSoup and Requests to extract live product pricing from Jumia — replacing hours of manual price research with a single script that delivers clean, structured competitive intelligence.</p><div class="pc-metrics"><span class="pc-m">BeautifulSoup</span><span class="pc-m">Requests</span><span class="pc-m">Price Intelligence</span></div><div class="pc-links"><a href="https://github.com/PereTheDataAnalyst" target="_blank" class="pc-link pc-link-primary">View Project</a></div></div>
+      <div class="proj-card r" data-cat="powerbi"><span class="pc-badge pc-b-powerbi">Power BI</span><h3 class="pc-title">Data Professional Survey Visualisation</h3><p class="pc-desc">Built an interactive Power BI report comparing salaries, satisfaction, and career paths across data roles. Applied Power Query for ETL, established table relationships, and built dynamic comparative charts.</p><div class="pc-metrics"><span class="pc-m">Cross-role Analysis</span><span class="pc-m">Power Query ETL</span></div><div class="pc-links"><a href="https://rb.gy/ve0wgf" target="_blank" class="pc-link pc-link-primary">View Report</a><a href="https://github.com/PereTheDataAnalyst/Portfolio-Projects/blob/main/Data%20survey%20project.pbix" target="_blank" class="pc-link pc-link-secondary">GitHub</a></div></div>
+      <div class="proj-card r" data-cat="excel"><span class="pc-badge pc-b-excel">Excel</span><h3 class="pc-title">Bike Sales Visualisation Dashboard</h3><p class="pc-desc">End-to-end Excel project: cleaned raw data, applied Pivot Tables for aggregation, then built an interactive dashboard with buyer demographic insights and regional sales breakdowns.</p><div class="pc-metrics"><span class="pc-m">Pivot Tables</span><span class="pc-m">Data Cleaning</span><span class="pc-m">Interactive Dashboard</span></div><div class="pc-links"><a href="https://rb.gy/mtmr5w" target="_blank" class="pc-link pc-link-primary">View Dashboard</a><a href="https://github.com/PereTheDataAnalyst/Portfolio-Projects/blob/main/Bike%20sales%20Visualization.xlsx" target="_blank" class="pc-link pc-link-secondary">GitHub</a></div></div>
+      <div class="proj-card r" data-cat="tableau"><span class="pc-badge pc-b-tableau">Tableau</span><h3 class="pc-title">AirBnB Seattle Housing Analysis</h3><p class="pc-desc">Cleaned Seattle AirBnB housing data in Excel then built Tableau visualisations exploring pricing patterns by neighbourhood, occupancy trends, and seasonal variation. Full profile on Tableau Public.</p><div class="pc-metrics"><span class="pc-m">Geo Analysis</span><span class="pc-m">Price Patterns</span><span class="pc-m">Tableau Public</span></div><div class="pc-links"><a href="https://public.tableau.com/app/profile/precious.amiekumo/vizzes" target="_blank" class="pc-link pc-link-primary">View on Tableau</a></div></div>
+      <div class="proj-card r" data-cat="ai"><span class="pc-badge pc-b-ai">AI · Automation</span><h3 class="pc-title">AI-Driven Business Process Automation</h3><p class="pc-desc">Designed Python automation workflows that replace repetitive business tasks — auto-generating reports, routing data between systems, triggering smart notifications, and replacing manual data collection with intelligent pipelines.</p><div class="pc-metrics"><span class="pc-m">Python Pipelines</span><span class="pc-m">Auto Reporting</span><span class="pc-m">Workflow Routing</span></div><div class="pc-links"><a href="https://github.com/PereTheDataAnalyst" target="_blank" class="pc-link pc-link-primary">View on GitHub</a></div></div>
     </div>
   </div>
 </section>
 
-<!-- ─── SKILLS ─── -->
-<section id="skills">
-  <div class="section-wrap">
-    <div class="section-header reveal">
-      <span class="section-tag">// expertise</span>
-      <h2 class="section-title">Skills &amp; <em>Technologies</em></h2>
-      <div class="divider"></div>
-    </div>
-    <div class="skills-grid">
-
-      <div class="skill-card reveal">
-        <div class="skill-card-icon">📊</div>
-        <div class="skill-card-title">Data Analytics & Visualization</div>
-        <div class="skill-item"><span class="skill-name">Microsoft Excel (Advanced)</span><div class="skill-bar"><div class="skill-fill" style="--w:95%" data-width="95"></div></div></div>
-        <div class="skill-item"><span class="skill-name">Power BI</span><div class="skill-bar"><div class="skill-fill" data-width="88"></div></div></div>
-        <div class="skill-item"><span class="skill-name">Tableau</span><div class="skill-bar"><div class="skill-fill" data-width="82"></div></div></div>
-        <div class="skill-item"><span class="skill-name">Looker</span><div class="skill-bar"><div class="skill-fill" data-width="70"></div></div></div>
+<!-- EXPERIENCE -->
+<section id="experience" class="section">
+  <div class="wrap">
+    <div class="sh r"><span class="sh-number">03 / Experience</span><h2 class="sh-title">Career <em>History</em></h2><div class="sh-rule"></div></div>
+    <div class="exp-layout">
+      <div class="exp-timeline">
+        <div class="exp-item r"><div class="exp-dot"></div><div class="exp-date">June 2025 — Present</div><div class="exp-role">Laboratory Assistant</div><div class="exp-co">Hensard University Hospital · Bayelsa State</div><ul class="exp-buls"><li>Support laboratory scientists in sample preparation, labelling, and diagnostic testing workflows</li><li>Maintain accurate records and ensure SOP compliance in a live healthcare environment</li><li>Apply data skills to track laboratory KPIs — turnaround time, completion rates, and test performance</li><li>Ensure equipment safety standards and correct handling procedures at all times</li></ul></div>
+        <div class="exp-item r"><div class="exp-dot"></div><div class="exp-date">June 2022 — May 2025</div><div class="exp-role">Junior Data Analyst</div><div class="exp-co">Pax Corporation · Remote</div><ul class="exp-buls"><li>Analysed operational data using Excel, Power BI, SQL, and Python (Pandas, NumPy, Matplotlib)</li><li>Built dashboards and automated KPI reports, cutting manual reporting effort by ~40%</li><li>Maintained database integrity through rigorous validation, achieving 95% monthly accuracy</li><li>Delivered actionable insights to senior management through statistical analysis and visualisation</li><li>Managed CRM data and supported tender tracking and business development reporting</li></ul></div>
+        <div class="exp-item r"><div class="exp-dot"></div><div class="exp-date">November 2020 — May 2022</div><div class="exp-role">Operations Manager</div><div class="exp-co">Octa Consult · Rivers State</div><ul class="exp-buls"><li>Oversaw daily operations with 90% success rate across scheduling and resource allocation</li><li>Implemented quality control measures achieving 70%+ standards compliance</li><li>Managed client relationships delivering 100% customer satisfaction across all accounts</li></ul></div>
       </div>
-
-      <div class="skill-card reveal">
-        <div class="skill-card-icon">🗄️</div>
-        <div class="skill-card-title">Data Engineering & Databases</div>
-        <div class="skill-item"><span class="skill-name">SQL (SQL Server)</span><div class="skill-bar"><div class="skill-fill" data-width="80"></div></div></div>
-        <div class="skill-item"><span class="skill-name">MySQL</span><div class="skill-bar"><div class="skill-fill" data-width="75"></div></div></div>
-        <div class="skill-item"><span class="skill-name">BigQuery</span><div class="skill-bar"><div class="skill-fill" data-width="68"></div></div></div>
-        <div class="skill-item"><span class="skill-name">Data Cleaning & Validation</span><div class="skill-bar"><div class="skill-fill" data-width="90"></div></div></div>
-      </div>
-
-      <div class="skill-card reveal">
-        <div class="skill-card-icon">🐍</div>
-        <div class="skill-card-title">Python & Development</div>
-        <div class="skill-item"><span class="skill-name">Python (Pandas, NumPy)</span><div class="skill-bar"><div class="skill-fill" data-width="78"></div></div></div>
-        <div class="skill-item"><span class="skill-name">Web Scraping (BeautifulSoup)</span><div class="skill-bar"><div class="skill-fill" data-width="75"></div></div></div>
-        <div class="skill-item"><span class="skill-name">Matplotlib / Seaborn</span><div class="skill-bar"><div class="skill-fill" data-width="72"></div></div></div>
-        <div class="skill-item"><span class="skill-name">ERP System Development</span><div class="skill-bar"><div class="skill-fill" data-width="70"></div></div></div>
-      </div>
-
-      <div class="skill-card reveal">
-        <div class="skill-card-icon">🤖</div>
-        <div class="skill-card-title">AI & Automation</div>
-        <div class="skill-item"><span class="skill-name">AI Workflow Automation</span><div class="skill-bar"><div class="skill-fill" data-width="76"></div></div></div>
-        <div class="skill-item"><span class="skill-name">Process Automation (Python)</span><div class="skill-bar"><div class="skill-fill" data-width="73"></div></div></div>
-        <div class="skill-item"><span class="skill-name">Predictive Analytics</span><div class="skill-bar"><div class="skill-fill" data-width="68"></div></div></div>
-        <div class="skill-item"><span class="skill-name">Machine Learning (Basics)</span><div class="skill-bar"><div class="skill-fill" data-width="60"></div></div></div>
-      </div>
-
-      <div class="skill-card reveal">
-        <div class="skill-card-icon">🔬</div>
-        <div class="skill-card-title">Laboratory & Operations</div>
-        <div class="skill-item"><span class="skill-name">Sample Handling & Documentation</span><div class="skill-bar"><div class="skill-fill" data-width="90"></div></div></div>
-        <div class="skill-item"><span class="skill-name">Quality Control & SOP</span><div class="skill-bar"><div class="skill-fill" data-width="85"></div></div></div>
-        <div class="skill-item"><span class="skill-name">Lab Performance Reporting</span><div class="skill-bar"><div class="skill-fill" data-width="88"></div></div></div>
-        <div class="skill-item"><span class="skill-name">Diagnostic Testing Support</span><div class="skill-bar"><div class="skill-fill" data-width="82"></div></div></div>
-      </div>
-
-      <div class="skill-card reveal">
-        <div class="skill-card-icon">📋</div>
-        <div class="skill-card-title">Business & Soft Skills</div>
-        <div class="skill-item"><span class="skill-name">CRM Reporting & Tracking</span><div class="skill-bar"><div class="skill-fill" data-width="88"></div></div></div>
-        <div class="skill-item"><span class="skill-name">Tender Documentation</span><div class="skill-bar"><div class="skill-fill" data-width="82"></div></div></div>
-        <div class="skill-item"><span class="skill-name">Critical Thinking & Problem Solving</span><div class="skill-bar"><div class="skill-fill" data-width="92"></div></div></div>
-        <div class="skill-item"><span class="skill-name">Stakeholder Communication</span><div class="skill-bar"><div class="skill-fill" data-width="87"></div></div></div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ─── PROJECTS ─── -->
-<section id="projects">
-  <div class="section-wrap">
-    <div class="section-header reveal">
-      <span class="section-tag">// portfolio</span>
-      <h2 class="section-title">Featured <em>Projects</em></h2>
-      <div class="divider"></div>
-    </div>
-
-    <div class="projects-filter reveal">
-      <button class="filter-btn active" onclick="filterProjects('all', this)">All</button>
-      <button class="filter-btn" onclick="filterProjects('excel', this)">Excel</button>
-      <button class="filter-btn" onclick="filterProjects('powerbi', this)">Power BI</button>
-      <button class="filter-btn" onclick="filterProjects('sql', this)">SQL</button>
-      <button class="filter-btn" onclick="filterProjects('python', this)">Python</button>
-      <button class="filter-btn" onclick="filterProjects('tableau', this)">Tableau</button>
-      <button class="filter-btn" onclick="filterProjects('ai', this)">AI & ERP</button>
-    </div>
-
-    <div class="projects-grid" id="projects-grid">
-
-      <!-- Project 1 -->
-      <div class="project-card reveal" data-category="excel">
-        <span class="project-type-badge badge-excel">Excel</span>
-        <h3 class="project-title">Laboratory Operations Performance Dashboard</h3>
-        <p class="project-desc">Designed an interactive Excel dashboard tracking 1,470 lab samples. Monitored efficiency, turnaround time, and test performance with fully automated KPI reporting including completion rates, failure rates, and processing time — mirroring real-world lab operations support.</p>
-        <div class="project-metrics">
-          <span class="metric"><strong>1,470</strong> Samples</span>
-          <span class="metric"><strong>84%</strong> Completion Rate</span>
-          <span class="metric"><strong>100%</strong> Approval Rate</span>
-        </div>
-        <div class="project-links">
-          <a href="https://shorturl.at/Ql9Bd" target="_blank" class="project-link link-view">📊 View Dashboard</a>
-        </div>
-      </div>
-
-      <!-- Project 2 -->
-      <div class="project-card reveal" data-category="excel">
-        <span class="project-type-badge badge-excel">Excel</span>
-        <h3 class="project-title">CRM Sales Performance Dashboard</h3>
-        <p class="project-desc">Built a comprehensive CRM dashboard analyzing 8,800 opportunities across a $10M revenue pipeline. Tracked win rates, client activity by sector, and automated business performance reporting — directly transferable to tender and business development tracking.</p>
-        <div class="project-metrics">
-          <span class="metric"><strong>8,800</strong> Opportunities</span>
-          <span class="metric"><strong>$10M</strong> Pipeline</span>
-        </div>
-        <div class="project-links">
-          <a href="https://shorturl.at/Rrw7O" target="_blank" class="project-link link-view">📊 View Dashboard</a>
-        </div>
-      </div>
-
-      <!-- Project 3 -->
-      <div class="project-card reveal" data-category="powerbi">
-        <span class="project-type-badge badge-powerbi">Power BI</span>
-        <h3 class="project-title">Sales Performance Dashboard</h3>
-        <p class="project-desc">Built an executive Power BI dashboard analyzing $2.3M in revenue and $286.4K profit across multiple regions. Uncovered 46.9% year-over-year growth and 12.5% profit margin, delivering strategic business intelligence for senior decision-makers.</p>
-        <div class="project-metrics">
-          <span class="metric"><strong>$2.3M</strong> Revenue</span>
-          <span class="metric"><strong>46.9%</strong> YoY Growth</span>
-          <span class="metric"><strong>12.5%</strong> Profit Margin</span>
-        </div>
-        <div class="project-links">
-          <a href="https://shorturl.at/FjI1r" target="_blank" class="project-link link-view">📊 View Dashboard</a>
-        </div>
-      </div>
-
-      <!-- Project 4 -->
-      <div class="project-card reveal" data-category="powerbi">
-        <span class="project-type-badge badge-powerbi">Power BI</span>
-        <h3 class="project-title">Data Professional Survey Visualization</h3>
-        <p class="project-desc">Created an interactive Power BI report analyzing survey data across different data professions — data scientists, engineers, analysts, and more. Applied Power Query for data transformation, established table relationships, and built dynamic charts revealing salary and job satisfaction insights.</p>
-        <div class="project-metrics">
-          <span class="metric">Cross-role analysis</span>
-          <span class="metric">Power Query ETL</span>
-        </div>
-        <div class="project-links">
-          <a href="https://rb.gy/ve0wgf" target="_blank" class="project-link link-view">📊 View Report</a>
-          <a href="https://github.com/PereTheDataAnalyst/Portfolio-Projects/blob/main/Data%20survey%20project.pbix" target="_blank" class="project-link link-github">⬡ GitHub</a>
-        </div>
-      </div>
-
-      <!-- Project 5 -->
-      <div class="project-card reveal" data-category="sql">
-        <span class="project-type-badge badge-sql">SQL</span>
-        <h3 class="project-title">COVID-19 Data Exploration</h3>
-        <p class="project-desc">Explored global COVID-19 datasets using SQL Server, applying JOINs, CTEs, Temp Tables, Window Functions, and Aggregate Functions. Uncovered critical patterns — 90% of case severity concentrated in major nations vs minimal impact in smaller countries like Fiji.</p>
-        <div class="project-metrics">
-          <span class="metric">Global Dataset</span>
-          <span class="metric">CTEs & Window Fns</span>
-          <span class="metric">Continental Analysis</span>
-        </div>
-        <div class="project-links">
-          <a href="https://rb.gy/aluere" target="_blank" class="project-link link-view">🔍 View Project</a>
-          <a href="https://github.com/PereTheDataAnalyst/Portfolio-Projects/blob/main/COVID%20Portfolio%20Projects.sql" target="_blank" class="project-link link-github">⬡ GitHub</a>
-        </div>
-      </div>
-
-      <!-- Project 6 -->
-      <div class="project-card reveal" data-category="sql">
-        <span class="project-type-badge badge-sql">SQL</span>
-        <h3 class="project-title">Housing Data Cleaning in SQL</h3>
-        <p class="project-desc">Transformed raw Nashville housing CSV data into clean, analysis-ready format using SQL Server. Applied standardization, handled null values, split concatenated columns, removed duplicates, and dropped redundant fields — demonstrating enterprise-grade data quality practices.</p>
-        <div class="project-metrics">
-          <span class="metric">Data Standardization</span>
-          <span class="metric">Deduplication</span>
-          <span class="metric">Null Handling</span>
-        </div>
-        <div class="project-links">
-          <a href="https://github.com/PereTheDataAnalyst/Portfolio-Projects/blob/main/Data%20Cleaning%20Portfolio%20Project.sql" target="_blank" class="project-link link-view">🔍 View Project</a>
-          <a href="https://github.com/PereTheDataAnalyst/Portfolio-Projects/blob/main/Data%20Cleaning%20Portfolio%20Project.sql" target="_blank" class="project-link link-github">⬡ GitHub</a>
-        </div>
-      </div>
-
-      <!-- Project 7 -->
-      <div class="project-card reveal" data-category="python">
-        <span class="project-type-badge badge-python">Python</span>
-        <h3 class="project-title">Movie Revenue Correlation Analysis</h3>
-        <p class="project-desc">Investigated the key drivers of gross movie revenue using Python. Applied Pandas for data manipulation, NumPy for statistical calculations, and Matplotlib for visualizations — identifying budget and company as the strongest revenue predictors through correlation analysis.</p>
-        <div class="project-metrics">
-          <span class="metric">Pandas & NumPy</span>
-          <span class="metric">Matplotlib</span>
-          <span class="metric">Correlation Analysis</span>
-        </div>
-        <div class="project-links">
-          <a href="https://github.com/PereTheDataAnalyst/Portfolio-Projects/blob/main/Movie%20Portfolio%20Projects.ipynb" target="_blank" class="project-link link-view">🔍 View Notebook</a>
-          <a href="https://github.com/PereTheDataAnalyst/Portfolio-Projects/blob/main/Movie%20Portfolio%20Projects.ipynb" target="_blank" class="project-link link-github">⬡ GitHub</a>
-        </div>
-      </div>
-
-      <!-- Project 8 -->
-      <div class="project-card reveal" data-category="python">
-        <span class="project-type-badge badge-python">Python</span>
-        <h3 class="project-title">Jumia E-Commerce Web Scraper</h3>
-        <p class="project-desc">Built a Python web scraper targeting Jumia's product listings to extract and analyze live price data. Used BeautifulSoup for HTML parsing and Requests for HTTP handling, automating competitive price intelligence collection — a practical AI-adjacent automation project.</p>
-        <div class="project-metrics">
-          <span class="metric">BeautifulSoup</span>
-          <span class="metric">Requests</span>
-          <span class="metric">Price Intelligence</span>
-        </div>
-        <div class="project-links">
-          <a href="https://github.com/PereTheDataAnalyst" target="_blank" class="project-link link-view">🔍 View Project</a>
-          <a href="https://github.com/PereTheDataAnalyst" target="_blank" class="project-link link-github">⬡ GitHub</a>
-        </div>
-      </div>
-
-      <!-- Project 9 -->
-      <div class="project-card reveal" data-category="excel">
-        <span class="project-type-badge badge-excel">Excel</span>
-        <h3 class="project-title">Bike Sales Visualization Dashboard</h3>
-        <p class="project-desc">End-to-end Excel project: imported raw CSV data, performed data cleaning (missing values, duplicates), used Pivot Tables for aggregation, and built an interactive dashboard visualizing buyer demographics, purchase patterns, and regional sales insights.</p>
-        <div class="project-metrics">
-          <span class="metric">Pivot Tables</span>
-          <span class="metric">Data Cleaning</span>
-          <span class="metric">Interactive Dashboard</span>
-        </div>
-        <div class="project-links">
-          <a href="https://rb.gy/mtmr5w" target="_blank" class="project-link link-view">📊 View Dashboard</a>
-          <a href="https://github.com/PereTheDataAnalyst/Portfolio-Projects/blob/main/Bike%20sales%20Visualization.xlsx" target="_blank" class="project-link link-github">⬡ GitHub</a>
-        </div>
-      </div>
-
-      <!-- Project 10 -->
-      <div class="project-card reveal" data-category="tableau">
-        <span class="project-type-badge badge-tableau">Tableau</span>
-        <h3 class="project-title">AirBnB Seattle Housing Analysis</h3>
-        <p class="project-desc">Cleaned and processed Seattle AirBnB housing data in Excel, then built comprehensive Tableau visualizations exploring pricing patterns, occupancy trends, and neighborhood-level insights. Full Tableau Public profile available with multiple interactive dashboards.</p>
-        <div class="project-metrics">
-          <span class="metric">Tableau Public</span>
-          <span class="metric">Geo Analysis</span>
-          <span class="metric">Price Patterns</span>
-        </div>
-        <div class="project-links">
-          <a href="https://public.tableau.com/app/profile/precious.amiekumo/vizzes" target="_blank" class="project-link link-view">📊 View on Tableau</a>
-        </div>
-      </div>
-
-      <!-- Project 11 - AI/ERP -->
-      <div class="project-card reveal" data-category="ai">
-        <span class="project-type-badge badge-ai">AI & Python</span>
-        <h3 class="project-title">Python ERP System — Full Business Workflow</h3>
-        <p class="project-desc">Developed a fully functional Python-based ERP system covering end-to-end business operations: procurement management, inventory tracking, HR and payroll processing, financial reporting, and sales workflow automation. Built to digitize and streamline operations for small to mid-size businesses and companies transitioning from manual processes.</p>
-        <div class="project-metrics">
-          <span class="metric">Procurement</span>
-          <span class="metric">Inventory</span>
-          <span class="metric">HR & Payroll</span>
-          <span class="metric">Financial Reports</span>
-        </div>
-        <div class="project-links">
-          <a href="https://github.com/PereTheDataAnalyst" target="_blank" class="project-link link-view">🔍 View on GitHub</a>
-        </div>
-      </div>
-
-      <!-- Project 12 - AI Automation -->
-      <div class="project-card reveal" data-category="ai">
-        <span class="project-type-badge badge-ai">AI Automation</span>
-        <h3 class="project-title">AI-Driven Business Process Automation</h3>
-        <p class="project-desc">Designed and implemented AI automation workflows to replace repetitive manual business processes. Leveraging Python scripting and AI APIs, these pipelines automate data collection, report generation, notification triggers, and workflow routing — reducing manual workload and improving operational efficiency for business teams.</p>
-        <div class="project-metrics">
-          <span class="metric">Python Pipelines</span>
-          <span class="metric">AI APIs</span>
-          <span class="metric">Auto Reporting</span>
-        </div>
-        <div class="project-links">
-          <a href="https://github.com/PereTheDataAnalyst" target="_blank" class="project-link link-view">🔍 View on GitHub</a>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ─── EXPERIENCE ─── -->
-<section id="experience">
-  <div class="section-wrap">
-    <div class="section-header reveal">
-      <span class="section-tag">// background</span>
-      <h2 class="section-title">Work <em>Experience</em></h2>
-      <div class="divider"></div>
-    </div>
-    <div class="exp-grid">
       <div>
-        <div class="timeline">
-
-          <div class="timeline-item reveal">
-            <div class="timeline-dot"></div>
-            <div class="timeline-date">June 2025 – Present</div>
-            <div class="timeline-role">Laboratory Assistant</div>
-            <div class="timeline-company">Hensard University Hospital · Bayelsa State</div>
-            <ul class="timeline-desc">
-              <li>Support laboratory scientists in sample preparation, labeling, and documentation</li>
-              <li>Maintain accurate laboratory records and ensure proper sample handling procedures</li>
-              <li>Assist in diagnostic testing and laboratory workflow processes</li>
-              <li>Ensure laboratory equipment cleanliness and compliance with safety standards</li>
-              <li>Support laboratory reporting and documentation activities</li>
-            </ul>
-          </div>
-
-          <div class="timeline-item reveal">
-            <div class="timeline-dot"></div>
-            <div class="timeline-date">June 2022 – May 2025</div>
-            <div class="timeline-role">Junior Data Analyst</div>
-            <div class="timeline-company">Pax Corporation · Remote</div>
-            <ul class="timeline-desc">
-              <li>Collected, cleaned, and analyzed operational data to support business reporting</li>
-              <li>Developed Excel and Power BI dashboards to monitor performance and support decision-making</li>
-              <li>Maintained and updated company databases ensuring accuracy and data integrity</li>
-              <li>Achieved 95% monthly customer satisfaction score through critical thinking and conflict resolution</li>
-              <li>Generated 80%+ actionable insights using statistical methods and data visualization tools</li>
-              <li>Created charts, graphs, and dashboards to communicate findings to non-technical stakeholders</li>
-            </ul>
-          </div>
-
-          <div class="timeline-item reveal">
-            <div class="timeline-dot"></div>
-            <div class="timeline-date">Nov. 2020 – May 2022</div>
-            <div class="timeline-role">Manager</div>
-            <div class="timeline-company">Octa Consult · Rivers State</div>
-            <ul class="timeline-desc">
-              <li>Oversaw day-to-day operations with 90% success rate including scheduling and resource allocation</li>
-              <li>Implemented quality control measures achieving 70%+ standards compliance</li>
-              <li>Interacted with clients to understand needs and ensured 100% customer satisfaction</li>
-              <li>Maintained operational records and documentation</li>
-            </ul>
-          </div>
-
-        </div>
-      </div>
-
-      <div>
-        <div class="section-header" style="text-align:left; margin-bottom:2.5rem;">
-          <span class="section-tag">// education & certs</span>
-          <h3 class="section-title" style="font-size:1.8rem;">Academic &amp; <em>Professional</em></h3>
-        </div>
-
-        <div class="timeline">
-          <div class="timeline-item reveal">
-            <div class="timeline-dot"></div>
-            <div class="timeline-date">January 2016</div>
-            <div class="timeline-role">B.Sc. Biochemistry (2:1)</div>
-            <div class="timeline-company">Niger Delta University, Wilberforce Island</div>
-            <p class="timeline-desc">Second Class Upper degree in Biochemistry. Strong foundation in analytical science, research methodology, laboratory techniques, and data interpretation that directly complements data analytics practice.</p>
-          </div>
-
-          <div class="timeline-item reveal">
-            <div class="timeline-dot"></div>
-            <div class="timeline-date">2022</div>
-            <div class="timeline-role">Google Data Analytics Professional Certificate</div>
-            <div class="timeline-company">Google · Coursera</div>
-            <p class="timeline-desc">Industry-recognized certification covering data analysis process, SQL, R, Tableau, and professional best practices.</p>
-          </div>
-
-          <div class="timeline-item reveal">
-            <div class="timeline-dot"></div>
-            <div class="timeline-date">2022</div>
-            <div class="timeline-role">Data Analytics Bootcamp</div>
-            <div class="timeline-company">Professional Development</div>
-            <p class="timeline-desc">Intensive hands-on training in Excel, SQL, Power BI, Python, and real-world analytics projects.</p>
-          </div>
-
-          <div class="timeline-item reveal">
-            <div class="timeline-dot"></div>
-            <div class="timeline-date">2023</div>
-            <div class="timeline-role">Effective Problem Solving & Decision Making</div>
-            <div class="timeline-company">Professional Certification</div>
-          </div>
-
-          <div class="timeline-item reveal">
-            <div class="timeline-dot"></div>
-            <div class="timeline-date">2023</div>
-            <div class="timeline-role">Communication in the 21st Century Workplace</div>
-            <div class="timeline-company">Professional Certification</div>
-          </div>
+        <div class="edu-block r"><div class="edu-label">Education</div><div class="edu-card"><div class="edu-degree">B.Sc. Biochemistry — Second Class Upper (2:1)</div><div class="edu-inst">Niger Delta University, Wilberforce Island, Nigeria</div><div class="edu-year">January 2016</div></div></div>
+        <div class="r"><div class="edu-label">Certifications</div>
+          <div class="cert-item"><div class="cert-bullet">✦</div><div><div class="cert-name">Google Data Analytics Professional Certificate</div><div class="cert-org">Google / Coursera · 2022</div></div></div>
+          <div class="cert-item"><div class="cert-bullet">✦</div><div><div class="cert-name">Data Analytics Bootcamp</div><div class="cert-org">Professional Development · 2022</div></div></div>
+          <div class="cert-item"><div class="cert-bullet">✦</div><div><div class="cert-name">Effective Problem Solving &amp; Decision Making</div><div class="cert-org">Professional Certification · 2023</div></div></div>
+          <div class="cert-item"><div class="cert-bullet">✦</div><div><div class="cert-name">Communication in the 21st Century Workplace</div><div class="cert-org">Professional Certification · 2023</div></div></div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ─── DOWNLOAD CV ─── -->
-<section id="download">
-  <div class="section-wrap">
-    <div class="section-header reveal">
-      <span class="section-tag">// download</span>
-      <h2 class="section-title">Download My <em>CV</em></h2>
-      <p style="color:var(--text-muted); margin-top:1rem; font-size:0.95rem;">Multiple tailored versions available — choose the one relevant to the role you're considering.</p>
-      <div class="divider"></div>
-    </div>
-    <div class="cv-grid">
-
-      <div class="cv-card reveal">
-        <div class="cv-icon">📊</div>
-        <div class="cv-title">Data Analyst CV</div>
-        <p class="cv-desc">Focused on data analytics, dashboard development, SQL, Power BI, Excel, Python, and reporting experience. Best for Data Analyst, Business Analyst, and Reporting roles.</p>
-        <a href="mailto:preciousamiekumo@gmail.com?subject=CV Request - Data Analyst" class="btn btn-primary" style="display:inline-flex; justify-content:center;">📥 Request CV</a>
+<!-- ABOUT -->
+<section id="about" class="section">
+  <div class="wrap">
+    <div class="sh r"><span class="sh-number">04 / About</span><h2 class="sh-title">The Person Behind <em>the Data</em></h2><div class="sh-rule"></div></div>
+    <div class="about-layout">
+      <div class="r-left">
+        <div class="portrait-frame">
+          <span class="portrait-initial">PA</span>
+          <div class="ai-row"><span class="ai-icon">📍</span><div><div class="ai-key">Location</div><div class="ai-val">Rivers State, Nigeria</div></div></div>
+          <div class="ai-row"><span class="ai-icon">📧</span><div><div class="ai-key">Email</div><div class="ai-val"><a href="mailto:preciousamiekumo@gmail.com">preciousamiekumo@gmail.com</a></div></div></div>
+          <div class="ai-row"><span class="ai-icon">📱</span><div><div class="ai-key">Phone</div><div class="ai-val"><a href="tel:+2347044088361">+234 704 408 8361</a></div></div></div>
+          <div class="ai-row"><span class="ai-icon">🎓</span><div><div class="ai-key">Education</div><div class="ai-val">B.Sc. Biochemistry (2:1), NDU</div></div></div>
+          <div class="ai-row"><span class="ai-icon">🌐</span><div><div class="ai-key">GitHub</div><div class="ai-val"><a href="https://github.com/PereTheDataAnalyst" target="_blank">PereTheDataAnalyst</a></div></div></div>
+          <div class="ai-row"><span class="ai-icon">💼</span><div><div class="ai-key">Open To</div><div class="ai-val">Data · Lab · Tender · Admin · AI &amp; ERP</div></div></div>
+        </div>
       </div>
-
-      <div class="cv-card reveal">
-        <div class="cv-icon">🔬</div>
-        <div class="cv-title">Laboratory & Data Support CV</div>
-        <p class="cv-desc">Highlights laboratory operations, sample management, diagnostic support, and operational data reporting. Ideal for Lab Technician, Lab Assistant, and Data Support roles.</p>
-        <a href="mailto:preciousamiekumo@gmail.com?subject=CV Request - Laboratory and Data Support" class="btn btn-primary" style="display:inline-flex; justify-content:center;">📥 Request CV</a>
+      <div class="r">
+        <p class="about-pull">"I don't just analyse data — I build the systems that make data useful for the people who need it."</p>
+        <div class="about-body">
+          <p>I started as a <strong>Biochemistry graduate</strong> trained to observe patterns, test hypotheses, and document findings with precision. That scientific discipline is the foundation everything I do in data is built on — rigour is not a habit, it is how I think.</p>
+          <p>Three years working as a <strong>Junior Data Analyst at Pax Corporation</strong> sharpened my ability to turn messy operational data into clean, decision-ready intelligence. I built dashboards, automated reports, managed databases, and made performance visible to the people who needed it.</p>
+          <p>Today, working as a <strong>Laboratory Assistant at Hensard University Hospital</strong>, I bring those same standards into a live clinical environment — sample documentation, testing workflows, performance tracking, all handled with the same accuracy that data work demands.</p>
+          <p>What most CVs don't capture is what I build <strong>outside of job titles</strong>: a fully functional Python ERP system, AI automation pipelines, web scrapers, and data workflows. I build because I find it meaningful — and because the gap between a good analyst and a great one is the ability to engineer, not just report.</p>
+        </div>
+        <div class="about-highlight">Open to <strong>Lab, Tender Administration, Data Analyst, Administrative, AI &amp; ERP</strong> roles across healthcare, oil &amp; gas, NGO, research, and technology environments. Available immediately.</div>
       </div>
-
-      <div class="cv-card reveal">
-        <div class="cv-icon">📋</div>
-        <div class="cv-title">Tender & Administration CV</div>
-        <p class="cv-desc">Emphasizes documentation management, CRM tracking, tender administration, and operational coordination. Perfect for Tender Administrator and Admin roles.</p>
-        <a href="mailto:preciousamiekumo@gmail.com?subject=CV Request - Tender and Administration" class="btn btn-primary" style="display:inline-flex; justify-content:center;">📥 Request CV</a>
-      </div>
-
-      <div class="cv-card reveal">
-        <div class="cv-icon">🤖</div>
-        <div class="cv-title">AI & ERP Development CV</div>
-        <p class="cv-desc">Showcases Python ERP system development, AI automation workflows, process optimization, and technology implementation skills. For tech-forward and software roles.</p>
-        <a href="mailto:preciousamiekumo@gmail.com?subject=CV Request - AI and ERP Development" class="btn btn-primary" style="display:inline-flex; justify-content:center;">📥 Request CV</a>
-      </div>
-
-    </div>
-
-    <div style="text-align:center; margin-top:3rem;" class="reveal">
-      <p style="color:var(--text-muted); font-size:0.88rem;">💡 To have downloadable PDF CVs on this site, add your CV PDF files to the same folder as this HTML file and update the href links above.</p>
     </div>
   </div>
 </section>
 
-<!-- ─── CONTACT ─── -->
-<section id="contact">
-  <div class="section-wrap">
-    <div class="section-header reveal">
-      <span class="section-tag">// get in touch</span>
-      <h2 class="section-title">Let's <em>Connect</em></h2>
-      <div class="divider"></div>
+<!-- DOWNLOAD -->
+<section id="download" class="section">
+  <div class="wrap">
+    <div class="sh r"><span class="sh-number">05 / Download</span><h2 class="sh-title">Choose Your <em>CV</em></h2><div class="sh-rule"></div></div>
+    <p class="dl-intro r">Four tailored versions — each written for a specific role type. Download the one that fits the position you are considering.</p>
+    <div class="cv-grid r">
+      <div class="cv-card"><div class="cv-num">01</div><div class="cv-label">For Data Roles</div><div class="cv-title-text">Data Analyst</div><p class="cv-desc-text">Excel, Power BI, SQL, Python (Pandas, NumPy, Matplotlib), Tableau. Best for Data Analyst, BI Analyst, and Reporting positions.</p><a href="CV1_DataAnalyst_PreciousAmiekumo.pdf" download class="cv-dl-btn">↓ Download CV</a></div>
+      <div class="cv-card"><div class="cv-num">02</div><div class="cv-label">For Lab Roles</div><div class="cv-title-text">Laboratory &amp; Data Support</div><p class="cv-desc-text">Lab operations, sample handling, SOP compliance, and data reporting. For Lab Technician and Data Support roles.</p><a href="CV2_Laboratory_PreciousAmiekumo.pdf" download class="cv-dl-btn">↓ Download CV</a></div>
+      <div class="cv-card"><div class="cv-num">03</div><div class="cv-label">For Admin Roles</div><div class="cv-title-text">Tender &amp; Administration</div><p class="cv-desc-text">CRM tracking, documentation management, tender administration, and operational coordination for commercial environments.</p><a href="CV3_Tender_Admin_PreciousAmiekumo.pdf" download class="cv-dl-btn">↓ Download CV</a></div>
+      <div class="cv-card"><div class="cv-num">04</div><div class="cv-label">For Tech Roles</div><div class="cv-title-text">AI &amp; ERP Development</div><p class="cv-desc-text">Python ERP systems, AI automation workflows, web scraping, and data engineering for technology-forward positions.</p><a href="CV4_AI_ERP_PreciousAmiekumo.pdf" download class="cv-dl-btn">↓ Download CV</a></div>
     </div>
-    <div class="contact-grid">
+  </div>
+</section>
 
-      <div class="contact-info reveal">
-        <div class="contact-item">
-          <div class="contact-icon-wrap">📧</div>
-          <div>
-            <div class="contact-label">Email</div>
-            <div class="contact-value"><a href="mailto:preciousamiekumo@gmail.com">preciousamiekumo@gmail.com</a></div>
-          </div>
-        </div>
-        <div class="contact-item">
-          <div class="contact-icon-wrap">📱</div>
-          <div>
-            <div class="contact-label">Phone</div>
-            <div class="contact-value"><a href="tel:+2347044088361">+234 704 408 8361</a></div>
-          </div>
-        </div>
-        <div class="contact-item">
-          <div class="contact-icon-wrap">📍</div>
-          <div>
-            <div class="contact-label">Location</div>
-            <div class="contact-value">Rivers State, Nigeria</div>
-          </div>
-        </div>
-
-        <div class="social-links">
-          <a href="https://www.linkedin.com/in/precious-amiekumo-6a83aa29b/" target="_blank" class="social-link">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-            LinkedIn
-          </a>
-          <a href="https://github.com/PereTheDataAnalyst" target="_blank" class="social-link">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-            GitHub
-          </a>
-          <a href="https://twitter.com/Pere_presh" target="_blank" class="social-link">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.748l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-            X (Twitter)
-          </a>
+<!-- CONTACT -->
+<section id="contact" class="section">
+  <div class="wrap">
+    <div class="sh r"><span class="sh-number">06 / Contact</span><h2 class="sh-title">Let's <em>Talk</em></h2><div class="sh-rule"></div></div>
+    <div class="contact-layout">
+      <div class="r-left">
+        <div class="contact-item"><div class="ci-icon">📧</div><div><div class="ci-key">Email</div><div class="ci-val"><a href="mailto:preciousamiekumo@gmail.com">preciousamiekumo@gmail.com</a></div></div></div>
+        <div class="contact-item"><div class="ci-icon">📱</div><div><div class="ci-key">Phone</div><div class="ci-val"><a href="tel:+2347044088361">+234 704 408 8361</a></div></div></div>
+        <div class="contact-item"><div class="ci-icon">📍</div><div><div class="ci-key">Location</div><div class="ci-val">Rivers State, Nigeria — Available Immediately</div></div></div>
+        <div class="social-grid">
+          <a href="https://www.linkedin.com/in/precious-amiekumo-6a83aa29b/" target="_blank" class="sc-link">LinkedIn</a>
+          <a href="https://github.com/PereTheDataAnalyst" target="_blank" class="sc-link">GitHub</a>
+          <a href="https://twitter.com/Pere_presh" target="_blank" class="sc-link">X / Twitter</a>
+          <a href="https://public.tableau.com/app/profile/precious.amiekumo/vizzes" target="_blank" class="sc-link">Tableau Public</a>
         </div>
       </div>
-
-      <div class="reveal">
-        <form class="contact-form" onsubmit="handleForm(event)">
-          <input class="form-input" type="text" placeholder="Your Name" required/>
-          <input class="form-input" type="email" placeholder="Your Email" required/>
-          <input class="form-input" type="text" placeholder="Subject (e.g. Job Opportunity – Data Analyst)"/>
-          <textarea class="form-textarea" rows="5" placeholder="Your message..." required></textarea>
-          <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center;">
-            🚀 Send Message
-          </button>
-          <p id="form-msg" style="text-align:center; font-size:0.85rem; color:var(--purple-glow); display:none; margin-top:0.5rem;">
-            ✅ Thanks! Opening your email client...
-          </p>
+      <div class="r">
+        <form class="contact-form" onsubmit="sendMsg(event)">
+          <div class="cf-group">
+            <div><label class="cf-label">Your Name</label><input class="cf-input" type="text" placeholder="Full name" required/></div>
+            <div><label class="cf-label">Your Email</label><input class="cf-input" type="email" placeholder="email@example.com" required/></div>
+          </div>
+          <div><label class="cf-label">Subject</label><input class="cf-input" type="text" placeholder="e.g. Job Opportunity — Data Analyst"/></div>
+          <div><label class="cf-label">Message</label><textarea class="cf-textarea" rows="5" placeholder="Your message..." required></textarea></div>
+          <button type="submit" class="btn btn-gold" style="width:100%;justify-content:center;cursor:none;">Send Message</button>
+          <p id="form-ok" style="display:none;text-align:center;font-size:0.75rem;color:#5aab57;margin-top:0.5rem;font-family:'DM Mono',monospace;letter-spacing:0.08em;">✓ Opening your email client...</p>
         </form>
       </div>
-
     </div>
   </div>
 </section>
 
-<!-- ─── FOOTER ─── -->
 <footer>
-  <p>© 2025 <span>Precious Amiekumo</span> · Data Analyst · Laboratory Operations · AI & ERP Development</p>
-  <p style="margin-top:0.5rem; font-size:0.78rem;">Rivers State, Nigeria · Available Immediately · Built with 💜</p>
+  <div class="footer-logo">PA.</div>
+  <div class="footer-copy">© 2025 Precious Amiekumo. All rights reserved.</div>
+  <div class="footer-links"><a href="#hero">Top</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#contact">Contact</a></div>
 </footer>
 
 <script>
-/* ─── NAV TOGGLE (mobile) ─── */
-let navOpen = false;
-function toggleNav() {
-  navOpen = !navOpen;
-  const links = document.querySelector('.nav-links');
-  if (navOpen) {
-    links.style.display = 'flex';
-    links.style.flexDirection = 'column';
-    links.style.position = 'fixed';
-    links.style.top = '60px';
-    links.style.left = '0';
-    links.style.right = '0';
-    links.style.background = 'rgba(13,10,26,0.98)';
-    links.style.padding = '2rem';
-    links.style.gap = '1.5rem';
-    links.style.zIndex = '99';
-    links.style.backdropFilter = 'blur(20px)';
-    links.style.borderBottom = '1px solid rgba(124,58,237,0.25)';
-  } else {
-    links.style.display = '';
-    links.style.position = '';
-    links.style.top = '';
-  }
-}
-
-/* ─── SCROLL REVEAL ─── */
-const reveals = document.querySelectorAll('.reveal');
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach((entry, i) => {
-    if (entry.isIntersecting) {
-      setTimeout(() => entry.target.classList.add('visible'), i * 60);
-    }
-  });
-}, { threshold: 0.1 });
-reveals.forEach(el => observer.observe(el));
-
-/* ─── SKILL BARS ─── */
-const barObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.querySelectorAll('.skill-fill').forEach(bar => {
-        const w = bar.getAttribute('data-width');
-        bar.style.width = w + '%';
-        bar.classList.add('animate');
-      });
-    }
-  });
-}, { threshold: 0.3 });
-document.querySelectorAll('.skill-card').forEach(card => barObserver.observe(card));
-
-/* ─── PROJECT FILTER ─── */
-function filterProjects(category, btn) {
-  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
-  document.querySelectorAll('.project-card').forEach(card => {
-    if (category === 'all' || card.dataset.category === category) {
-      card.style.display = 'flex';
-      setTimeout(() => { card.style.opacity='1'; card.style.transform=''; }, 10);
-    } else {
-      card.style.opacity = '0';
-      card.style.transform = 'scale(0.95)';
-      setTimeout(() => { card.style.display='none'; }, 200);
-    }
-  });
-}
-
-/* ─── FORM ─── */
-function handleForm(e) {
-  e.preventDefault();
-  const fields = e.target.querySelectorAll('input, textarea');
-  const name = fields[0].value;
-  const email = fields[1].value;
-  const subject = fields[2].value || 'Portfolio Contact';
-  const msg = fields[3].value;
-  const mailto = `mailto:preciousamiekumo@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent('From: ' + name + ' (' + email + ')\n\n' + msg)}`;
-  window.location.href = mailto;
-  document.getElementById('form-msg').style.display = 'block';
-  e.target.reset();
-}
-
-/* ─── SMOOTH ANCHOR ─── */
-document.querySelectorAll('a[href^="#"]').forEach(a => {
-  a.addEventListener('click', e => {
-    const target = document.querySelector(a.getAttribute('href'));
-    if (target) {
-      e.preventDefault();
-      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      if (navOpen) toggleNav();
-    }
-  });
+const cur=document.getElementById('cursor'),ring=document.getElementById('cursor-ring');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px';});
+(function animRing(){rx+=(mx-rx)*0.12;ry+=(my-ry)*0.12;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(animRing);})();
+document.querySelectorAll('a,button,.proj-card,.cv-card,.metric-box').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{cur.style.width='16px';cur.style.height='16px';ring.style.width='52px';ring.style.height='52px';});
+  el.addEventListener('mouseleave',()=>{cur.style.width='10px';cur.style.height='10px';ring.style.width='36px';ring.style.height='36px';});
 });
+window.addEventListener('scroll',()=>document.getElementById('nav').classList.toggle('scrolled',window.scrollY>60));
+let navOpen=false;
+function toggleNav(){navOpen=!navOpen;const nl=document.querySelector('.nav-links');if(navOpen){nl.style.cssText='display:flex;flex-direction:column;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(10,8,4,0.98);padding:6rem 5%;gap:2rem;z-index:999;justify-content:center;backdrop-filter:blur(20px);';}else{nl.style.cssText='';}}
+const revObs=new IntersectionObserver(entries=>{entries.forEach((e,i)=>{if(e.isIntersecting)setTimeout(()=>e.target.classList.add('on'),i*80);});},{threshold:0.08});
+document.querySelectorAll('.r,.r-left').forEach(el=>revObs.observe(el));
+const barObs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.querySelectorAll('.sp-fill').forEach(b=>b.style.width=b.dataset.w+'%');});},{threshold:0.2});
+document.querySelectorAll('.skill-panel').forEach(p=>barObs.observe(p));
+const panels=document.querySelectorAll('.skill-panel'),navItems=document.querySelectorAll('.skill-nav-item');
+const skillsObs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){navItems.forEach(n=>n.classList.remove('active'));const m=document.querySelector(`[data-target="${e.target.id}"]`);if(m)m.classList.add('active');}});},{threshold:0.5});
+panels.forEach(p=>skillsObs.observe(p));
+function filterP(cat,btn){document.querySelectorAll('.pf').forEach(b=>b.classList.remove('on'));btn.classList.add('on');document.querySelectorAll('.proj-card').forEach(c=>{const show=cat==='all'||c.dataset.cat===cat;c.style.transition='opacity 0.3s,transform 0.3s';if(show){c.style.display='block';setTimeout(()=>{c.style.opacity='1';c.style.transform='none';},10);}else{c.style.opacity='0';c.style.transform='scale(0.95)';setTimeout(()=>c.style.display='none',300);}});}
+function sendMsg(e){e.preventDefault();const els=e.target.querySelectorAll('input,textarea');const name=els[0].value,email=els[1].value,subj=els[2].value||'Portfolio Enquiry',msg=els[3].value;window.location.href=`mailto:preciousamiekumo@gmail.com?subject=${encodeURIComponent(subj)}&body=${encodeURIComponent('From: '+name+' ('+email+')\n\n'+msg)}`;document.getElementById('form-ok').style.display='block';e.target.reset();}
+document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{const t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'});if(navOpen)toggleNav();}});});
 </script>
 </body>
 </html>
