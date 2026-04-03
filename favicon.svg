@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
+  <rect width="48" height="48" rx="10" fill="#060c1a"/>
+  <rect x="1" y="1" width="46" height="46" rx="9" fill="none" stroke="#00d4aa" stroke-width="1.5"/>
+  <!-- P letterform -->
+  <rect x="13" y="11" width="4" height="26" rx="2" fill="#00d4aa"/>
+  <rect x="13" y="11" width="16" height="4" rx="2" fill="#00d4aa"/>
+  <rect x="13" y="23" width="16" height="4" rx="2" fill="#00d4aa"/>
+  <rect x="25" y="11" width="4" height="16" rx="2" fill="#00d4aa"/>
+</svg>
