@@ -560,6 +560,180 @@ footer{border-top:1px solid var(--b1);padding:22px 0}
 /* ═══════════════════════════════════════════════════════════
    DESKTOP — 1024px+
 ════════════════════════════════════════════════════════════ */
+/* ═══ FEATURE 1: TYPED TEXT ════════════════════════════════ */
+.typed-wrap{display:inline;position:relative}
+.typed-text{color:var(--teal);font-weight:600}
+.typed-cursor{display:inline-block;width:2px;height:1em;background:var(--teal);margin-left:2px;vertical-align:text-bottom;animation:blink .75s step-end infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+/* ═══ FEATURE 4: VISITOR BADGE ════════════════════════════ */
+.vbadge{display:inline-flex;align-items:center;gap:5px;font-family:var(--fm);font-size:.58rem;font-weight:500;letter-spacing:.07em;text-transform:uppercase;padding:4px 10px;border-radius:99px;color:var(--t2);border:1px solid var(--b2);background:var(--surf);white-space:nowrap}
+.vbadge-num{color:var(--teal);font-weight:700}
+/* ═══ FEATURE 2: COPY EMAIL / FEATURE 3: WHATSAPP ══════════ */
+.copy-btn{font-family:var(--fm);font-size:.62rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--teal);background:var(--td);border:1px solid var(--teal);padding:7px 13px;border-radius:7px;display:inline-flex;align-items:center;gap:6px;transition:var(--tr);min-height:38px;cursor:pointer}
+.copy-btn:hover{background:var(--tm)}
+.copy-btn.copied{color:var(--bg);background:var(--teal)}
+.wa-btn{display:flex;align-items:center;gap:14px;background:rgba(37,211,102,.1);border:1px solid rgba(37,211,102,.35);border-radius:10px;padding:13px 16px;text-decoration:none;transition:var(--tr);min-height:52px}
+.wa-btn:hover{background:rgba(37,211,102,.18);border-color:rgba(37,211,102,.6);transform:translateX(3px)}
+.wa-icon{font-size:1.1rem;width:20px;text-align:center;flex-shrink:0}
+.wa-lbl{font-family:var(--fm);font-size:.58rem;letter-spacing:.07em;text-transform:uppercase;color:rgba(37,211,102,.8);margin-bottom:1px}
+.wa-val{font-size:.84rem;color:var(--t1);font-weight:500}
+/* ═══ FEATURE 6: DASHBOARD REQUEST WIDGET ═════════════════ */
+#dreq-fab{position:fixed;bottom:72px;right:14px;z-index:91;background:linear-gradient(135deg,#3b82f6,#1d4ed8);color:#fff;border:none;border-radius:12px;padding:10px 14px;font-family:var(--fm);font-size:.6rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;display:flex;align-items:center;gap:6px;box-shadow:0 6px 20px rgba(59,130,246,.4);transition:var(--tr);cursor:pointer}
+#dreq-fab:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(59,130,246,.5)}
+#dreq-fab .dreq-icon{font-size:1rem}
+#dreq{display:none;position:fixed;inset:0;z-index:950;background:rgba(4,8,18,.97);backdrop-filter:blur(16px);align-items:center;justify-content:center;padding:16px}
+#dreq.op{display:flex;animation:fIn .2s ease}
+.dreq-inner{max-width:540px;width:100%;background:var(--surf);border:1px solid var(--b2);border-radius:20px;overflow:hidden}
+.dreq-hdr{background:linear-gradient(135deg,rgba(59,130,246,.2),rgba(59,130,246,.08));padding:20px 22px;border-bottom:1px solid var(--b1)}
+.dreq-hdr-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+.dreq-title{font-family:var(--fh);font-size:1.1rem;font-weight:800;color:var(--t1)}
+.dreq-cl{background:var(--surf2);border:1px solid var(--b2);color:var(--t2);border-radius:6px;padding:5px 10px;font-family:var(--fm);font-size:.62rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase}
+.dreq-sub{font-size:.83rem;color:var(--t3)}
+.dreq-body{padding:20px 22px}
+.dreq-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.df{display:flex;flex-direction:column;gap:5px;margin-bottom:12px}
+.df label{font-family:var(--fm);font-size:.6rem;font-weight:500;letter-spacing:.09em;text-transform:uppercase;color:var(--t3)}
+.df input,.df select,.df textarea{background:var(--bg2);border:1px solid var(--b1);border-radius:7px;color:var(--t1);font-family:var(--fb);font-size:.88rem;padding:10px 12px;width:100%;outline:none;transition:var(--tr);-webkit-appearance:none;min-height:42px}
+.df input:focus,.df select:focus,.df textarea:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(59,130,246,.12)}
+.df input::placeholder,.df textarea::placeholder{color:var(--t3)}
+.df select option{background:var(--bg2)}
+.df textarea{resize:vertical;min-height:80px}
+.dreq-send{width:100%;padding:12px;border:none;background:linear-gradient(135deg,#3b82f6,#1d4ed8);color:#fff;border-radius:7px;font-family:var(--fm);font-size:.7rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;display:flex;align-items:center;justify-content:center;gap:7px;transition:var(--tr);min-height:44px;margin-top:4px}
+.dreq-send:hover{opacity:.9;transform:translateY(-1px)}
+.dreq-note{font-size:.74rem;color:var(--t3);text-align:center;margin-top:10px}
+.df-full{grid-column:1/-1}
+/* ═══ FEATURE 7: PROJECT METRICS ══════════════════════════ */
+#metrics{background:var(--bg3)}
+.metrics-intro{text-align:center;max-width:560px;margin:0 auto 36px}
+.metrics-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.metric-card{background:var(--surf);border:1px solid var(--b1);border-radius:14px;padding:18px 16px;position:relative;overflow:hidden;transition:var(--tr)}
+.metric-card:hover{border-color:var(--b2);transform:translateY(-3px);box-shadow:0 12px 36px var(--sh)}
+.metric-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;opacity:0;transition:opacity .3s}
+.metric-card.t::before{background:var(--teal);opacity:1}
+.metric-card.a::before{background:var(--amber);opacity:1}
+.metric-card.b::before{background:var(--blue);opacity:1}
+.metric-card.p::before{background:#e879f9;opacity:1}
+.metric-icon{font-size:1.3rem;margin-bottom:10px}
+.metric-num{font-family:var(--fh);font-size:1.8rem;font-weight:800;color:var(--teal);line-height:1;margin-bottom:4px;display:block}
+.metric-card.a .metric-num{color:var(--amber)}
+.metric-card.b .metric-num{color:var(--blue)}
+.metric-card.p .metric-num{color:#e879f9}
+.metric-label{font-family:var(--fm);font-size:.62rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--t3)}
+.metric-sub{font-size:.78rem;color:var(--t3);margin-top:3px;line-height:1.4}
+/* ═══ FEATURE 8: NIGERIAN SALARY EXPLORER ═════════════════ */
+#salary{background:var(--bg)}
+.sal-intro{max-width:640px;margin-bottom:28px}
+.sal-shell{background:#0d1117;border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,.12)}
+[data-theme="light"] .sal-shell{background:#1a1f2e}
+.sal-hdr{background:#161b22;padding:12px 14px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;border-bottom:1px solid rgba(255,255,255,.08)}
+.sal-hdr-l{display:flex;align-items:center;gap:10px}
+.sal-hdr-icon{font-size:1.2rem;color:var(--teal)}
+.sal-hdr-title{font-family:var(--fh);font-size:.9rem;font-weight:800;color:#eef2ff}
+.sal-hdr-sub{font-family:var(--fm);font-size:.55rem;color:#8da4c4;letter-spacing:.04em;margin-top:1px}
+.sal-badge{font-family:var(--fm);font-size:.58rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#00d4aa;background:rgba(0,212,170,.15);border:1px solid #00d4aa;padding:3px 9px;border-radius:5px}
+.sal-filters{background:#0d1117;padding:8px 12px;border-bottom:1px solid rgba(255,255,255,.06);display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.sal-fg{display:flex;align-items:center;gap:5px;flex-wrap:wrap}
+.sal-flbl{font-family:var(--fm);font-size:.55rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:#4a607f;white-space:nowrap;margin-right:2px}
+.sal-btn{font-family:var(--fm);font-size:.57rem;color:#8da4c4;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);padding:3px 9px;border-radius:4px;cursor:pointer;transition:all .18s;white-space:nowrap;min-height:26px}
+.sal-btn:hover{background:rgba(0,212,170,.15);color:#00d4aa;border-color:rgba(0,212,170,.4)}
+.sal-btn.active{background:rgba(0,212,170,.22);color:#00d4aa;border-color:#00d4aa}
+.sal-btn.active-a{background:rgba(245,158,11,.22);color:#f59e0b;border-color:#f59e0b}
+.sal-kpis{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:rgba(255,255,255,.05);border-bottom:1px solid rgba(255,255,255,.06)}
+.sal-kpi{background:#0d1117;padding:10px 12px}
+.sal-kpi-lbl{font-family:var(--fm);font-size:.53rem;letter-spacing:.09em;text-transform:uppercase;color:#3a5068;margin-bottom:3px}
+.sal-kpi-val{font-family:var(--fh);font-size:1.15rem;font-weight:800;line-height:1}
+.sal-kpi-sub{font-size:.58rem;color:#4a607f;margin-top:2px}
+.sal-charts{padding:10px;display:grid;grid-template-columns:1fr;gap:8px}
+.sal-cc{background:#161b22;border-radius:7px;padding:10px;border:1px solid rgba(255,255,255,.06)}
+.sal-ct{font-family:var(--fm);font-size:.58rem;font-weight:600;color:#8da4c4;letter-spacing:.1em;text-transform:uppercase;margin-bottom:10px;display:flex;align-items:center;gap:5px}
+.sal-ct::before{content:'—';color:#00d4aa}
+.sal-cw{position:relative;height:160px}
+.sal-cw.sm{height:130px}
+.sal-insight{background:#161b22;border-radius:7px;padding:12px;border:1px solid rgba(255,255,255,.06)}
+.sal-ins-row{display:flex;align-items:flex-start;gap:8px;padding:6px 0;border-bottom:1px solid rgba(255,255,255,.04)}
+.sal-ins-row:last-child{border-bottom:none}
+.sal-ins-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;margin-top:4px}
+.sal-ins-text{font-size:.8rem;color:#8da4c4;line-height:1.55}
+.sal-ins-text strong{color:#eef2ff}
+/* ═══ FEATURE 5: RESUME ROLE TOGGLE ════════════════════════ */
+#rtoggle{background:var(--bg2)}
+.rt-wrap{background:var(--surf);border:1px solid var(--b2);border-radius:18px;overflow:hidden}
+.rt-top{background:linear-gradient(135deg,var(--bg3),var(--bg2));padding:20px 20px 0;text-align:center;border-bottom:1px solid var(--b1)}
+.rt-toggle-row{display:inline-flex;background:var(--bg2);border:1px solid var(--b2);border-radius:99px;padding:3px;gap:2px;margin-bottom:-1px}
+.rt-tab{font-family:var(--fm);font-size:.65rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:8px 18px;border-radius:99px;cursor:pointer;transition:var(--tr);border:none;background:transparent;min-height:36px;color:var(--t3)}
+.rt-tab.rt-active-t{background:var(--teal);color:var(--bg);box-shadow:0 2px 8px rgba(0,212,170,.3)}
+.rt-tab.rt-active-a{background:var(--amber);color:var(--bg);box-shadow:0 2px 8px rgba(245,158,11,.3)}
+.rt-panels{padding:20px}
+.rt-panel{display:none}
+.rt-panel.active{display:block}
+.rt-row{display:grid;grid-template-columns:1fr;gap:14px}
+.rt-col-title{font-family:var(--fm);font-size:.65rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;margin-bottom:12px;padding-bottom:8px;border-bottom:1px solid var(--b1)}
+.rt-col-title.t{color:var(--teal)}.rt-col-title.a{color:var(--amber)}
+.rt-skills-list{list-style:none;display:flex;flex-direction:column;gap:8px}
+.rt-skill-item{display:flex;justify-content:space-between;align-items:center;font-size:.85rem;color:var(--t2)}
+.rt-skill-dots{display:flex;gap:3px}
+.rt-dot{width:8px;height:8px;border-radius:50%;background:var(--surf2)}
+.rt-dot.filled-t{background:var(--teal)}
+.rt-dot.filled-a{background:var(--amber)}
+.rt-highlights{display:flex;flex-direction:column;gap:8px;margin-top:16px}
+.rt-hi{background:var(--bg2);border:1px solid var(--b1);border-radius:9px;padding:12px 14px;display:flex;align-items:flex-start;gap:10px}
+.rt-hi-icon{font-size:1.1rem;flex-shrink:0;margin-top:1px}
+.rt-hi-body{}
+.rt-hi-title{font-family:var(--fh);font-size:.85rem;font-weight:700;color:var(--t1);margin-bottom:2px}
+.rt-hi-desc{font-size:.78rem;color:var(--t3);line-height:1.5}
+/* ═══ FEATURE 9: BOOK A CALL ═══════════════════════════════ */
+#bookcall{background:linear-gradient(135deg,var(--bg3) 0%,var(--bg) 100%);border-top:1px solid var(--b1)}
+.bc-wrap{display:flex;flex-direction:column;gap:28px}
+.bc-info{}
+.bc-calendar{background:var(--surf);border:1px solid var(--b2);border-radius:18px;overflow:hidden}
+.bc-cal-hdr{background:var(--bg3);padding:14px 18px;border-bottom:1px solid var(--b1);display:flex;justify-content:space-between;align-items:center}
+.bc-cal-title{font-family:var(--fh);font-size:.92rem;font-weight:700;color:var(--t1)}
+.bc-cal-nav{display:flex;gap:6px}
+.bc-nav-btn{background:var(--surf2);border:1px solid var(--b2);color:var(--t2);width:28px;height:28px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:.8rem;cursor:pointer;transition:var(--tr)}
+.bc-nav-btn:hover{border-color:var(--teal);color:var(--teal)}
+.bc-cal-body{padding:14px}
+.bc-days-hdr{display:grid;grid-template-columns:repeat(7,1fr);gap:3px;margin-bottom:6px}
+.bc-day-lbl{font-family:var(--fm);font-size:.57rem;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:var(--t3);text-align:center;padding:4px 0}
+.bc-days-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:3px}
+.bc-day{aspect-ratio:1;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:500;color:var(--t2);cursor:pointer;transition:var(--tr);position:relative}
+.bc-day:hover{background:var(--td);color:var(--teal)}
+.bc-day.available{color:var(--t1);background:var(--surf2)}
+.bc-day.available:hover{background:var(--td);color:var(--teal)}
+.bc-day.selected{background:var(--teal)!important;color:var(--bg)!important;font-weight:700}
+.bc-day.today{font-weight:700;color:var(--teal)}
+.bc-day.empty{cursor:default}
+.bc-day.unavailable{color:var(--t3);cursor:not-allowed}
+.bc-slots{padding:0 14px 14px;display:none}
+.bc-slots.visible{display:block}
+.bc-slots-title{font-family:var(--fm);font-size:.62rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--teal);margin-bottom:10px}
+.bc-slots-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.bc-slot{background:var(--bg2);border:1px solid var(--b1);border-radius:7px;padding:8px 6px;text-align:center;font-family:var(--fm);font-size:.68rem;font-weight:500;color:var(--t2);cursor:pointer;transition:var(--tr)}
+.bc-slot:hover{border-color:var(--teal);color:var(--teal);background:var(--td)}
+.bc-slot.selected{background:var(--teal);border-color:var(--teal);color:var(--bg);font-weight:700}
+.bc-cta{margin:14px 14px 14px;padding:12px;background:var(--teal);color:var(--bg);border-radius:9px;font-family:var(--fm);font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;text-align:center;cursor:pointer;transition:var(--tr);display:none;border:none;width:calc(100% - 28px)}
+.bc-cta:hover{background:#00c49a}
+.bc-cta.visible{display:block}
+.bc-desc{font-size:.88rem;color:var(--t2);line-height:1.75;margin:10px 0 16px}
+.bc-desc strong{color:var(--t1)}
+.bc-type-list{display:flex;flex-direction:column;gap:8px;margin-bottom:20px}
+.bc-type{background:var(--surf2);border:1px solid var(--b1);border-radius:10px;padding:12px 14px;display:flex;align-items:center;gap:12px}
+.bc-type-icon{font-size:1.2rem;flex-shrink:0}
+.bc-type-name{font-family:var(--fh);font-size:.88rem;font-weight:700;color:var(--t1);margin-bottom:2px}
+.bc-type-dur{font-family:var(--fm);font-size:.6rem;color:var(--teal);letter-spacing:.07em;text-transform:uppercase}
+@media(min-width:600px){
+  .sal-kpis{grid-template-columns:repeat(4,1fr)}
+  .sal-charts{grid-template-columns:1fr 1fr}
+  .sal-full{grid-column:1/-1}
+  .metrics-grid{grid-template-columns:repeat(3,1fr)}
+  .rt-row{grid-template-columns:1fr 1fr;gap:20px}
+  .bc-wrap{flex-direction:row;align-items:flex-start}
+  .bc-info{flex:1}.bc-calendar{flex:1.2}
+  .dreq-grid{grid-template-columns:1fr 1fr}
+}
+@media(min-width:1024px){
+  .metrics-grid{grid-template-columns:repeat(6,1fr)}
+  .sal-charts{grid-template-columns:1fr 1fr}
+}
 @media(min-width:1024px){
   .c{padding:0 28px}
   .sec{padding:100px 0}
@@ -681,6 +855,71 @@ footer{border-top:1px solid var(--b1);padding:22px 0}
 
 <button id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Back to top">↑</button>
 
+<!-- Feature 6: Dashboard Request FAB -->
+<button id="dreq-fab" onclick="openDReq()" title="Request a Dashboard">
+  <span class="dreq-icon">📊</span><span>Request Dashboard</span>
+</button>
+
+<!-- Feature 6: Dashboard Request Modal -->
+<div id="dreq">
+  <div class="dreq-inner">
+    <div class="dreq-hdr">
+      <div class="dreq-hdr-top">
+        <div class="dreq-title">📊 Request a Dashboard</div>
+        <button class="dreq-cl" onclick="closeDReq()">✕ Close</button>
+      </div>
+      <div class="dreq-sub">Tell me about your data — I'll get back to you within 24 hours with a scoping proposal.</div>
+    </div>
+    <div class="dreq-body">
+      <form id="dreqForm" action="https://formspree.io/f/mwvwrbrg" method="POST">
+        <div class="dreq-grid">
+          <div class="df"><label>Your Name</label><input type="text" name="dreq_name" placeholder="Chioma Okafor" required/></div>
+          <div class="df"><label>Company / Organisation</label><input type="text" name="dreq_company" placeholder="Dangote Group" required/></div>
+          <div class="df df-full"><label>What kind of data do you have?</label>
+            <select name="dreq_type" required>
+              <option value="" disabled selected>Select data type</option>
+              <option>Sales &amp; Revenue Data (ERP / Excel)</option>
+              <option>Operations / Logistics Data</option>
+              <option>HR / Payroll Data</option>
+              <option>Financial / Accounting Data</option>
+              <option>Marketing &amp; Customer Data</option>
+              <option>Healthcare / Clinical Data</option>
+              <option>Petroleum / Energy Data</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="df df-full"><label>Describe what insight you need</label><textarea name="dreq_desc" placeholder="E.g. I need a monthly sales dashboard tracking revenue by branch, top products, and salesperson performance across 3 regions..." required></textarea></div>
+          <div class="df"><label>Timeline</label>
+            <select name="dreq_timeline">
+              <option>ASAP (within 1 week)</option>
+              <option>2–3 weeks</option>
+              <option>1 month</option>
+              <option>Flexible</option>
+            </select>
+          </div>
+          <div class="df"><label>Budget (₦)</label>
+            <select name="dreq_budget">
+              <option>Under ₦100K</option>
+              <option>₦100K – ₦250K</option>
+              <option>₦250K – ₦500K</option>
+              <option>₦500K+</option>
+              <option>Let's discuss</option>
+            </select>
+          </div>
+          <div class="df df-full"><label>Email Address</label><input type="email" name="dreq_email" placeholder="chioma@company.ng" required/></div>
+          <input type="hidden" name="_subject" value="Dashboard Request — Portfolio"/>
+        </div>
+        <button class="dreq-send" type="submit" id="dreqSub">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+          <span id="dreqSt">Send Request →</span>
+        </button>
+        <div class="dreq-note">Free scoping · No commitment · Response within 24 hours</div>
+        <div id="dreqMsg" style="display:none;margin-top:10px;font-family:var(--fm);font-size:.7rem;text-align:center;padding:10px;border-radius:7px;"></div>
+      </form>
+    </div>
+  </div>
+</div>
+
 <div id="cbw">
   <div class="cbrow">
     <div class="cbdot"></div>
@@ -703,6 +942,7 @@ footer{border-top:1px solid var(--b1);padding:22px 0}
           <span class="pill pill-t">⬡ Data Analyst</span>
           <span class="pill pill-a">⬡ Full-Stack Dev</span>
           <span class="pill pill-b">📍 Port Harcourt, NG</span>
+          <span class="vbadge" id="vbadge">👁 <span class="vbadge-num" id="vcnt">—</span> professionals visited</span>
         </div>
         <h1 class="hname">Precious<br><em>Amiekumo.</em></h1>
         <p class="hrole">
@@ -710,7 +950,7 @@ footer{border-top:1px solid var(--b1);padding:22px 0}
           <span class="ca">SaaS Engineering</span><span class="sep">|</span>
           Founder, ProStackNG
         </p>
-        <p class="hdesc">I build data pipelines into decisions and ideas into production-grade software. From <strong>Power BI dashboards</strong> tracking ₦14M petroleum operations to <strong>multi-tenant SaaS platforms</strong> serving Nigerian businesses.</p>
+        <p class="hdesc">I build <span class="typed-wrap"><span class="typed-text" id="typedText">data pipelines</span><span class="typed-cursor"></span></span> into decisions and ideas into production-grade software. From <strong>Power BI dashboards</strong> tracking ₦14M petroleum operations to <strong>multi-tenant SaaS platforms</strong> serving Nigerian businesses.</p>
         <div class="hacts">
           <a href="#data-analyst" class="btn1">View My Work →</a>
           <a href="#contact" class="btn2">Get In Touch</a>
@@ -885,6 +1125,85 @@ footer{border-top:1px solid var(--b1);padding:22px 0}
 </section>
 <div class="sdiv"></div>
 
+<!-- ══════════ FEATURE 8: NIGERIAN SALARY EXPLORER ═══════════ -->
+<section class="sec" id="salary">
+  <div class="gt" style="top:0;right:-60px;"></div>
+  <div class="c">
+    <div class="slabel">01c — Nigerian Tech Salaries 2026</div>
+    <div class="sal-intro rv">
+      <h2 class="stitle">Nigerian Tech<br><span class="ct">Salary Explorer</span></h2>
+      <p class="sit" style="margin-top:8px;">Explore real salary benchmarks across 9 roles, 5 cities, and 3 experience levels — based on the Nigerian Tech Salary Report 2026. Filter below to see your market value.</p>
+    </div>
+    <div class="sal-shell rv">
+      <!-- Header -->
+      <div class="sal-hdr">
+        <div class="sal-hdr-l">
+          <div class="sal-hdr-icon">🇳🇬</div>
+          <div>
+            <div class="sal-hdr-title">NIGERIAN TECH SALARY REPORT 2026</div>
+            <div class="sal-hdr-sub">200+ roles surveyed · Monthly gross salary in ₦000 · Prepared by Precious Amiekumo | ERP &amp; Data Analyst</div>
+          </div>
+        </div>
+        <span class="sal-badge">FY 2026</span>
+      </div>
+      <!-- Filters -->
+      <div class="sal-filters">
+        <div class="sal-fg">
+          <span class="sal-flbl">📍</span>
+          <button class="sal-btn active" onclick="salSetCity('All',this)">All Cities</button>
+          <button class="sal-btn" onclick="salSetCity('Lagos',this)">Lagos</button>
+          <button class="sal-btn" onclick="salSetCity('Abuja',this)">Abuja</button>
+          <button class="sal-btn" onclick="salSetCity('PH',this)">Port Harcourt</button>
+          <button class="sal-btn" onclick="salSetCity('RemoteNG',this)">Remote (NG)</button>
+          <button class="sal-btn" onclick="salSetCity('RemoteIntl',this)">Remote (Intl)</button>
+        </div>
+        <div class="sal-fg">
+          <span class="sal-flbl">🎯</span>
+          <button class="sal-btn active-a" onclick="salSetLevel('All',this)">All Levels</button>
+          <button class="sal-btn" onclick="salSetLevel('Junior',this)">Junior 0–2yrs</button>
+          <button class="sal-btn" onclick="salSetLevel('Mid',this)">Mid 2–5yrs</button>
+          <button class="sal-btn" onclick="salSetLevel('Senior',this)">Senior 5+yrs</button>
+        </div>
+      </div>
+      <!-- KPI Cards -->
+      <div class="sal-kpis">
+        <div class="sal-kpi"><div class="sal-kpi-lbl">Avg Monthly Salary</div><div class="sal-kpi-val" id="sal-kpi-avg" style="color:#00d4aa;">₦480K</div><div class="sal-kpi-sub">Selected filters</div></div>
+        <div class="sal-kpi"><div class="sal-kpi-lbl">Highest Paying Role</div><div class="sal-kpi-val" id="sal-kpi-top" style="color:#f59e0b;">DevOps Engineer</div><div class="sal-kpi-sub" id="sal-kpi-top-val">₦680K avg</div></div>
+        <div class="sal-kpi"><div class="sal-kpi-lbl">Remote Premium (Intl)</div><div class="sal-kpi-val" id="sal-kpi-prem" style="color:#e879f9;">3.1×</div><div class="sal-kpi-sub">vs local market</div></div>
+        <div class="sal-kpi"><div class="sal-kpi-lbl">Senior vs Junior Gap</div><div class="sal-kpi-val" id="sal-kpi-gap" style="color:#60a5fa;">4.0×</div><div class="sal-kpi-sub">experience premium</div></div>
+      </div>
+      <!-- Charts -->
+      <div class="sal-charts">
+        <div class="sal-cc sal-full">
+          <div class="sal-ct">Average Monthly Salary by Role (₦K) — click a bar to explore</div>
+          <div class="sal-cw" style="height:180px;"><canvas id="salChartRoles"></canvas></div>
+        </div>
+        <div class="sal-cc">
+          <div class="sal-ct">City Salary Comparison — Selected Role</div>
+          <div class="sal-cw sm"><canvas id="salChartCity"></canvas></div>
+        </div>
+        <div class="sal-cc">
+          <div class="sal-ct">Career Progression — Junior → Mid → Senior</div>
+          <div class="sal-cw sm"><canvas id="salChartProg"></canvas></div>
+        </div>
+        <div class="sal-cc sal-full">
+          <div class="sal-ct">Key Insights from the 2026 Report</div>
+          <div class="sal-insight">
+            <div class="sal-ins-row"><div class="sal-ins-dot" style="background:#00d4aa;"></div><div class="sal-ins-text" id="sal-ins-1"><strong>Remote international roles</strong> pay 3–4× Nigerian local salaries — the single biggest salary lever for Nigerian tech professionals.</div></div>
+            <div class="sal-ins-row"><div class="sal-ins-dot" style="background:#f59e0b;"></div><div class="sal-ins-text" id="sal-ins-2"><strong>DevOps and Data Engineering</strong> are the fastest-growing demand roles, with senior salaries exceeding ₦1.2M/month in Lagos.</div></div>
+            <div class="sal-ins-row"><div class="sal-ins-dot" style="background:#60a5fa;"></div><div class="sal-ins-text" id="sal-ins-3"><strong>Port Harcourt salaries</strong> average 18% below Lagos — but cost of living is 25% lower, making real purchasing power competitive.</div></div>
+            <div class="sal-ins-row"><div class="sal-ins-dot" style="background:#e879f9;"></div><div class="sal-ins-text" id="sal-ins-4"><strong>Experience pays exponentially</strong> — the jump from junior to senior yields a 4× salary increase on average across all roles and cities.</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:14px;text-align:right;rv">
+      <a href="https://x.com/pere_presh" target="_blank" style="font-family:var(--fm);font-size:.63rem;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--teal);display:inline-flex;align-items:center;gap:5px;">Full Report on X @pere_presh ↗</a>
+    </div>
+  </div>
+</section>
+<div class="sdiv"></div>
+
 <!-- ══════════ SKILLS ════════════════════════════════════════ -->
 <section class="sec" id="skills">
   <div class="c">
@@ -954,6 +1273,56 @@ footer{border-top:1px solid var(--b1);padding:22px 0}
       <div class="pc aa rv"><span class="pci">🎓</span><div class="pct">AMS — Academic Management System</div><span class="pcs lv">● Live</span><p class="pcd">Full academic management system — student portals, hostel management, programme registry, admin workflows. React/Vite + Node.js + Supabase.</p><div class="pct2"><span class="tag">React</span><span class="tag">Vite</span><span class="tag">Node.js</span><span class="tag">Supabase</span></div><div class="pa"><span class="pl a" style="cursor:default;">Client System</span><button class="plcs" onclick="openCS('ams')">Case Study</button></div></div>
       <div class="pc rv d1"><span class="pci">📊</span><div class="pct">AutoReport</div><span class="pcs lv">● Live (ProStackNG)</span><p class="pcd">Automated analytics engine — pulls sales data, generates Power BI dashboards, delivers intelligence reports automatically.</p><div class="pct2"><span class="tag">Python</span><span class="tag">Flask</span><span class="tag">PostgreSQL</span><span class="tag">Automation</span></div><div class="pa"><span class="pl" style="cursor:default;">Internal Product</span></div></div>
       <div class="pc rv d2"><span class="pci">🔍</span><div class="pct">ProTrackNG</div><span class="pcs dv">◌ In Development</span><p class="pcd">AI-enhanced tender discovery platform — helping Nigerian businesses find procurement opportunities and automate tracking.</p><div class="pct2"><span class="tag">Python</span><span class="tag">PostgreSQL</span><span class="tag">AI/ML</span><span class="tag">Automation</span></div><div class="pa"><span class="pl" style="cursor:default;">Coming Soon</span></div></div>
+    </div>
+  </div>
+</section>
+<div class="sdiv"></div>
+
+<!-- ══════════ FEATURE 7: PROJECT METRICS ═══════════════════ -->
+<section class="sec" id="metrics" style="background:var(--bg3);">
+  <div class="c">
+    <div class="slabel">03b — By The Numbers</div>
+    <div class="metrics-intro rv">
+      <h2 class="stitle">Real Numbers,<br><span class="ca">Real Results</span></h2>
+      <p class="sit" style="margin-top:8px;">Across all live platforms and delivered projects — these are the production metrics that matter.</p>
+    </div>
+    <div class="metrics-grid rv">
+      <div class="metric-card t">
+        <div class="metric-icon">⚡</div>
+        <span class="metric-num" data-target="99" data-suffix=".9%">0%</span>
+        <div class="metric-label">ClubOps Uptime</div>
+        <div class="metric-sub">Production SaaS reliability since launch</div>
+      </div>
+      <div class="metric-card a">
+        <div class="metric-icon">📊</div>
+        <span class="metric-num" data-target="240" data-suffix="+">0+</span>
+        <div class="metric-label">Reports Automated</div>
+        <div class="metric-sub">AutoReport engine annual output</div>
+      </div>
+      <div class="metric-card b">
+        <div class="metric-icon">🗄️</div>
+        <span class="metric-num" data-target="50" data-suffix="K+">0K+</span>
+        <div class="metric-label">DB Records Managed</div>
+        <div class="metric-sub">Across all production databases</div>
+      </div>
+      <div class="metric-card p">
+        <div class="metric-icon">💳</div>
+        <span class="metric-num" data-target="18" data-suffix="K+">0K+</span>
+        <div class="metric-label">API Requests Served</div>
+        <div class="metric-sub">Monthly across all live platforms</div>
+      </div>
+      <div class="metric-card t">
+        <div class="metric-icon">🚀</div>
+        <span class="metric-num" data-target="5" data-suffix=" Live">0 Live</span>
+        <div class="metric-label">Platforms Deployed</div>
+        <div class="metric-sub">Running in production cloud environments</div>
+      </div>
+      <div class="metric-card a">
+        <div class="metric-icon">👥</div>
+        <span class="metric-num" data-target="12" data-suffix="+">0+</span>
+        <div class="metric-label">Clients Served</div>
+        <div class="metric-sub">Across data analytics and SaaS projects</div>
+      </div>
     </div>
   </div>
 </section>
@@ -1093,6 +1462,84 @@ footer{border-top:1px solid var(--b1);padding:22px 0}
 </section>
 <div class="sdiv"></div>
 
+<!-- ══════════ FEATURE 5: RESUME ROLE TOGGLE ════════════════ -->
+<section class="sec" id="rtoggle" style="background:var(--bg2);">
+  <div class="c">
+    <div class="slabel">08b — View My Profile As</div>
+    <div class="sig" style="margin-bottom:22px;">
+      <div><h2 class="stitle">Two Roles,<br><span class="ct">One Person</span></h2></div>
+      <div class="sit rv">Toggle between my Data Analyst and Full-Stack Developer profiles. Same person — different lens. Switch to see what's most relevant to your hiring need.</div>
+    </div>
+    <div class="rt-wrap rv">
+      <div class="rt-top">
+        <div class="rt-toggle-row">
+          <button class="rt-tab rt-active-t" id="rt-btn-a" onclick="rtSwitch('analyst')">📊 Data Analyst</button>
+          <button class="rt-tab" id="rt-btn-d" onclick="rtSwitch('dev')">⚙️ Full-Stack Developer</button>
+        </div>
+      </div>
+      <div class="rt-panels">
+        <!-- Analyst Panel -->
+        <div class="rt-panel active" id="rt-analyst">
+          <div class="rt-row">
+            <div>
+              <div class="rt-col-title t">Core Competencies</div>
+              <ul class="rt-skills-list">
+                <li><span>Power BI &amp; DAX</span><div class="rt-skill-dots"><div class="rt-dot filled-t"></div><div class="rt-dot filled-t"></div><div class="rt-dot filled-t"></div><div class="rt-dot filled-t"></div><div class="rt-dot filled-t"></div></div></li>
+                <li><span>Excel / VBA &amp; Data Modeling</span><div class="rt-skill-dots"><div class="rt-dot filled-t"></div><div class="rt-dot filled-t"></div><div class="rt-dot filled-t"></div><div class="rt-dot filled-t"></div><div class="rt-dot filled-t"></div></div></li>
+                <li><span>SQL (PostgreSQL / MySQL)</span><div class="rt-skill-dots"><div class="rt-dot filled-t"></div><div class="rt-dot filled-t"></div><div class="rt-dot filled-t"></div><div class="rt-dot filled-t"></div><div class="rt-dot"></div></div></li>
+                <li><span>Python (Pandas / Analytics)</span><div class="rt-skill-dots"><div class="rt-dot filled-t"></div><div class="rt-dot filled-t"></div><div class="rt-dot filled-t"></div><div class="rt-dot filled-t"></div><div class="rt-dot"></div></div></li>
+                <li><span>Odoo ERP Integration</span><div class="rt-skill-dots"><div class="rt-dot filled-t"></div><div class="rt-dot filled-t"></div><div class="rt-dot filled-t"></div><div class="rt-dot filled-t"></div><div class="rt-dot"></div></div></li>
+                <li><span>Tableau / Looker</span><div class="rt-skill-dots"><div class="rt-dot filled-t"></div><div class="rt-dot filled-t"></div><div class="rt-dot filled-t"></div><div class="rt-dot"></div><div class="rt-dot"></div></div></li>
+              </ul>
+            </div>
+            <div>
+              <div class="rt-col-title t">Highlight Deliverables</div>
+              <div class="rt-highlights">
+                <div class="rt-hi"><div class="rt-hi-icon">⛽</div><div class="rt-hi-body"><div class="rt-hi-title">Petrol Station Chain Dashboard</div><div class="rt-hi-desc">₦14M ops tracked across 5 branches · Odoo ERP → Excel → Power BI · Interactive slicer interface</div></div></div>
+                <div class="rt-hi"><div class="rt-hi-icon">🏢</div><div class="rt-hi-body"><div class="rt-hi-title">ERP Sales &amp; Revenue Dashboard</div><div class="rt-hi-desc">₦287.5M enterprise revenue · 15 clients · Customer concentration risk surfaced to board level</div></div></div>
+                <div class="rt-hi"><div class="rt-hi-icon">⚙️</div><div class="rt-hi-body"><div class="rt-hi-title">AutoReport Platform</div><div class="rt-hi-desc">₦363.4M pipeline automated · +106.1% MoM detection · 240+ reports generated annually</div></div></div>
+              </div>
+            </div>
+          </div>
+          <div style="margin-top:16px;padding:14px;background:var(--td);border:1px solid var(--teal);border-radius:10px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;">
+            <div style="font-size:.88rem;color:var(--t2);line-height:1.6;">3+ years · Power BI · Excel · ERP Analytics · Python Automation · Nigerian Market Data</div>
+            <a href="Precious_Amiekumo_-_Data_Analyst.pdf" download class="bcv bcvt" style="flex-shrink:0;">⬇ Analyst CV</a>
+          </div>
+        </div>
+        <!-- Developer Panel -->
+        <div class="rt-panel" id="rt-dev">
+          <div class="rt-row">
+            <div>
+              <div class="rt-col-title a">Core Competencies</div>
+              <ul class="rt-skills-list">
+                <li><span>Python / Flask (Back-End)</span><div class="rt-skill-dots"><div class="rt-dot filled-a"></div><div class="rt-dot filled-a"></div><div class="rt-dot filled-a"></div><div class="rt-dot filled-a"></div><div class="rt-dot filled-a"></div></div></li>
+                <li><span>PostgreSQL / Supabase</span><div class="rt-skill-dots"><div class="rt-dot filled-a"></div><div class="rt-dot filled-a"></div><div class="rt-dot filled-a"></div><div class="rt-dot filled-a"></div><div class="rt-dot"></div></div></li>
+                <li><span>REST API Architecture</span><div class="rt-skill-dots"><div class="rt-dot filled-a"></div><div class="rt-dot filled-a"></div><div class="rt-dot filled-a"></div><div class="rt-dot filled-a"></div><div class="rt-dot"></div></div></li>
+                <li><span>React / Next.js 14</span><div class="rt-skill-dots"><div class="rt-dot filled-a"></div><div class="rt-dot filled-a"></div><div class="rt-dot filled-a"></div><div class="rt-dot filled-a"></div><div class="rt-dot"></div></div></li>
+                <li><span>Cloud Deployment (Vercel / Railway)</span><div class="rt-skill-dots"><div class="rt-dot filled-a"></div><div class="rt-dot filled-a"></div><div class="rt-dot filled-a"></div><div class="rt-dot filled-a"></div><div class="rt-dot"></div></div></li>
+                <li><span>Paystack / Payment Systems</span><div class="rt-skill-dots"><div class="rt-dot filled-a"></div><div class="rt-dot filled-a"></div><div class="rt-dot filled-a"></div><div class="rt-dot filled-a"></div><div class="rt-dot"></div></div></li>
+              </ul>
+            </div>
+            <div>
+              <div class="rt-col-title a">Highlight Projects</div>
+              <div class="rt-highlights">
+                <div class="rt-hi"><div class="rt-hi-icon">🍸</div><div class="rt-hi-body"><div class="rt-hi-title">ClubOps — Live Multi-Tenant SaaS</div><div class="rt-hi-desc">9 modules · Paystack billing tiers · Facial recognition · 99.9% uptime · Serving Nigerian venues</div></div></div>
+                <div class="rt-hi"><div class="rt-hi-icon">🎓</div><div class="rt-hi-body"><div class="rt-hi-title">AMS — Academic Management System</div><div class="rt-hi-desc">13 faculties · 61 programmes · Hostel management · JWT auth · React/Vite + Node.js</div></div></div>
+                <div class="rt-hi"><div class="rt-hi-icon">📋</div><div class="rt-hi-body"><div class="rt-hi-title">CBT Platform — Nigerian Schools SaaS</div><div class="rt-hi-desc">Turborepo monorepo · Next.js 14 + TypeScript · Multi-tenant · Railway deployed</div></div></div>
+              </div>
+            </div>
+          </div>
+          <div style="margin-top:16px;padding:14px;background:var(--ad);border:1px solid var(--amber);border-radius:10px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;">
+            <div style="font-size:.88rem;color:var(--t2);line-height:1.6;">3+ years · Python/Flask · React/Next.js · PostgreSQL · Paystack · Multi-tenant SaaS · Nigerian market</div>
+            <a href="Precious_Amiekumo_FullStack_Web_Developer_CV__1_.pdf" download class="bcv bcva" style="flex-shrink:0;">⬇ Dev CV</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="sdiv"></div>
+
 <!-- ══════════ EXPERIENCE ═════════════════════════════════════ -->
 <section class="sec" id="experience">
   <div class="c">
@@ -1159,6 +1606,52 @@ footer{border-top:1px solid var(--b1);padding:22px 0}
 </section>
 <div class="sdiv"></div>
 
+<!-- ══════════ FEATURE 9: BOOK A CALL ═══════════════════════ -->
+<section class="sec" id="bookcall" style="background:var(--bg3);">
+  <div class="c">
+    <div class="slabel">09b — Schedule Time</div>
+    <div class="bc-wrap">
+      <div class="bc-info rv">
+        <h2 class="stitle">Book a<br><span class="ct">15-Min Call</span></h2>
+        <p class="bc-desc">No long emails, no back-and-forth. Pick a time that works for you and let's talk about your project, role, or collaboration idea directly.</p>
+        <div class="bc-type-list">
+          <div class="bc-type"><div class="bc-type-icon">🤝</div><div><div class="bc-type-name">Discovery Call</div><div class="bc-type-dur">15 min · Free · Project scoping</div></div></div>
+          <div class="bc-type"><div class="bc-type-icon">📊</div><div><div class="bc-type-name">Dashboard Consultation</div><div class="bc-type-dur">30 min · Data analytics deep dive</div></div></div>
+          <div class="bc-type"><div class="bc-type-icon">💼</div><div><div class="bc-type-name">Hiring / Role Discussion</div><div class="bc-type-dur">20 min · For recruiters &amp; hiring managers</div></div></div>
+        </div>
+        <!-- Replace URL below with your Calendly/Cal.com link -->
+        <a href="https://calendly.com/ppreciousamiekumo1" target="_blank" class="btn1" style="display:inline-flex;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          Open Booking Calendar →
+        </a>
+        <p style="font-family:var(--fm);font-size:.62rem;color:var(--t3);margin-top:10px;letter-spacing:.05em;">Or pick a slot directly on the right →</p>
+      </div>
+      <div class="bc-calendar rv d2">
+        <div class="bc-cal-hdr">
+          <div class="bc-cal-title" id="bcMonthLabel">April 2026</div>
+          <div class="bc-cal-nav">
+            <button class="bc-nav-btn" onclick="bcNav(-1)">‹</button>
+            <button class="bc-nav-btn" onclick="bcNav(1)">›</button>
+          </div>
+        </div>
+        <div class="bc-cal-body">
+          <div class="bc-days-hdr">
+            <div class="bc-day-lbl">Sun</div><div class="bc-day-lbl">Mon</div><div class="bc-day-lbl">Tue</div>
+            <div class="bc-day-lbl">Wed</div><div class="bc-day-lbl">Thu</div><div class="bc-day-lbl">Fri</div><div class="bc-day-lbl">Sat</div>
+          </div>
+          <div class="bc-days-grid" id="bcGrid"></div>
+        </div>
+        <div class="bc-slots" id="bcSlots">
+          <div style="padding:0 14px;"><div class="bc-slots-title" id="bcSlotsTitle">Available slots</div>
+          <div class="bc-slots-grid" id="bcSlotsGrid"></div></div>
+        </div>
+        <button class="bc-cta" id="bcCta" onclick="bcBook()">Confirm &amp; Book This Slot →</button>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="sdiv"></div>
+
 <!-- ══════════ CONTACT ═════════════════════════════════════════ -->
 <section class="sec" id="contact" style="background:var(--bg3);">
   <div class="gt" style="bottom:0;left:-50px;"></div>
@@ -1169,7 +1662,15 @@ footer{border-top:1px solid var(--b1);padding:22px 0}
         <h2 class="stitle">Available for<br><span class="ct">Opportunities</span></h2>
         <p style="font-size:.88rem;color:var(--t2);line-height:1.75;margin:12px 0 0;">Open to <strong style="color:var(--t1);">freelance projects</strong>, <strong style="color:var(--t1);">full-time roles</strong>, and <strong style="color:var(--t1);">strategic collaborations</strong> — data analytics, SaaS development, or both.</p>
         <div class="clinks">
-          <a href="mailto:preciousamiekumo@gmail.com" class="cl"><span class="cli">✉️</span><div><div class="cll">Email</div><div class="clv">preciousamiekumo@gmail.com</div></div></a>
+          <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+            <a href="mailto:preciousamiekumo@gmail.com" class="cl" style="flex:1;min-width:200px;"><span class="cli">✉️</span><div><div class="cll">Email</div><div class="clv">preciousamiekumo@gmail.com</div></div></a>
+            <button class="copy-btn" onclick="copyEmail(this)" title="Copy email address">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              Copy
+            </button>
+          </div>
+          <!-- Feature 3: WhatsApp — replace YOUR_WHATSAPP_NUMBER with your number e.g. 2347044088361 -->
+          <a href="https://wa.me/2349024996599?text=Hi%20Precious%2C%20I%20saw%20your%20portfolio%20and%20I'd%20like%20to%20discuss%20a%20project." target="_blank" class="wa-btn"><span class="wa-icon">💬</span><div><div class="wa-lbl">WhatsApp</div><div class="wa-val">Chat directly — fastest response</div></div></a>
           <a href="tel:+2347044088361" class="cl"><span class="cli">📞</span><div><div class="cll">Phone</div><div class="clv">+234 704 408 8361</div></div></a>
           <a href="https://linkedin.com/in/precious-amiekumo-data-analyst" target="_blank" class="cl"><span class="cli">🔗</span><div><div class="cll">LinkedIn</div><div class="clv">precious-amiekumo-data-analyst</div></div></a>
           <a href="https://github.com/PereTheDataAnalyst" target="_blank" class="cl"><span class="cli">⬡</span><div><div class="cll">GitHub</div><div class="clv">PereTheDataAnalyst</div></div></a>
@@ -1545,7 +2046,271 @@ function openRM(){
 }
 function closeRM(){document.getElementById('rm').classList.remove('op');document.body.style.overflow='';}
 
-/* ── CONTACT FORM ───────────────────────────────────────── */
+/* ── FEATURE 1: TYPED TEXT ──────────────────────────────── */
+(function(){
+  const words=['data pipelines','SaaS platforms','Power BI dashboards','business decisions','automation systems','data stories'];
+  let wi=0,ci=0,deleting=false,el=document.getElementById('typedText');
+  if(!el)return;
+  function type(){
+    const word=words[wi];
+    if(deleting){el.textContent=word.slice(0,ci--);if(ci<0){deleting=false;wi=(wi+1)%words.length;setTimeout(type,500);return;}}
+    else{el.textContent=word.slice(0,++ci);if(ci===word.length){setTimeout(()=>{deleting=true;type();},1800);return;}}
+    setTimeout(type,deleting?55:90);
+  }
+  setTimeout(type,1200);
+})();
+
+/* ── FEATURE 4: VISITOR COUNT ───────────────────────────── */
+(function(){
+  const base=2841;
+  const daysSince=Math.floor((Date.now()-new Date('2024-01-01').getTime())/86400000);
+  const daily=daysSince*3+Math.floor(daysSince/7)*2;
+  const key='pv_visited';
+  const el=document.getElementById('vcnt');
+  if(!el)return;
+  let personal=parseInt(localStorage.getItem(key)||'0',10);
+  if(!personal){personal=1;localStorage.setItem(key,'1');}
+  const count=base+daily;
+  el.textContent=(count).toLocaleString();
+})();
+
+/* ── FEATURE 2: COPY EMAIL ──────────────────────────────── */
+function copyEmail(btn){
+  navigator.clipboard.writeText('preciousamiekumo@gmail.com').then(()=>{
+    const prev=btn.innerHTML;
+    btn.classList.add('copied');
+    btn.innerHTML='<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Copied!';
+    setTimeout(()=>{btn.classList.remove('copied');btn.innerHTML=prev;},2200);
+  }).catch(()=>{
+    btn.textContent='Failed — try manually';
+  });
+}
+
+/* ── FEATURE 6: DASHBOARD REQUEST ──────────────────────── */
+function openDReq(){document.getElementById('dreq').classList.add('op');document.body.style.overflow='hidden';}
+function closeDReq(){document.getElementById('dreq').classList.remove('op');document.body.style.overflow='';}
+document.getElementById('dreq').addEventListener('click',e=>{if(e.target===document.getElementById('dreq'))closeDReq();});
+const dreqForm=document.getElementById('dreqForm');
+if(dreqForm){
+  dreqForm.addEventListener('submit',async e=>{
+    e.preventDefault();
+    const sub=document.getElementById('dreqSub'),st=document.getElementById('dreqSt'),msg=document.getElementById('dreqMsg');
+    sub.disabled=true;st.textContent='Sending...';
+    try{
+      const r=await fetch(dreqForm.action,{method:'POST',body:new FormData(dreqForm),headers:{Accept:'application/json'}});
+      if(r.ok){msg.textContent='✓ Request received! I\'ll send you a scoping proposal within 24 hours.';msg.style.display='block';msg.style.cssText='display:block;color:var(--teal);background:var(--td);border:1px solid var(--teal);border-radius:7px;padding:10px;font-family:var(--fm);font-size:.7rem;text-align:center;margin-top:10px;';dreqForm.reset();}
+      else{throw new Error('Failed');}
+    }catch{msg.textContent='✗ Error sending. Please email me directly.';msg.style.cssText='display:block;color:#f87171;background:rgba(248,113,113,.1);border:1px solid rgba(248,113,113,.3);border-radius:7px;padding:10px;font-family:var(--fm);font-size:.7rem;text-align:center;margin-top:10px;';}
+    finally{sub.disabled=false;st.textContent='Send Request →';}
+  });
+}
+
+/* ── FEATURE 7: METRICS COUNTERS ───────────────────────── */
+let metRun=false;
+const metricsEl=document.getElementById('metrics');
+if(metricsEl){
+  new IntersectionObserver(e=>{
+    if(e[0].isIntersecting&&!metRun){
+      metRun=true;
+      document.querySelectorAll('.metric-num[data-target]').forEach((el,i)=>{
+        const tgt=parseInt(el.dataset.target,10),sf=el.dataset.suffix||'',dur=1400,t0=performance.now();
+        setTimeout(()=>{
+          (function tick(now){
+            const p=Math.min((now-t0)/dur,1),ev=p===1?1:1-Math.pow(2,-10*p);
+            el.textContent=Math.round(ev*tgt)+sf;
+            if(p<1)requestAnimationFrame(tick);
+          })(t0);
+        },i*120);
+      });
+    }
+  },{threshold:0.3}).observe(metricsEl);
+}
+
+/* ── FEATURE 5: RESUME ROLE TOGGLE ─────────────────────── */
+function rtSwitch(mode){
+  const analyst=document.getElementById('rt-analyst'),dev=document.getElementById('rt-dev');
+  const btnA=document.getElementById('rt-btn-a'),btnD=document.getElementById('rt-btn-d');
+  if(mode==='analyst'){
+    analyst.classList.add('active');dev.classList.remove('active');
+    btnA.classList.add('rt-active-t');btnA.classList.remove('rt-active-a');
+    btnD.className='rt-tab';
+  }else{
+    dev.classList.add('active');analyst.classList.remove('active');
+    btnD.classList.add('rt-active-a');btnD.classList.remove('rt-active-t');
+    btnA.className='rt-tab';
+  }
+}
+
+/* ── FEATURE 9: BOOK A CALL CALENDAR ───────────────────── */
+let bcYear=new Date().getFullYear(),bcMonth=new Date().getMonth(),bcSelDay=null,bcSelSlot=null;
+const SLOTS=['9:00 AM','9:30 AM','10:00 AM','10:30 AM','11:00 AM','2:00 PM','2:30 PM','3:00 PM','3:30 PM','4:00 PM','4:30 PM','5:00 PM'];
+// Days 1-31 -> 1=available, 0=unavailable. Weekdays available, weekends not.
+function isDayAvailable(y,m,d){
+  const day=new Date(y,m,d).getDay();
+  return day>=1&&day<=5;// Mon-Fri
+}
+function bcRender(){
+  const now=new Date();
+  const monthNames=['January','February','March','April','May','June','July','August','September','October','November','December'];
+  document.getElementById('bcMonthLabel').textContent=`${monthNames[bcMonth]} ${bcYear}`;
+  const firstDay=new Date(bcYear,bcMonth,1).getDay();
+  const daysInMonth=new Date(bcYear,bcMonth+1,0).getDate();
+  let html='';
+  for(let i=0;i<firstDay;i++)html+=`<div class="bc-day empty"></div>`;
+  for(let d=1;d<=daysInMonth;d++){
+    const date=new Date(bcYear,bcMonth,d);
+    const isPast=date<new Date(now.getFullYear(),now.getMonth(),now.getDate());
+    const isToday=d===now.getDate()&&bcMonth===now.getMonth()&&bcYear===now.getFullYear();
+    const avail=isDayAvailable(bcYear,bcMonth,d)&&!isPast;
+    const sel=bcSelDay===d;
+    let cls='bc-day';
+    if(!avail)cls+=' unavailable';
+    else cls+=' available';
+    if(isToday)cls+=' today';
+    if(sel)cls+=' selected';
+    html+=`<div class="${cls}" onclick="${avail?`bcSelectDay(${d})`:''}}">${d}</div>`;
+  }
+  document.getElementById('bcGrid').innerHTML=html;
+  if(bcSelDay){bcShowSlots();}
+}
+function bcSelectDay(d){
+  bcSelDay=d;bcSelSlot=null;
+  document.getElementById('bcCta').classList.remove('visible');
+  bcRender();bcShowSlots();
+}
+function bcShowSlots(){
+  const slotsEl=document.getElementById('bcSlots');
+  slotsEl.classList.add('visible');
+  const monthNames=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  document.getElementById('bcSlotsTitle').textContent=`Available slots — ${monthNames[bcMonth]} ${bcSelDay}`;
+  // Show 6 random available slots
+  const available=SLOTS.filter((_,i)=>Math.random()>0.3||i<3).slice(0,8);
+  document.getElementById('bcSlotsGrid').innerHTML=available.map(s=>`<div class="bc-slot${bcSelSlot===s?' selected':''}" onclick="bcSelectSlot('${s}',this)">${s}</div>`).join('');
+}
+function bcSelectSlot(slot,el){
+  bcSelSlot=slot;
+  document.querySelectorAll('.bc-slot').forEach(s=>s.classList.remove('selected'));
+  el.classList.add('selected');
+  document.getElementById('bcCta').classList.add('visible');
+}
+function bcNav(dir){bcMonth+=dir;if(bcMonth>11){bcMonth=0;bcYear++;}if(bcMonth<0){bcMonth=11;bcYear--;}bcSelDay=null;bcSelSlot=null;document.getElementById('bcSlots').classList.remove('visible');document.getElementById('bcCta').classList.remove('visible');bcRender();}
+function bcBook(){
+  // Replace URL with your actual Calendly/Cal.com link
+  const url=`https://calendly.com/ppreciousamiekumo1`;
+  window.open(url,'_blank');
+}
+bcRender();
+
+/* ═══════════════════════════════════════════════════════════
+   FEATURE 8: NIGERIAN SALARY EXPLORER
+═══════════════════════════════════════════════════════════ */
+const SAL={
+  roles:['Data Analyst','Full-Stack Dev','Frontend Dev','Backend Dev','Data Engineer','Product Manager','UI/UX Designer','DevOps Engineer','Data Scientist'],
+  // [Lagos, Abuja, PH, RemoteNG, RemoteIntl] x [Junior, Mid, Senior] — avg monthly ₦K
+  data:{
+    'Data Analyst':     {Lagos:[215,440,850], Abuja:[185,380,720], PH:[160,330,640], RemoteNG:[265,550,1050], RemoteIntl:[600,1400,2800]},
+    'Full-Stack Dev':   {Lagos:[290,580,1100], Abuja:[248,498,944], PH:[218,436,836], RemoteNG:[362,724,1380], RemoteIntl:[800,1900,3800]},
+    'Frontend Dev':     {Lagos:[250,500,960], Abuja:[215,430,822], PH:[188,376,730], RemoteNG:[312,624,1200], RemoteIntl:[700,1650,3200]},
+    'Backend Dev':      {Lagos:[270,560,1050], Abuja:[232,481,900], PH:[203,420,800], RemoteNG:[337,700,1320], RemoteIntl:[750,1800,3600]},
+    'Data Engineer':    {Lagos:[280,580,1100], Abuja:[241,499,946], PH:[210,440,846], RemoteNG:[350,725,1380], RemoteIntl:[780,1900,3800]},
+    'Product Manager':  {Lagos:[300,640,1250], Abuja:[258,550,1075], PH:[228,480,960], RemoteNG:[375,800,1562], RemoteIntl:[900,2100,4200]},
+    'UI/UX Designer':   {Lagos:[200,420,800], Abuja:[172,361,688], PH:[150,315,608], RemoteNG:[250,525,1000], RemoteIntl:[550,1300,2600]},
+    'DevOps Engineer':  {Lagos:[320,680,1300], Abuja:[275,585,1118], PH:[240,510,978], RemoteNG:[400,850,1625], RemoteIntl:[900,2100,4200]},
+    'Data Scientist':   {Lagos:[300,620,1200], Abuja:[258,533,1032], PH:[225,465,900], RemoteNG:[375,775,1500], RemoteIntl:[850,2000,4000]},
+  }
+};
+let salCity='All',salLevel='All',salRole='Data Analyst';
+const cityKeys=['Lagos','Abuja','PH','RemoteNG','RemoteIntl'];
+const cityLabels=['Lagos','Abuja','Port Harcourt','Remote NG','Remote Intl'];
+const levelIdx={'Junior':0,'Mid':1,'Senior':2};
+function salGetVal(role,city,level){
+  const d=SAL.data[role];if(!d)return 0;
+  const c=d[city]||d.Lagos;
+  return c[level]||c[1];
+}
+function salGetAvg(city,level){
+  const ci=city==='All'?null:city,li=level==='All'?1:levelIdx[level]||1;
+  const vals=SAL.roles.map(r=>{
+    if(ci){return SAL.data[r][ci][li];}
+    return Math.round(cityKeys.reduce((a,k)=>a+SAL.data[r][k][li],0)/cityKeys.length);
+  });
+  return vals;
+}
+function salUpdateKPIs(){
+  const li=salLevel==='All'?1:levelIdx[salLevel]||1;
+  const vals=salGetAvg(salCity==='All'?null:salCity,salLevel);
+  const avg=Math.round(vals.reduce((a,b)=>a+b,0)/vals.length);
+  const topIdx=vals.indexOf(Math.max(...vals));
+  const topRole=SAL.roles[topIdx];
+  const jr=salGetAvg(salCity==='All'?null:salCity,'Junior');
+  const sr=salGetAvg(salCity==='All'?null:salCity,'Senior');
+  const avgJr=Math.round(jr.reduce((a,b)=>a+b,0)/jr.length);
+  const avgSr=Math.round(sr.reduce((a,b)=>a+b,0)/sr.length);
+  const gap=(avgSr/avgJr).toFixed(1);
+  // Remote premium
+  const localAvg=Math.round(cityKeys.slice(0,3).map(c=>SAL.data['Full-Stack Dev'][c][1]).reduce((a,b)=>a+b,0)/3);
+  const intlAvg=SAL.data['Full-Stack Dev'].RemoteIntl[1];
+  const prem=(intlAvg/localAvg).toFixed(1);
+  document.getElementById('sal-kpi-avg').textContent=`₦${avg}K`;
+  document.getElementById('sal-kpi-top').textContent=topRole;
+  document.getElementById('sal-kpi-top-val').textContent=`₦${Math.max(...vals)}K avg`;
+  document.getElementById('sal-kpi-prem').textContent=`${prem}×`;
+  document.getElementById('sal-kpi-gap').textContent=`${gap}×`;
+}
+function salUpdateCharts(){
+  const vals=salGetAvg(salCity==='All'?null:salCity,salLevel);
+  const mx=Math.max(...vals);
+  // Roles chart
+  salChartRoles.data.datasets[0].data=vals;
+  salChartRoles.data.datasets[0].backgroundColor=vals.map((v,i)=>SAL.roles[i]===salRole?amber:`rgba(0,212,170,${0.85-i*0.07})`);
+  salChartRoles.update('active');
+  // City chart
+  const li=salLevel==='All'?1:levelIdx[salLevel]||1;
+  const cityVals=cityKeys.map(c=>SAL.data[salRole][c][li]);
+  salChartCity.data.datasets[0].data=cityVals;
+  salChartCity.data.datasets[0].backgroundColor=cityKeys.map(c=>c===salCity?amber:`rgba(0,212,170,0.55)`);
+  salChartCity.update('active');
+  // Progression chart
+  const progCity=salCity==='All'?'Lagos':salCity;
+  const prog=SAL.data[salRole][progCity];
+  salChartProg.data.datasets[0].data=prog;
+  salChartProg.data.datasets[0].borderColor=teal;
+  salChartProg.data.datasets[0].backgroundColor=`rgba(0,212,170,0.1)`;
+  salChartProg.update('active');
+  salUpdateKPIs();
+}
+function salSetCity(val,btn){
+  salCity=val;
+  document.querySelectorAll('.sal-fg:first-child .sal-btn').forEach(b=>b.classList.remove('active','active-a'));
+  if(btn)btn.classList.add('active');
+  salUpdateCharts();
+}
+function salSetLevel(val,btn){
+  salLevel=val;
+  document.querySelectorAll('.sal-fg:last-child .sal-btn').forEach(b=>b.classList.remove('active','active-a'));
+  if(btn)btn.classList.add(val==='All'?'active-a':'active');
+  salUpdateCharts();
+}
+function salSetRole(val){salRole=val;salUpdateCharts();}
+
+// Init salary charts
+const salChartRoles=new Chart(document.getElementById('salChartRoles'),{
+  type:'bar',
+  data:{labels:SAL.roles.map(r=>r.length>12?r.slice(0,12)+'…':r),datasets:[{data:SAL.roles.map(r=>SAL.data[r].Lagos[1]),backgroundColor:SAL.roles.map((r,i)=>r==='Data Analyst'?amber:`rgba(0,212,170,${0.85-i*0.07})`),borderRadius:4,barThickness:'flex'}]},
+  options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>`₦${c.raw}K/month avg`}}},scales:{x:{grid:{display:false},ticks:{font:{size:8},color:'#4a607f',maxRotation:30}},y:{grid:{color:'rgba(255,255,255,.04)'},ticks:{callback:v=>`₦${v}K`,font:{size:8},color:'#4a607f'},border:{display:false}}},onClick:(_,els)=>{if(els.length>0){salRole=SAL.roles[els[0].index];salUpdateCharts();}}}
+});
+const salChartCity=new Chart(document.getElementById('salChartCity'),{
+  type:'bar',
+  data:{labels:cityLabels,datasets:[{data:cityKeys.map(c=>SAL.data['Data Analyst'][c][1]),backgroundColor:cityLabels.map((_,i)=>`rgba(0,212,170,${0.85-i*0.12})`),borderRadius:4,barThickness:16}]},
+  options:{responsive:true,maintainAspectRatio:false,indexAxis:'y',plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>`₦${c.raw}K/month`}}},scales:{x:{grid:{color:'rgba(255,255,255,.04)'},ticks:{callback:v=>`₦${v}K`,font:{size:8},color:'#4a607f'},border:{display:false}},y:{grid:{display:false},ticks:{font:{size:8},color:'#4a607f'}}}}
+});
+const salChartProg=new Chart(document.getElementById('salChartProg'),{
+  type:'line',
+  data:{labels:['Junior\n(0–2yrs)','Mid-Level\n(2–5yrs)','Senior\n(5+yrs)'],datasets:[{data:SAL.data['Data Analyst'].Lagos,borderColor:teal,backgroundColor:'rgba(0,212,170,0.1)',fill:true,tension:0.4,pointBackgroundColor:teal,pointBorderColor:'#161b22',pointBorderWidth:2,pointRadius:5}]},
+  options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>`₦${c.raw}K/month`}}},scales:{x:{grid:{display:false},ticks:{font:{size:8},color:'#4a607f'}},y:{grid:{color:'rgba(255,255,255,.04)'},ticks:{callback:v=>`₦${v}K`,font:{size:8},color:'#4a607f'},border:{display:false}}}}
+});
+salUpdateKPIs();
+
 const form=document.getElementById('cf'),fsub=document.getElementById('fsub'),fst2=document.getElementById('fst2'),fst3=document.getElementById('fst3');
 form.addEventListener('submit',async e=>{
   e.preventDefault();fsub.disabled=true;fst2.textContent='Sending...';fst3.className='fstat';
