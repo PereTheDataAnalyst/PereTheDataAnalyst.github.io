@@ -202,10 +202,12 @@ h2.stitle{font-family:var(--fh);font-size:clamp(1.6rem,5.5vw,3.1rem);font-weight
 .hg{display:flex;flex-direction:column;align-items:center;gap:18px;text-align:center}
 .htext{width:100%;order:2}
 .hpw{order:1}
-.hbr{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px;justify-content:center}
-.hname{font-family:var(--fh);font-size:clamp(2rem,9vw,5.8rem);font-weight:800;line-height:.97;letter-spacing:-.03em;color:var(--t1);margin-bottom:7px}
+.hbr{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:10px;justify-content:center;max-width:100%;overflow:hidden}
+/* hide widest pills on tiny phones - shown on 480px+ */
+.hbr .pill-b,.hbr .vbadge{display:none}
+.hname{font-family:var(--fh);font-size:clamp(1.9rem,8vw,5.8rem);font-weight:800;line-height:.97;letter-spacing:-.03em;color:var(--t1);margin-bottom:7px}
 .hname em{font-style:normal;display:block;color:var(--teal)}
-.hrole{font-family:var(--fm);font-size:.68rem;color:var(--t2);letter-spacing:.04em;margin-bottom:10px;line-height:1.6}
+.hrole{font-family:var(--fm);font-size:.65rem;color:var(--t2);letter-spacing:.04em;margin-bottom:10px;line-height:1.6;flex-wrap:wrap;display:flex;align-items:center}
 .hrole .sep{color:var(--b2);margin:0 4px}
 .hdesc{font-size:.9rem;color:var(--t2);line-height:1.72;margin-bottom:14px;text-align:left}
 .hdesc strong{color:var(--t1);font-weight:500}
@@ -232,7 +234,7 @@ h2.stitle{font-family:var(--fh);font-size:clamp(1.6rem,5.5vw,3.1rem);font-weight
 .dp:last-child{background:linear-gradient(140deg,var(--bg3),rgba(245,158,11,.07))}
 .dp:hover{opacity:.9}
 .dpn{font-family:var(--fm);font-size:.57rem;font-weight:500;letter-spacing:.13em;text-transform:uppercase;color:var(--t3);margin-bottom:8px;display:block}
-.dpt{font-family:var(--fh);font-size:1.35rem;font-weight:800;letter-spacing:-.02em;color:var(--t1);margin-bottom:6px;line-height:1.1}
+.dpt{font-family:var(--fh);font-size:clamp(1.1rem,4.5vw,2.1rem);font-weight:800;letter-spacing:-.02em;color:var(--t1);margin-bottom:6px;line-height:1.1}
 .dp:first-child .dpt em{color:var(--teal);font-style:normal}
 .dp:last-child .dpt em{color:var(--amber);font-style:normal}
 .dpd{font-size:.8rem;color:var(--t2);line-height:1.6;margin-bottom:14px}
@@ -261,7 +263,7 @@ h2.stitle{font-family:var(--fh);font-size:clamp(1.6rem,5.5vw,3.1rem);font-weight
 .gtags{display:flex;flex-wrap:wrap;gap:4px;margin-top:8px}
 
 /* ═══ POWER BI DASHBOARD ════════════════════════════════════ */
-.pbi-shell{background:#0d1117;border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,.12);margin-top:22px}
+.pbi-shell{background:#0d1117;border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,.12);margin-top:22px;width:100%;max-width:100%;box-sizing:border-box}
 [data-theme="light"] .pbi-shell{background:#1a1f2e;border-color:rgba(0,0,0,.2)}
 .pbi-hdr{background:#161b22;padding:10px 14px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;border-bottom:1px solid rgba(255,255,255,.08)}
 .pbi-hdr-l{display:flex;align-items:center;gap:10px}
@@ -270,25 +272,26 @@ h2.stitle{font-family:var(--fh);font-size:clamp(1.6rem,5.5vw,3.1rem);font-weight
 .pbi-rpt-sub{font-family:var(--fm);font-size:.55rem;color:#8da4c4;letter-spacing:.04em;margin-top:1px}
 .pbi-fy{font-family:var(--fm);font-size:.6rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#f59e0b;background:rgba(245,158,11,.15);border:1px solid #f59e0b;padding:3px 9px;border-radius:5px;flex-shrink:0}
 /* Slicers */
-.pbi-slicers{background:#0d1117;padding:8px 12px;border-bottom:1px solid rgba(255,255,255,.06);display:flex;flex-wrap:wrap;gap:6px;align-items:center}
-.pbi-sg{display:flex;align-items:center;gap:4px;flex-wrap:wrap}
+.pbi-slicers{background:#0d1117;padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.06);display:flex;flex-direction:column;gap:5px;overflow:hidden}
+.pbi-sg{display:flex;align-items:center;gap:4px;overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding-bottom:2px}
+.pbi-sg::-webkit-scrollbar{display:none}
 .pbi-slbl{font-family:var(--fm);font-size:.55rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:#4a607f;margin-right:2px;white-space:nowrap}
 .pbi-btn{font-family:var(--fm);font-size:.57rem;color:#8da4c4;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);padding:3px 8px;border-radius:4px;cursor:pointer;transition:all .18s;white-space:nowrap;min-height:26px}
 .pbi-btn:hover{background:rgba(0,212,170,.15);color:#00d4aa;border-color:rgba(0,212,170,.4)}
 .pbi-btn.active{background:rgba(0,212,170,.2);color:#00d4aa;border-color:#00d4aa}
 .pbi-btn.active-a{background:rgba(245,158,11,.2);color:#f59e0b;border-color:#f59e0b}
 /* KPI Cards */
-.pbi-kpis{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:rgba(255,255,255,.05);border-bottom:1px solid rgba(255,255,255,.06)}
+.pbi-kpis{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(255,255,255,.05);border-bottom:1px solid rgba(255,255,255,.06)}
 .pbi-kpi{background:#0d1117;padding:10px 12px}
 .pbi-kpi-lbl{font-family:var(--fm);font-size:.53rem;letter-spacing:.09em;text-transform:uppercase;color:#3a5068;margin-bottom:3px}
 .pbi-kpi-val{font-family:var(--fh);font-size:1.25rem;font-weight:800;color:#00d4aa;line-height:1}
 .pbi-kpi-sub{font-size:.6rem;color:#4a607f;margin-top:2px}
 /* Charts */
-.pbi-charts{padding:10px;display:grid;grid-template-columns:1fr;gap:8px}
-.pbi-cc{background:#161b22;border-radius:7px;padding:10px;border:1px solid rgba(255,255,255,.06)}
+.pbi-charts{padding:10px;display:grid;grid-template-columns:1fr;gap:8px;width:100%;box-sizing:border-box}
+.pbi-cc{background:#161b22;border-radius:7px;padding:10px;border:1px solid rgba(255,255,255,.06);width:100%;box-sizing:border-box;overflow:hidden}
 .pbi-ct{font-family:var(--fm);font-size:.58rem;font-weight:600;color:#8da4c4;letter-spacing:.1em;text-transform:uppercase;margin-bottom:10px;display:flex;align-items:center;gap:5px}
 .pbi-ct::before{content:'—';color:#00d4aa}
-.pbi-cw{position:relative;height:160px}
+.pbi-cw{position:relative;height:160px;width:100%}
 .pbi-cw.tall{height:180px}
 .pbi-cw.donut{height:150px}
 
@@ -509,13 +512,16 @@ footer{border-top:1px solid var(--b1);padding:22px 0}
 /* ═══════════════════════════════════════════════════════════
    TABLET — 600px+
 ════════════════════════════════════════════════════════════ */
+@media(min-width:480px){
+  .hbr .pill-b,.hbr .vbadge{display:inline-flex}
+}
 @media(min-width:600px){
   .c{padding:0 20px}
   .sec{padding:56px 0}
   #hero{padding:80px 0 32px}
   .hg{flex-direction:row;justify-content:space-between;align-items:center;text-align:left;gap:36px}
   .htext{order:1}.hpw{order:2;flex-shrink:0}
-  .hbr{justify-content:flex-start}
+  .hbr{justify-content:flex-start;max-width:100%}
   .hacts,.hcvrow{justify-content:flex-start}
   .hpr{width:190px;height:190px}
   .hbf1{bottom:10px;right:2px}
@@ -533,6 +539,13 @@ footer{border-top:1px solid var(--b1);padding:22px 0}
   .skill-g>div{flex:1}
   .pg{display:grid;grid-template-columns:1fr 1fr;gap:12px}
   .pbi-kpis{grid-template-columns:repeat(5,1fr)}
+  .pbi-kpi-val{font-size:1.35rem!important}
+  .pbi-kpi-lbl{font-size:.53rem}
+  .pbi-kpi-sub{display:block}
+  .pbi-kpi{padding:10px 12px!important}
+  .sal-kpi{padding:10px 12px!important}
+  .sal-kpi-val{font-size:1.15rem!important}
+  .sal-kpi-sub{display:block}
   .pbi-kpi-val{font-size:1.4rem}
   .pbi-charts{grid-template-columns:1fr 1fr;gap:10px}
   .pbi-full{grid-column:1/-1}
@@ -560,7 +573,28 @@ footer{border-top:1px solid var(--b1);padding:22px 0}
 /* ═══════════════════════════════════════════════════════════
    DESKTOP — 1024px+
 ════════════════════════════════════════════════════════════ */
-/* ═══ FEATURE 1: TYPED TEXT ════════════════════════════════ */
+/* ═══ NUCLEAR OVERFLOW PREVENTION ═══════════════════════ */
+html,body{max-width:100vw;overflow-x:hidden}
+.c,.sec,section,.pbi-shell,.sal-shell,.dual,.stats,
+.gg,.pg,.metrics-grid,.skill-g,.ts-diagram,
+.tcs,.blog-g,.svg,.cgrid,.bc-wrap,.rt-wrap,
+.hg,.hbr,.hcvrow,.hacts{max-width:100%;box-sizing:border-box}
+/* Charts container — never wider than parent */
+.pbi-charts,.sal-charts{width:100%;max-width:100%;overflow:hidden}
+canvas{max-width:100%!important}
+/* KPI value font size smaller on mobile to fit 5-card row */
+.pbi-kpi-val{font-size:1rem!important}
+.pbi-kpi-lbl{font-size:.48rem}
+.pbi-kpi-sub{display:none}
+.pbi-kpi{padding:8px 6px!important}
+/* Salary KPI same */
+.sal-kpi{padding:8px 6px!important}
+.sal-kpi-val{font-size:.95rem!important}
+.sal-kpi-sub{display:none}
+/* Dual banner — force equal column widths */
+.dp{min-width:0;word-break:break-word}
+/* prevent long words breaking layout */
+*{word-break:break-word;}
 .typed-wrap{display:inline;position:relative}
 .typed-text{color:var(--teal);font-weight:600}
 .typed-cursor{display:inline-block;width:2px;height:1em;background:var(--teal);margin-left:2px;vertical-align:text-bottom;animation:blink .75s step-end infinite}
@@ -623,7 +657,7 @@ footer{border-top:1px solid var(--b1);padding:22px 0}
 /* ═══ FEATURE 8: NIGERIAN SALARY EXPLORER ═════════════════ */
 #salary{background:var(--bg)}
 .sal-intro{max-width:640px;margin-bottom:28px}
-.sal-shell{background:#0d1117;border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,.12)}
+.sal-shell{background:#0d1117;border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,.12);width:100%;max-width:100%;box-sizing:border-box}
 [data-theme="light"] .sal-shell{background:#1a1f2e}
 .sal-hdr{background:#161b22;padding:12px 14px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;border-bottom:1px solid rgba(255,255,255,.08)}
 .sal-hdr-l{display:flex;align-items:center;gap:10px}
@@ -631,23 +665,24 @@ footer{border-top:1px solid var(--b1);padding:22px 0}
 .sal-hdr-title{font-family:var(--fh);font-size:.9rem;font-weight:800;color:#eef2ff}
 .sal-hdr-sub{font-family:var(--fm);font-size:.55rem;color:#8da4c4;letter-spacing:.04em;margin-top:1px}
 .sal-badge{font-family:var(--fm);font-size:.58rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#00d4aa;background:rgba(0,212,170,.15);border:1px solid #00d4aa;padding:3px 9px;border-radius:5px}
-.sal-filters{background:#0d1117;padding:8px 12px;border-bottom:1px solid rgba(255,255,255,.06);display:flex;flex-wrap:wrap;gap:8px;align-items:center}
-.sal-fg{display:flex;align-items:center;gap:5px;flex-wrap:wrap}
+.sal-filters{background:#0d1117;padding:7px 10px;border-bottom:1px solid rgba(255,255,255,.06);display:flex;flex-direction:column;gap:5px;overflow:hidden}
+.sal-fg{display:flex;align-items:center;gap:4px;overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding-bottom:2px}
+.sal-fg::-webkit-scrollbar{display:none}
 .sal-flbl{font-family:var(--fm);font-size:.55rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:#4a607f;white-space:nowrap;margin-right:2px}
 .sal-btn{font-family:var(--fm);font-size:.57rem;color:#8da4c4;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);padding:3px 9px;border-radius:4px;cursor:pointer;transition:all .18s;white-space:nowrap;min-height:26px}
 .sal-btn:hover{background:rgba(0,212,170,.15);color:#00d4aa;border-color:rgba(0,212,170,.4)}
 .sal-btn.active{background:rgba(0,212,170,.22);color:#00d4aa;border-color:#00d4aa}
 .sal-btn.active-a{background:rgba(245,158,11,.22);color:#f59e0b;border-color:#f59e0b}
-.sal-kpis{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:rgba(255,255,255,.05);border-bottom:1px solid rgba(255,255,255,.06)}
+.sal-kpis{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(255,255,255,.05);border-bottom:1px solid rgba(255,255,255,.06)}
 .sal-kpi{background:#0d1117;padding:10px 12px}
 .sal-kpi-lbl{font-family:var(--fm);font-size:.53rem;letter-spacing:.09em;text-transform:uppercase;color:#3a5068;margin-bottom:3px}
 .sal-kpi-val{font-family:var(--fh);font-size:1.15rem;font-weight:800;line-height:1}
 .sal-kpi-sub{font-size:.58rem;color:#4a607f;margin-top:2px}
-.sal-charts{padding:10px;display:grid;grid-template-columns:1fr;gap:8px}
-.sal-cc{background:#161b22;border-radius:7px;padding:10px;border:1px solid rgba(255,255,255,.06)}
+.sal-charts{padding:10px;display:grid;grid-template-columns:1fr;gap:8px;width:100%;box-sizing:border-box}
+.sal-cc{background:#161b22;border-radius:7px;padding:10px;border:1px solid rgba(255,255,255,.06);width:100%;box-sizing:border-box;overflow:hidden}
 .sal-ct{font-family:var(--fm);font-size:.58rem;font-weight:600;color:#8da4c4;letter-spacing:.1em;text-transform:uppercase;margin-bottom:10px;display:flex;align-items:center;gap:5px}
 .sal-ct::before{content:'—';color:#00d4aa}
-.sal-cw{position:relative;height:160px}
+.sal-cw{position:relative;height:160px;width:100%}
 .sal-cw.sm{height:130px}
 .sal-insight{background:#161b22;border-radius:7px;padding:12px;border:1px solid rgba(255,255,255,.06)}
 .sal-ins-row{display:flex;align-items:flex-start;gap:8px;padding:6px 0;border-bottom:1px solid rgba(255,255,255,.04)}
@@ -1620,7 +1655,7 @@ footer{border-top:1px solid var(--b1);padding:22px 0}
           <div class="bc-type"><div class="bc-type-icon">💼</div><div><div class="bc-type-name">Hiring / Role Discussion</div><div class="bc-type-dur">20 min · For recruiters &amp; hiring managers</div></div></div>
         </div>
         <!-- Replace URL below with your Calendly/Cal.com link -->
-        <a href="https://calendly.com/ppreciousamiekumo1" target="_blank" class="btn1" style="display:inline-flex;">
+        <a href="https://calendly.com/preciousamiekumo" target="_blank" class="btn1" style="display:inline-flex;">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
           Open Booking Calendar →
         </a>
@@ -1670,7 +1705,7 @@ footer{border-top:1px solid var(--b1);padding:22px 0}
             </button>
           </div>
           <!-- Feature 3: WhatsApp — replace YOUR_WHATSAPP_NUMBER with your number e.g. 2347044088361 -->
-          <a href="https://wa.me/2349024996599?text=Hi%20Precious%2C%20I%20saw%20your%20portfolio%20and%20I'd%20like%20to%20discuss%20a%20project." target="_blank" class="wa-btn"><span class="wa-icon">💬</span><div><div class="wa-lbl">WhatsApp</div><div class="wa-val">Chat directly — fastest response</div></div></a>
+          <a href="https://wa.me/YOUR_WHATSAPP_NUMBER?text=Hi%20Precious%2C%20I%20saw%20your%20portfolio%20and%20I'd%20like%20to%20discuss%20a%20project." target="_blank" class="wa-btn"><span class="wa-icon">💬</span><div><div class="wa-lbl">WhatsApp</div><div class="wa-val">Chat directly — fastest response</div></div></a>
           <a href="tel:+2347044088361" class="cl"><span class="cli">📞</span><div><div class="cll">Phone</div><div class="clv">+234 704 408 8361</div></div></a>
           <a href="https://linkedin.com/in/precious-amiekumo-data-analyst" target="_blank" class="cl"><span class="cli">🔗</span><div><div class="cll">LinkedIn</div><div class="clv">precious-amiekumo-data-analyst</div></div></a>
           <a href="https://github.com/PereTheDataAnalyst" target="_blank" class="cl"><span class="cli">⬡</span><div><div class="cll">GitHub</div><div class="clv">PereTheDataAnalyst</div></div></a>
@@ -1818,7 +1853,7 @@ new IntersectionObserver(e=>{
 },{threshold:0.2}).observe(document.getElementById('skillsEl'));
 
 /* ══════════════════════════════════════════════════════════
-   INTERACTIVE POWER BI DASHBOARD -— Chart.js
+   INTERACTIVE POWER BI DASHBOARD — Chart.js
 ══════════════════════════════════════════════════════════ */
 const DB={
   all:{rev:'₦14.0M',profit:'₦2.7M',margin:'19.1%',litres:'14.1KL',tx:'80'},
@@ -2196,7 +2231,7 @@ function bcSelectSlot(slot,el){
 function bcNav(dir){bcMonth+=dir;if(bcMonth>11){bcMonth=0;bcYear++;}if(bcMonth<0){bcMonth=11;bcYear--;}bcSelDay=null;bcSelSlot=null;document.getElementById('bcSlots').classList.remove('visible');document.getElementById('bcCta').classList.remove('visible');bcRender();}
 function bcBook(){
   // Replace URL with your actual Calendly/Cal.com link
-  const url=`https://calendly.com/ppreciousamiekumo1`;
+  const url=`https://calendly.com/preciousamiekumo`;
   window.open(url,'_blank');
 }
 bcRender();
